@@ -1,0 +1,444 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[197, 215], {
+    "0af8": function (t, e, i) {
+        "use strict";
+        i.r(e), i.d(e, "roundToNearestDevicePixel", (function () {
+            return h
+        })), i.d(e, "default", (function () {
+            return p
+        }));
+        var o = i("ERkP"), n = i.n(o), s = i("i4Oy"), a = i("MWbm"), r = i("jHwr"), c = i("rHpw"), d = i("aITJ"),
+            l = i("v6aA");
+        const h = ({cssPixels: t, dpr: e}) => Math.round(t * e) / e;
+
+        class p extends n.a.PureComponent {
+            constructor(t, e) {
+                super(t, e), this._setContentRef = t => {
+                    this._contentNode = t
+                }, this._setContainerRef = t => {
+                    this._containerNode = t
+                }, this._handleProgrammaticScroll = t => {
+                    this._prevScrollY = (this._prevScrollY || 0) + t, this.setState({contentOffset: Math.max(0, this.state.contentOffset + t)})
+                }, this._handleLayout = t => {
+                    const e = t.nativeEvent.layout.height > this.state.contentHeight;
+                    this._updatePositioning(e)
+                }, this.state = {
+                    stickyTop: !0,
+                    stickyThreshold: 0,
+                    contentOffset: 0,
+                    contentHeight: 0,
+                    stickyOffset: 0,
+                    position: "sticky"
+                }, this._scheduleUpdatePositioning = Object(r.a)(this._updatePositioning.bind(this), window.requestAnimationFrame)
+            }
+
+            UNSAFE_componentWillMount() {
+                const {viewport: t} = this.context;
+                this._removeProgrammaticScrollListener = t.addProgrammaticScrollListener(this._handleProgrammaticScroll)
+            }
+
+            componentDidMount() {
+                const {viewport: t} = this.context;
+                if (this._updatePositioning(), this._removeScrollListener = t.addScrollListener(this._scheduleUpdatePositioning), this._containerNode) {
+                    const e = this._containerNode.getBoundingClientRect(), i = t.scrollY();
+                    this._prevScrollY = i, this.setState({stickyOffset: i + e.top})
+                }
+            }
+
+            componentWillUnmount() {
+                this._removeScrollListener && this._removeScrollListener(), this._removeProgrammaticScrollListener && this._removeProgrammaticScrollListener()
+            }
+
+            render() {
+                const {contentOffset: t, position: e, stickyThreshold: i, stickyTop: o} = this.state, s = u[e],
+                    r = window.devicePixelRatio || 1, c = h({cssPixels: i, dpr: r}), d = h({cssPixels: t, dpr: r}),
+                    l = {top: o ? `${c}px` : null, bottom: o ? null : `${c}px`};
+                return n.a.createElement(a.a, {
+                    ref: this._setContainerRef,
+                    style: [u.container, {minHeight: this.state.contentHeight}]
+                }, n.a.createElement(a.a, {style: {marginTop: `${d}px`}}), n.a.createElement(a.a, {
+                    onLayout: this._handleLayout,
+                    ref: this._setContentRef,
+                    style: [this.props.style, l, s]
+                }, this.props.children))
+            }
+
+            _updatePositioning(t = !1) {
+                if (!this._contentNode || !this._containerNode) return;
+                const e = this.context.viewport.scrollY(), i = e - this._prevScrollY;
+                if (Math.abs(i) < .5 && !t) return;
+                const {distanceFromBottom: o} = this.props;
+                this._prevScrollY = e;
+                const n = !!this._contentNode && this._contentNode.getBoundingClientRect(),
+                    a = !!this._containerNode && this._containerNode.getBoundingClientRect();
+                if (!n || !a) return;
+                const {height: r} = s.a.get("window"), c = e + a.top, l = Math.max(n.top - a.top, 0);
+                if (r - n.height > c) this._updateState({
+                    stickyTop: !0,
+                    stickyThreshold: c,
+                    contentOffset: 0,
+                    stickyOffset: c,
+                    contentHeight: n.height,
+                    position: "fixed"
+                }); else {
+                    const t = i > 0, e = t !== this.state.stickyTop, s = window.devicePixelRatio || 1,
+                        a = n.bottom - r + o <= 1 / s, h = c - n.top <= 1 / s;
+                    if ((t && a || !t && h) && d.b.isFirefox()) {
+                        const t = o, e = c;
+                        this._updateState({
+                            position: "fixed",
+                            stickyOffset: c,
+                            stickyTop: h,
+                            stickyThreshold: h ? e : t,
+                            contentOffset: l,
+                            contentHeight: n.height
+                        })
+                    } else {
+                        const i = r - n.height - o, s = r - n.height - c;
+                        this._updateState({
+                            position: "sticky",
+                            stickyTop: t,
+                            stickyOffset: c,
+                            stickyThreshold: t ? i : s,
+                            contentOffset: e ? l : this.state.contentOffset,
+                            contentHeight: n.height
+                        })
+                    }
+                }
+            }
+
+            _updateState(t) {
+                const e = this.state.stickyTop !== t.stickyTop, i = this.state.stickyThreshold !== t.stickyThreshold,
+                    o = Math.abs(this.state.contentOffset - t.contentOffset) > .5,
+                    n = Math.abs(this.state.stickyOffset - t.stickyOffset) > .5, s = this.state.position !== t.position,
+                    a = this.state.contentHeight !== t.contentHeight;
+                (e || i || o || n || s || a) && this.setState(t)
+            }
+        }
+
+        p.contextType = l.a, p.defaultProps = {distanceFromBottom: 10};
+        const u = c.a.create((t => ({
+            container: {height: "100%"},
+            sticky: {position: "sticky"},
+            fixed: {position: "fixed"},
+            static: {position: "static"}
+        })))
+    }, LHcr: function (t, e, i) {
+        "use strict";
+        i.r(e), i.d(e, "WhoToFollowContainer", (function () {
+            return U
+        }));
+        i("kYxP");
+        var o = i("ERkP"), n = i.n(o), s = i("MWbm"), a = i("rHpw"), r = i("qqsb"), c = i.n(r), d = i("v//M"),
+            l = i("6vad"), h = i("rC8y"), p = i("hqDb"), u = i("Re5t"), m = i("hxu0");
+        const f = c.a.a526aa66, _ = c.a.ef625010, g = c.a.d228a9a0;
+        var y = Object(m.a)((({isInSidebar: t, userId: e, userIds: i, withProfileHeaderText: o}) => {
+            const a = i.length > 3, r = `/i/connect_people?user_id=${e}`;
+            return n.a.createElement(s.a, {
+                accessibilityLabel: f,
+                accessibilityRole: "complementary"
+            }, n.a.createElement(l.b, {text: o ? _ : f}), n.a.createElement(p.a, {
+                displayMode: u.a.UserCompact,
+                userIds: i.slice(0, 3),
+                withItemBorder: !0
+            }), a && n.a.createElement(h.a, {
+                link: r,
+                text: g,
+                withBottomRadius: !0,
+                withDarkerInteractiveBackground: t
+            }))
+        })), w = i("Xs4Y"), v = i("Rp9C"), b = i("kGix"), R = i("0KEI"), x = i("rxPX"), E = i("lP98"), O = i("RqPI");
+        const k = "profile_accounts_sidebar", I = (t, e) => O.s(t), P = (t, e) => e.userId, H = (t, e) => {
+            const i = P(0, e), o = I(t);
+            return E.c(t, {displayLocation: k, similarToUserId: i === o ? void 0 : i})
+        }, T = (t, e) => {
+            const i = P(0, e), o = I(t);
+            return E.b(t, {displayLocation: k, similarToUserId: i === o ? void 0 : i})
+        };
+        var L = Object(x.a)().propsFromState((() => ({
+            fetchStatus: T,
+            loggedInUserId: I,
+            recommendations: H
+        }))).propsFromActions((() => ({
+            createLocalApiErrorHandler: Object(R.createLocalApiErrorHandlerWithContextFactory)("WHO_TO_FOLLOW_CONTAINER"),
+            fetchRecommendationsIfNeeded: E.a
+        }))).withAnalytics({component: "suggest_who_to_follow"});
+        const C = c.a.fd6473fa, N = {element: "user", action: "results"}, S = {viewType: "who_to_follow"};
+
+        class U extends n.a.PureComponent {
+            constructor(...t) {
+                super(...t), this._renderContent = () => {
+                    const {recommendations: t, userId: e, withProfileHeaderText: i} = this.props,
+                        o = t && t.map((t => t.user));
+                    return n.a.createElement(y, {userId: e, userIds: o, withProfileHeaderText: i})
+                }, this._handleImpression = t => {
+                    const {analytics: e} = this.props, i = t && t.slice(0, 3).map((t => ({
+                        ...v.a.forUser(t.user),
+                        suggestion_details: {source_data: t.token}
+                    })));
+                    e.scribe({...N, data: {items: i}})
+                }
+            }
+
+            componentDidMount() {
+                const {recommendations: t} = this.props;
+                this._fetchRecommendations(this.props), t && t.length > 0 && this._handleImpression(t)
+            }
+
+            componentDidUpdate(t) {
+                const {recommendations: e} = this.props;
+                this.props.userId !== t.userId && this._fetchRecommendations(this.props), e !== t.recommendations && e && e.length > 0 && this._handleImpression(e)
+            }
+
+            render() {
+                const {fetchStatus: t, style: e} = this.props;
+                return t === b.a.FAILED || this._hasEmptySuggestionList() ? null : n.a.createElement(s.a, {style: [D.root, e]}, n.a.createElement(d.a, {
+                    accessibilityLabel: C,
+                    behavioralEventContext: S,
+                    fetchStatus: t,
+                    render: this._renderContent
+                }))
+            }
+
+            _fetchRecommendations(t) {
+                const {
+                    createLocalApiErrorHandler: e,
+                    fetchRecommendationsIfNeeded: i,
+                    loggedInUserId: o,
+                    userId: n
+                } = t;
+                i({limit: 4, displayLocation: k, similarToUserId: n !== o ? n : void 0}).catch(e(w.a))
+            }
+
+            _hasEmptySuggestionList() {
+                const {fetchStatus: t, recommendations: e} = this.props;
+                return t === b.a.LOADED && 0 === e.length
+            }
+        }
+
+        const D = a.a.create((t => ({root: {minHeight: "15rem"}}))), F = L(U);
+        e.default = F
+    }, eZ7E: function (t, e, i) {
+        "use strict";
+        var o = i("ERkP"), n = i.n(o), s = i("MWbm"), a = i("6vad"), r = i("hqDb");
+        e.a = ({headerText: t, participantIds: e}) => n.a.createElement(s.a, {
+            accessibilityLabel: t,
+            accessibilityRole: "complementary"
+        }, n.a.createElement(a.b, {text: t}), n.a.createElement(r.a, {
+            userIds: e.slice(0, 3),
+            withFinalItemBorder: !1,
+            withItemBorder: !0
+        }))
+    }, fyKl: function (t, e, i) {
+        "use strict";
+        i.r(e), i.d(e, "default", (function () {
+            return R
+        }));
+        var o = i("97Jx"), n = i.n(o), s = i("ERkP"), a = i.n(s), r = i("i4Oy"), c = i("shC7"), d = i("MWbm"),
+            l = i("VY6S"), h = i("zfvc"), p = i("jHwr"), u = i("w9LO"), m = i("//dC"), f = i("lHOd"), _ = i("Oe3h"),
+            g = i("0FVZ"), y = i("7N4s"), w = i("cHvH"), v = i("rHpw");
+        const b = v.a.create((t => ({
+            rootNarrow: {maxWidth: "75%"},
+            rootWide: {maxWidth: `calc(${t.spaces.space64} * 6)`},
+            anchor: v.a.absoluteFillObject,
+            mask: {...v.a.absoluteFillObject, position: "fixed"},
+            bodyRectHelper: {...v.a.absoluteFillObject, bottom: void 0},
+            content: {
+                borderRadius: t.borderRadii.small,
+                position: "absolute",
+                overflow: "hidden",
+                backgroundColor: t.colors.navigationBackground,
+                boxShadow: t.boxShadows.medium
+            },
+            contentInitialRender: {position: "fixed", opacity: 0},
+            contentFixed: {position: "fixed", overflowY: "auto", overscrollBehavior: "contain"}
+        })));
+
+        class R extends a.a.Component {
+            constructor(t, e) {
+                super(t, e), this._handleAnimateComplete = () => {
+                    const {onAnimateComplete: t} = this.props;
+                    t && t()
+                }, this._handleEsc = t => {
+                    const {onDismiss: e} = this.props, {altKey: i, ctrlKey: o, key: n, metaKey: s} = t;
+                    !(i || o || s) && "Escape" === n && e()
+                }, this._receiveBodyRectHelperRef = t => {
+                    t && this._bodyRectHelperNode !== t && (this._bodyRectHelperNode = t, this._scheduleUpdate())
+                }, this._receiveAnchorRef = t => {
+                    t && this._anchorNode !== t && (this._anchorNode = t, this._scheduleUpdate())
+                }, this._receiveContentRef = t => {
+                    t && this._contentNode !== t && (this._contentNode = t, this._scheduleUpdate())
+                }, this._updatePosition = () => {
+                    if (!(this._mounted && (this._anchorNode || this.props.position) && this._contentNode && this._contentNode instanceof window.HTMLElement && this._bodyRectHelperNode && this._bodyRectHelperNode instanceof window.HTMLElement)) return;
+                    const t = this._contentNode.scrollHeight, e = this._contentNode.scrollWidth, {
+                        left: i,
+                        top: o,
+                        width: n
+                    } = this._bodyRectHelperNode.getBoundingClientRect(), {height: s, width: a} = r.a.get("window");
+                    let d = {left: 0, top: 0, height: 0, width: 0};
+                    this.props.position ? d = {...d, ...this.props.position} : this._anchorNode && this._anchorNode instanceof window.HTMLElement && (d = this._anchorNode.getBoundingClientRect());
+                    const {height: l, left: h, top: p, width: u} = d, m = a - n, f = h - i, _ = p - o, g = h + u >= e,
+                        y = p + l >= t, w = a - h >= e, v = s - p >= t, b = this.props.preferredVerticalOrientation,
+                        R = (t => c.a.getConstants().isRTL ? "left" === t ? "right" : "left" : t)(this.props.preferredHorizontalOrientation),
+                        x = this.state.verticalOrientation || (({
+                                                                    canOrientDown: t,
+                                                                    canOrientUp: e,
+                                                                    verticalPreference: i
+                                                                }) => e && t || !e && !t ? i : e ? "up" : "down")({
+                            verticalPreference: b,
+                            canOrientUp: y,
+                            canOrientDown: v
+                        }), E = this.state.horizontalOrientation || (({
+                                                                          canOrientLeft: t,
+                                                                          canOrientRight: e,
+                                                                          horizontalPreference: i
+                                                                      }) => !t || "left" !== i && e ? "right" : "left")({
+                            horizontalPreference: R,
+                            canOrientLeft: g,
+                            canOrientRight: w
+                        }), O = this.props.isFixed ? h : f, k = this.props.isFixed ? p : _, I = "up" === x ? k + l - t : k,
+                        P = "left" === E ? a - O - u - m : a - O - e - m;
+                    this.setState({top: Math.max(I, 0), right: P, verticalOrientation: x, horizontalOrientation: E})
+                }, this.state = Object.freeze({}), this._scheduleUpdate = Object(p.a)(this._updatePosition, window.requestAnimationFrame), this._scheduleDebouncedUpdate = Object(l.a)(this._scheduleUpdate, 250)
+            }
+
+            componentDidMount() {
+                this._mounted = !0, r.a.addEventListener("change", this._scheduleDebouncedUpdate)
+            }
+
+            componentWillUnmount() {
+                this._mounted = !1, r.a.removeEventListener("change", this._scheduleDebouncedUpdate)
+            }
+
+            render() {
+                const {
+                        animateInDuration: t,
+                        animateType: e,
+                        children: i,
+                        isFixed: o,
+                        onDismiss: s,
+                        preventFocusShift: r,
+                        withKeyboardNavigation: l
+                    } = this.props, {right: p, top: R, verticalOrientation: x} = this.state, E = void 0 === R,
+                    O = `calc(100vh - ${R || 0}px)`,
+                    k = [b.content, E && b.contentInitialRender, o && [b.contentFixed, {maxHeight: O}], {
+                        top: R,
+                        right: c.a.getConstants().isRTL ? void 0 : p,
+                        left: c.a.getConstants().isRTL ? p : void 0
+                    }], I = a.a.createElement(a.a.Fragment, null, a.a.createElement(d.a, {
+                        onClick: s,
+                        style: b.mask
+                    }), a.a.createElement(d.a, {
+                        ref: this._receiveBodyRectHelperRef,
+                        style: b.bodyRectHelper
+                    }), a.a.createElement(w.a, null, (({windowWidth: o}) => a.a.createElement(d.a, {
+                        accessibilityRole: "menu",
+                        onKeyUp: this._handleEsc,
+                        ref: this._receiveContentRef,
+                        style: [o < v.a.theme.breakpoints.medium ? b.rootNarrow : b.rootWide, k]
+                    }, E && "slide" === e ? i : a.a.createElement(h.a, {
+                        animateMount: "up" !== x,
+                        duration: t,
+                        onAnimateComplete: this._handleAnimateComplete,
+                        show: !0,
+                        type: e
+                    }, (({isAnimating: t}) => a.a.createElement(_.a, {
+                        id: "Dropdown",
+                        minimizeReporting: t
+                    }, ((t, e) => a.a.createElement(d.a, n()({ref: t()}, e({})), i)))))))));
+                return a.a.createElement(d.a, {
+                    ref: this._receiveAnchorRef,
+                    style: b.anchor
+                }, a.a.createElement(g.a.Dropdown, null, a.a.createElement(f.a.Consumer, null, (t => a.a.createElement(y.b.Consumer, null, (({isModal: e}) => a.a.createElement(m.a, {
+                    history: t,
+                    isModal: e,
+                    onDismiss: s
+                }, r ? I : a.a.createElement(u.a, {withKeyboardNavigation: l}, I))))))))
+            }
+        }
+
+        R.defaultProps = {
+            preferredHorizontalOrientation: "left",
+            preferredVerticalOrientation: "down",
+            animateType: "slide",
+            animateInDuration: "normal",
+            withKeyboardNavigation: !0
+        }
+    }, jHwr: function (t, e, i) {
+        "use strict";
+        e.a = (t, e) => {
+            let i = null;
+            const o = () => {
+                i = null, t()
+            };
+            return () => (i || (i = e(o)), i)
+        }
+    }, rC8y: function (t, e, i) {
+        "use strict";
+        var o = i("ERkP"), n = i.n(o), s = i("t62R"), a = i("SV7d"), r = i("htQn"), c = i("rHpw");
+        const d = {viewType: "module_footer"};
+        const l = c.a.create((t => ({
+            root: {
+                paddingHorizontal: t.componentDimensions.gutterHorizontal,
+                paddingVertical: t.spaces.space16
+            },
+            withBottomRadius: {
+                borderBottomLeftRadius: t.borderRadii.xLarge,
+                borderBottomRightRadius: t.borderRadii.xLarge
+            }
+        })));
+        e.a = function ({
+                            align: t,
+                            link: e,
+                            onPress: i,
+                            text: o,
+                            weight: c,
+                            withBottomRadius: h,
+                            withDarkerInteractiveBackground: p
+                        }) {
+            return n.a.createElement(a.a, {behavioralEventContext: d}, n.a.createElement(r.a, {
+                link: e,
+                onPress: i,
+                style: [l.root, h && l.withBottomRadius],
+                withDarkerInteractiveBackground: p
+            }, n.a.createElement(s.b, {align: t, color: "primary", weight: c}, o)))
+        }
+    }, sAnO: function (t, e, i) {
+        "use strict";
+        i.r(e);
+        var o = i("fyKl");
+        e.default = o.default
+    }, uo3S: function (t, e, i) {
+        "use strict";
+        i.r(e), i.d(e, "InThisConversationContainer", (function () {
+            return _
+        }));
+        var o = i("ERkP"), n = i.n(o), s = i("qqsb"), a = i.n(s), r = i("eZ7E"), c = (i("kYxP"), i("VAyw")),
+            d = i("s1N3"), l = i("rxPX"), h = i("RqPI"), p = i("XOJV");
+        const u = (t, e) => e.focalTweetId;
+        var m = Object(l.a)().propsFromState((() => ({
+            focalTweetId: u,
+            loggedInUserId: h.s,
+            tweetMap: p.a.selectAll
+        }))).adjustStateProps((({focalTweetId: t, loggedInUserId: e, tweetMap: i}) => {
+            const o = t && i[t];
+            if (!o) return {participantIds: []};
+            const n = (t, i) => {
+                    var o;
+                    const n = e === i, s = null == (o = t.unmentioned_user_ids) ? void 0 : o.includes(i);
+                    return n || !s
+                }, s = t => {
+                    var e;
+                    return ((null == (e = t.entities) ? void 0 : e.user_mentions) || []).filter((e => n(t, e.id_str))).map((t => t.id_str)) || []
+                },
+                a = [o.user, ...s(o), ...(r = o, c.a.mergeTaggedUsers(r.extended_entities && r.extended_entities.media || []).map((t => t.user_id)))];
+            var r;
+            const l = o.quoted_status && i[o.quoted_status];
+            return l && (a.push(...(t => n(t, t.user) ? [t.user] : [])(l)), a.push(...s(l))), {participantIds: Object(d.a)(a)}
+        })).withAnalytics({component: "in_this_conversation"});
+        const f = a.a.j88f27d8,
+            _ = n.a.memo((({participantIds: t}) => n.a.createElement(r.a, {headerText: f, participantIds: t}))),
+            g = m(_);
+        e.default = g
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/loader.WideLayout.393bde68.js.map

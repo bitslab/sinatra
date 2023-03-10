@@ -1,0 +1,351 @@
+<!-- saved from url=(0079)https://web.archive.org/web/20140805202021/http://www.nihilogic.dk/labs/tetris/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- MVX related scripts -->
+<script src="mvx/socket.io.js" type="text/javascript"></script>
+<script src="mvx/helpers.js" type="text/javascript"></script>
+<script src="mvx/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="mvx/identity.js" type="text/javascript"></script>
+<script src="mvx/sinatra_id.js" type="text/javascript"></script>
+<script src="mvx/sinatra_mp.js" type="text/javascript"></script>
+<!-- End of MVX related scripts -->
+<script src="./DOMTRIS_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app105.us.archive.org';v.server_ms=717;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="./DOMTRIS_files/playback.bundle.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="./DOMTRIS_files/wombat.js" charset="utf-8"></script> -->
+<!-- <script type="text/javascript">
+if (window._WBWombatInit) {
+  wbinfo = {}
+  wbinfo.url = "http://www.nihil\n" +
+		  "  wbinfo.timestamp = \"20140805202021\";ogic.dk/labs/tetris/";
+  wbinfo.request_ts = "20140805202021";
+  wbinfo.prefix = "https://web.archive.org/web/";
+  wbinfo.mod = "if_";
+  wbinfo.is_framed = false;
+  wbinfo.is_live = false;
+  wbinfo.coll = "web";
+  wbinfo.proxy_magic = "";
+  wbinfo.static_prefix = "/_static/";
+  wbinfo.enable_auto_fetch = true;
+  wbinfo.auto_fetch_worker_prefix = "https://web.archive.org/web/";
+  wbinfo.wombat_ts = "20140805202021";
+  wbinfo.wombat_sec = "1407270021";
+  wbinfo.wombat_scheme = "https";
+  wbinfo.wombat_host = "www.nihilogic.dk";
+  wbinfo.ignore_prefixes = ["/__wb/",
+                            "/_static/",
+                            "/web/",
+                            "http://analytics.archive.org/",
+                            "https://analytics.archive.org/",
+                            "//analytics.archive.org/",
+                            "http://archive.org/",
+                            "https://archive.org/",
+                            "//archive.org/",
+                            "http://faq.web.archive.org/",
+                            "http://web.archive.org/",
+                            "https://web.archive.org/"
+                            ];
+  wbinfo.wombat_opts = {};
+  window._WBWombatInit(wbinfo);
+}
+__wm.init("https://web.archive.org/web");
+</script> -->
+<link rel="stylesheet" type="text/css" href="./DOMTRIS_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./DOMTRIS_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<title>DOMTRIS - A DHTML Tetris clone by Jacob Seidelin</title>
+
+<meta content="A JavaScript / DHTML Tetris clone made with only JavaScript and the DOM by Jacob Seidelin." name="description">
+
+<script type="text/javascript" src="./DOMTRIS_files/tetris.js"></script>
+<style>
+
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end css reset */
+/* ---------------------------- */
+
+
+body {
+	padding : 10px;
+}
+
+div {
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+#tetris {
+	width : 516px;
+	height : 538px;
+	margin : 10px auto;
+	background-color : maroon;
+	position : relative;
+	border : 3px outset maroon;
+}
+
+#footer {
+	width : 516px;
+	position : relative;
+	margin : 10px auto;
+	text-align : center;
+}
+
+#gamefield {
+	background-color : black;
+	position : relative;
+	overflow : hidden;
+	left : 24px;
+	top : 24px;
+	border : 3px inset maroon;
+	width : 247px;
+	height : 487px;
+
+}
+
+.tetris-block {
+	border : 3px outset;
+	position : absolute;
+	width : 23px;
+	height : 23px;
+	overflow : hidden;
+	margin-left : 1px;
+	margin-top : 1px;
+}
+
+
+#tetris-next-piece {
+	background-color : black;
+	width : 192px;
+	height : 123px;
+	position : absolute;
+	left : 294px;
+	top : 60px;
+	border : 3px inset maroon;
+}
+
+#gamefield {
+	color:white;
+	font-family:lucida console;
+	font-weight:bold;
+	font-size : 16px;
+	text-align:center;
+}
+
+#tetris-next-piece-text, #tetris-score-text, #tetris-level-text, #tetris-lines-text, #bottom-stuff {
+	position : absolute;
+	left : 294px;
+	width : 192px;
+	padding-left : 6px;
+	padding-top : 3px;
+	padding-bottom : 5px;
+	border : 3px inset maroon;
+	font-family : lucida console;
+	font-weight : bold;
+	color : white;
+	font-size : 16px;
+	background-color : black;
+}
+
+#tetris-next-piece-text {
+	top : 24px;
+}
+
+#tetris-level-text {
+	top : 196px;
+}
+
+#tetris-lines-text {
+	top : 240px;
+}
+
+
+#tetris-score-text {
+	top : 284px;
+}
+
+#bottom-stuff {
+	top : 328px;
+	height : 184px;
+}
+
+#logo {
+	margin-top : 12px;
+	margin-bottom : 12px;
+	width : 100%;
+	text-align:center;
+}
+
+#byline {
+	position : absolute;
+	bottom : 0px;
+	margin-bottom : 6px;
+}
+
+#restart-link a {
+	color : white;
+}
+
+#blog-link a {
+	color : white;
+}
+
+</style>
+
+
+</head>
+<body onload="Tetris()"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="./DOMTRIS_files/donate.html" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+
+<div id="tetris">
+	<div id="gamefield">
+		<br>
+		<br>
+		<br>
+		<br>
+		Welcome to DOMTRIS!<br>
+		<br><br>
+		Keys:<br>
+		<br>
+		Move: Left / Right<br>
+		<br>
+		Rotate: Up / SPACE<br>
+		<br>
+		Drop: Enter<br>
+		<br>
+		Pause : P<br>
+		<br>
+		Save game: S<br>
+		<br>
+		<br>
+		Press SPACE to start<br>
+		<br>
+		<br>
+		Clear multiple lines in one go for more points.
+	</div>
+	<div id="tetris-next-piece-text">Next piece</div>
+	<div id="tetris-next-piece"></div>
+	<div id="tetris-score-text">Score: 0</div>
+	<div id="tetris-level-text">Level: 1</div>
+	<div id="tetris-lines-text">Lines: 0</div>
+
+	<div id="bottom-stuff">
+		<div id="logo"><span id="logo_1">D</span><span id="logo_2">O</span><span id="logo_3">M</span><span id="logo_4">T</span><span id="logo_5">R</span><span id="logo_6">I</span><span id="logo_7">S</span></div>
+		<div id="description">A tetris clone made with DOM &amp; JavaScript by <a href="https://web.archive.org/web/20140805202021/http://blog.nihilogic.dk/">Jacob Seidelin</a><br><br>
+		<!--<span id="restart-link"><a href="/labs/tetris/">Restart game</a></span><br/><br/>-->
+		<span id="blog-link"><a href="https://web.archive.org/web/20140805202021/http://blog.nihilogic.dk/">Visit the blog</a></span><br><br>
+		<span id="blog-link"><a href="https://web.archive.org/web/20140805202021/http://games.nihilogic.dk/">More games</a></span>
+		</div>
+	</div>
+
+</div>
+<div id="footer">
+[&nbsp;<a href="https://web.archive.org/web/20140805202021/http://games.nihilogic.dk/" style="font-family:arial;font-size:12px;">Click here for more JavaScript games</a>&nbsp;]
+</div>
+<script>
+//Tetris();
+</script>
+
+
+<script type="text/javascript">
+//var gaJsHost = (("https:" == document.location.protocol) ? "https://web.archive.org/web/20140805202021/https://ssl." : "https://web.archive.org/web/20140805202021/http://www.");
+//document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script src="./DOMTRIS_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+// var pageTracker = _gat._getTracker("UA-3940914-2");
+// pageTracker._initData();
+// pageTracker._trackPageview();
+</script>
+<script src="./DOMTRIS_files/mlt.js" type="text/javascript"></script>
+
+
+
+<!--
+     FILE ARCHIVED ON 20:20:21 Aug 05, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:18:59 Jul 16, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  CDXLines.iter: 15.33 (3)
+  captures_list: 517.974
+  exclusion.robots.policy: 0.366
+  esindex: 0.01
+  exclusion.robots: 0.382
+  RedisCDXSource: 70.197
+  PetaboxLoader3.resolve: 305.775 (3)
+  LoadShardBlock: 428.259 (3)
+  PetaboxLoader3.datanode: 195.271 (4)
+  load_resource: 189.861
+--></body></html>

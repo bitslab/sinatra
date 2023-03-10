@@ -1,0 +1,1255 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[7], {
+    "3EFP": function (e, t, s) {
+        "use strict";
+        s.d(t, "a", (function () {
+            return o
+        })), s.d(t, "b", (function () {
+            return a
+        })), s.d(t, "c", (function () {
+            return i
+        })), s.d(t, "d", (function () {
+            return n
+        })), s.d(t, "e", (function () {
+            return r
+        })), s.d(t, "f", (function () {
+            return c
+        }));
+        const o = "ArrowDown", a = "ArrowUp", i = "Enter", n = "Escape", r = "ESC", c = "Tab"
+    }, "4e/K": function (e, t, s) {
+        "use strict";
+        s.r(t), s.d(t, "TypeaheadInput", (function () {
+            return R
+        })), s.d(t, "styles", (function () {
+            return O
+        }));
+        var o = s("ERkP"), a = s.n(o), i = s("MWbm"), n = s("rHpw"), r = s("xoZN"), c = s("6OUF"), l = s("pf9B"),
+            d = s("cHvH"), h = s("qqsb"), u = s.n(h), p = s("VwDm"), m = s("woHV"), f = s("OEYw"), y = s("ZUOq"),
+            _ = s("WPfJ"), b = s("N5qz"), g = s("Es6L"), w = s("+Kfv"), I = s("3EFP"), v = s("GZwR"), x = s("oEoC"),
+            C = s("v6aA");
+        const E = u.a.f065ba8c, D = {viewType: "typeahead_input"}, S = e => b.a.isTwoColumnNormalLayout(e) ? {
+            width: y.a.columnWidths.secondary.normal + n.a.theme.spacesPx.space24,
+            left: -n.a.theme.spacesPx.space24 / 2
+        } : b.a.isTwoColumnSmallLayout(e) ? {
+            width: y.a.columnWidths.secondary.small + n.a.theme.spacesPx.space16,
+            left: -n.a.theme.spacesPx.space16 / 2
+        } : void 0;
+        let T = 1;
+
+        class R extends a.a.Component {
+            constructor(e, t) {
+                super(e, t), this._withNewTypeaheadUI = !1, this._render = ({windowWidth: e}) => {
+                    const {
+                        alwaysOpen: t,
+                        disableClearButton: s,
+                        forceVdlDisable: o,
+                        inputStyle: n,
+                        isCompact: l,
+                        isOnHomepage: d,
+                        placeholder: h,
+                        renderInSearchField: u,
+                        rounded: f,
+                        shouldAutoFocus: y,
+                        shouldFocusOnClear: _,
+                        style: b,
+                        testID: g
+                    } = this.props, I = this.state.showTypeaheadDropdown || t;
+                    return a.a.createElement(w.a, {behavioralEventContext: D}, a.a.createElement(i.a, {
+                        onLayout: this._handleLayout,
+                        ref: this._setRootContainerNode,
+                        style: [O.root, b]
+                    }, a.a.createElement(r.a, {
+                        onKeyDown: this._handleKeyDown,
+                        style: O.keydownInputListener
+                    }, a.a.createElement(m.a, {
+                        accessibilityLabel: h,
+                        accessibilityRole: "search",
+                        onSubmit: this._handleFormSubmit,
+                        style: O.wrapper
+                    }, a.a.createElement(i.a, {
+                        ref: this._setInputContainerNode,
+                        style: n
+                    }, a.a.createElement(c.a, {
+                        Icon: p.a,
+                        ariaActiveDescendant: this.state.ariaDescendantId,
+                        ariaAutocomplete: "list",
+                        ariaExpanded: I,
+                        ariaLabel: E,
+                        ariaOwns: this._dropdownDomId,
+                        ariaRole: "combobox",
+                        autoComplete: "off",
+                        autoCorrect: !1,
+                        autoFocus: y,
+                        contentBelow: u && u(),
+                        focusOnClear: _,
+                        isCompact: l,
+                        leftAligned: d,
+                        onChange: this._handleInputChange,
+                        onClear: this._handleInputClear,
+                        onFocus: this._handleInputFocus,
+                        onLayout: this._handleInputLayoutChanged,
+                        placeholder: h,
+                        ref: this._setInputRef,
+                        returnKeyType: "search",
+                        spellCheck: "false",
+                        styleType: o ? "legacyPill" : f ? "pill" : "selection",
+                        testID: g,
+                        value: this.state.query,
+                        withClearButton: !s && this.state.showTypeaheadDropdown
+                    })), a.a.createElement(i.a, {style: [O.typeaheadContainer, !f && O.topBorder]}, I ? this._renderDropdown(e) : null)))))
+                }, this._renderDropdown = e => {
+                    const {
+                            communityId: t,
+                            filter: s,
+                            getItemDisabledMessage: o,
+                            getItemIsDisabled: i,
+                            getTopicExactMatch: r,
+                            getUserDisplayNameLabel: c,
+                            getUserExactMatch: l,
+                            injectedItems: d,
+                            isInSidebar: h,
+                            isModal: u,
+                            isOnHomepage: p,
+                            maxEvents: m,
+                            maxTopics: y,
+                            onItemsChanged: _,
+                            orderResults: b,
+                            renderCallout: w,
+                            renderEmptyState: I,
+                            renderHeader: v,
+                            renderNoResultsState: C,
+                            renderUserDecoration: E,
+                            selectedItems: D,
+                            shouldDeferPrefetch: T,
+                            source: R,
+                            trustedFriendsId: F,
+                            withFixedPositioning: k,
+                            withSectionDivider: U
+                        } = this.props, L = e >= n.a.theme.breakpoints.medium || Object(g.a)(), {
+                            dropdownOffset: N,
+                            query: P
+                        } = this.state,
+                        j = u ? O.modalDropdown : [O.dropdown, !L && k && N ? [Object(x.d)(N), {height: `calc(100vh - ${N}px)`}] : null, (L || p) && O.wideModeDropdown, this._withNewTypeaheadUI && h && S(e), p && O.shortModeDropdown, !L && p && O.shortModeDropdownMobile],
+                        A = {
+                            ariaDescendantId: this.state.ariaDescendantId,
+                            domId: this._dropdownDomId,
+                            onDismiss: this._handleOnEmptyStateDismiss,
+                            onItemFocusChanged: this._handleItemFocusChanged,
+                            ref: this._handleDropdownRef,
+                            style: j
+                        };
+                    return I && !P ? I(A) : a.a.createElement(f.a, {
+                        ariaDescendantId: this.state.ariaDescendantId,
+                        communityId: t,
+                        domId: this._dropdownDomId,
+                        filter: s,
+                        getItemDisabledMessage: o,
+                        getItemIsDisabled: i,
+                        getTopicExactMatch: r,
+                        getUserDisplayNameLabel: c,
+                        getUserExactMatch: l,
+                        injectedItems: d,
+                        maxEvents: m,
+                        maxTopics: y,
+                        onItemClick: this._handleItemClick,
+                        onItemFocusChanged: this._handleItemFocusChanged,
+                        onItemsChanged: _,
+                        orderResults: b,
+                        query: P,
+                        ref: this._handleDropdownRef,
+                        renderCallout: w,
+                        renderHeader: v,
+                        renderNoResultsState: C,
+                        renderUserDecoration: E,
+                        selectedItems: D,
+                        shouldDeferPrefetch: T,
+                        source: R,
+                        style: j,
+                        trustedFriendsId: F,
+                        withSectionDivider: U
+                    })
+                }, this._dismissDropdown = () => {
+                    this.setState({showTypeaheadDropdown: !1}), this.props.onDismiss && this.props.onDismiss()
+                }, this._handleOnEmptyStateDismiss = () => {
+                    this._dismissDropdown(), this._inputRef && this._inputRef.blur()
+                }, this._handleLayout = () => {
+                    this._updatePosition()
+                }, this._handleInputLayoutChanged = () => {
+                    this._updatePosition()
+                }, this._updatePosition = () => {
+                    if (!this._inputContainerNode) return;
+                    const {bottom: e} = this._inputContainerNode.getBoundingClientRect();
+                    e !== this.state.dropdownOffset && this.setState({dropdownOffset: e})
+                }, this._handleDropdownRef = e => {
+                    this._dropdownRef = e
+                }, this._setRootContainerNode = e => {
+                    this._rootContainerNode = e || null
+                }, this._setInputRef = e => {
+                    this._inputRef = e
+                }, this._setInputContainerNode = e => {
+                    this._inputContainerNode = e || null, this._inputContainerNode && this._updatePosition()
+                }, this._handleFocusChange = e => {
+                    const t = l.a.getCount() > 0;
+                    this._rootContainerNode && this._rootContainerNode.contains(e.target) || t || this.state.showTypeaheadDropdown && this._dismissDropdown()
+                }, this._handleKeyDown = e => {
+                    const {key: t} = e, {alwaysOpen: s} = this.props, {showTypeaheadDropdown: o} = this.state;
+                    if (Object(x.g)(e)) {
+                        if (t === I.a) return this._focusNext(), void e.preventDefault();
+                        if (t === I.b) return this._focusPrevious(), void e.preventDefault();
+                        if (t === I.d && !s && o) return this._dismissDropdown(), void e.preventDefault();
+                        if (t !== I.f) return t === I.c && this._hasFocusedItem() ? (this._selectFocusedItem(), void e.preventDefault()) : void (o || this.setState({showTypeaheadDropdown: !0}));
+                        this._dismissDropdown()
+                    }
+                }, this._handleItemFocusChanged = () => {
+                    this.setState({ariaDescendantId: Object(x.b)()})
+                }, this._handleInputClear = () => {
+                    this.setQuery("")
+                }, this._handleInputFocus = () => {
+                    this.setState({showTypeaheadDropdown: !0}), this._updatePosition(), this.props.onFocus && this.props.onFocus()
+                }, this._handleInputChange = e => {
+                    this.setQuery(e.target.value), this._updatePosition()
+                }, this._handleFormSubmit = e => {
+                    e.preventDefault(), e.stopPropagation(), this._inputRef && this._inputRef.blur(), this.setState({showTypeaheadDropdown: !1}), this.props.onDismiss && this.props.onDismiss(), this.props.onSubmit && this.props.onSubmit()
+                }, this._handleItemClick = (e, t) => {
+                    const {onDismiss: s, onItemClick: o, shouldClearOnSelect: a, shouldFocusOnClear: i} = this.props,
+                        n = a ? "" : this.state.query;
+                    this.setState({showTypeaheadDropdown: !1}), this._inputRef && (a && i ? this._inputRef.focus() : this._inputRef.blur()), this.setQuery(n), s && s(), o && o(e, t)
+                }, this._hasFocusedItem = () => this._dropdownRef && this._dropdownRef.hasFocusedItem(), this._selectFocusedItem = () => {
+                    this._dropdownRef && this._dropdownRef.selectFocusedItem()
+                }, this._focusNext = () => {
+                    this._dropdownRef && this._dropdownRef.focusNext()
+                }, this._focusPrevious = () => {
+                    this._dropdownRef && this._dropdownRef.focusPrevious()
+                }, this.state = {
+                    ariaDescendantId: Object(x.b)(),
+                    query: e.initialValue,
+                    showTypeaheadDropdown: !1
+                }, this._dropdownDomId = `typeaheadDropdown-${T}`, T += 1, this._withNewTypeaheadUI = this.context.featureSwitches.isTrue("responsive_web_account_search_readability_enabled")
+            }
+
+            componentDidUpdate(e) {
+                this.props.initialValue !== e.initialValue && this.setQuery(this.props.initialValue)
+            }
+
+            componentDidMount() {
+                window.document.addEventListener("click", this._handleFocusChange, !0)
+            }
+
+            componentWillUnmount() {
+                window.document.removeEventListener("click", this._handleFocusChange, !0)
+            }
+
+            render() {
+                return a.a.createElement(d.a, null, this._render)
+            }
+
+            focus() {
+                this._inputRef && this._inputRef.focus()
+            }
+
+            setQuery(e) {
+                this.setState({query: e}), this.props.onQueryChange && this.props.onQueryChange(e)
+            }
+        }
+
+        R.defaultProps = {
+            disableClearButton: !1,
+            filter: [v.a.Users, v.a.Topics],
+            isInSidebar: !1,
+            initialValue: "",
+            withSectionDivider: !0
+        }, R.contextType = C.a;
+        const O = n.a.create((e => ({
+            root: {flex: 1, flexDirection: "column", position: "relative", zIndex: _.d + 1},
+            typeaheadContainer: {flex: 1, position: "relative"},
+            keydownInputListener: {flexShrink: 1},
+            dropdown: {
+                backgroundColor: e.colors.cellBackground,
+                left: 0,
+                right: 0,
+                overflowY: "auto",
+                overscrollBehavior: "contain",
+                position: "absolute",
+                top: 0,
+                WebkitOverflowScrolling: "touch"
+            },
+            modalDropdown: {
+                backgroundColor: e.colors.cellBackground,
+                flex: 1,
+                minHeight: 300,
+                position: "relative",
+                overflowY: "auto",
+                overscrollBehavior: "auto",
+                WebkitOverflowScrolling: "touch"
+            },
+            wideModeDropdown: {
+                borderRadius: e.borderRadii.medium,
+                boxShadow: e.boxShadows.medium,
+                minHeight: 100,
+                maxHeight: `calc(80vh - ${e.componentDimensions.appBarHeight})`
+            },
+            shortModeDropdown: {minHeight: 100, maxHeight: "35vh", paddingBottom: "0"},
+            shortModeDropdownMobile: {position: "absolute", height: "40vh", top: 0},
+            wrapper: {alignItems: "stretch", flex: 1},
+            topBorder: {borderTopColor: e.colors.gray200, borderTopStyle: "solid", borderTopWidth: e.borderWidths.small}
+        })));
+        t.default = R
+    }, "5T6p": function (e, t, s) {
+        "use strict";
+        var o = s("ERkP"), a = s.n(o), i = s("MWbm"), n = s("TIdA"), r = s("A91F"), c = s("t62R");
+        const l = s("rHpw").a.create((e => ({
+            root: {flexDirection: "row", flexShrink: 1, flexGrow: 1},
+            bodyColumn: {
+                justifyContent: "center",
+                flexDirection: "column",
+                marginRight: e.spaces.space4,
+                marginLeft: e.spaces.space12,
+                flexShrink: 1
+            },
+            coverContainer: {borderRadius: e.borderRadii.large, overflow: "hidden"},
+            cellThumbnail: {height: e.spaces.space48, width: e.spaces.space48},
+            largeCellThumbnail: {height: e.spaces.space56, width: e.spaces.space56}
+        })));
+        t.a = function (e) {
+            const {image: t, style: s, supportText: o, title: d, withNewTypeaheadUI: h} = e;
+            return a.a.createElement(i.a, {style: [l.root, s]}, a.a.createElement(i.a, {style: [l.coverContainer, h ? l.largeCellThumbnail : l.cellThumbnail]}, t ? a.a.createElement(n.a, {
+                accessibilityLabel: "",
+                aspectMode: r.a.SQUARE,
+                image: t
+            }) : null), a.a.createElement(i.a, {style: l.bodyColumn}, o ? a.a.createElement(c.b, {
+                color: "gray700",
+                numberOfLines: 1,
+                size: "subtext2"
+            }, o) : null, a.a.createElement(c.b, {numberOfLines: 2, weight: "bold"}, d)))
+        }
+    }, Gfoi: function (e, t, s) {
+        "use strict";
+        var o = s("ERkP"), a = s.n(o), i = s("k/Ka"), n = s("Lsrn");
+        const r = (e = {}) => Object(i.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [n.a.root, e.style],
+            viewBox: "0 0 20.5 20.5"
+        }, a.a.createElement("g", null, a.a.createElement("path", {d: "M20.03 18.72l-3.66-3.66c1.325-1.57 2.13-3.596 2.13-5.81 0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM2 9.25c0-4.135 3.365-7.5 7.5-7.5S17 5.115 17 9.25s-3.365 7.5-7.5 7.5S2 13.385 2 9.25z"})));
+        r.metadata = {width: 20.5, height: 20.5}, t.a = r
+    }, OEYw: function (e, t, s) {
+        "use strict";
+        var o = s("97Jx"), a = s.n(o), i = s("ERkP"), n = s.n(i), r = s("w6IS"), c = s("VY6S"), l = s("tAeL"),
+            d = s("v6aA"), h = s("Rp9C"), u = s("GZwR"), p = s("kIAd"), m = s("8UdT"), f = s("kGix"),
+            y = (s("kYxP"), s("hqKg")), _ = s("Qyxo"), b = s("lnti"), g = s("0KEI"), w = s("o52z"), I = s("oEoC"),
+            v = s("rxPX"), x = (s("MvUL"), s("9EWH")), C = s("3A2y"), E = s("Y6L+"), D = s("Ssj5"), S = s("oEOe"),
+            T = s("/kEJ"), R = s("vy4g");
+        const O = "typeaheadV2", F = [], k = Object.freeze({
+            REQUEST: "rweb/typeaheadV2/FETCH_REQUEST",
+            SUCCESS: "rweb/typeaheadV2/FETCH_SUCCESS",
+            FAILURE: "rweb/typeaheadV2/FETCH_FAILURE"
+        }), U = ({q: e, result_type: t, src: s}, o) => {
+            let a = t;
+            return null != o && o.communityId ? a = `${t}_${o.communityId}` : null != o && o.trustedFriendsId && (a = `${t}_${o.trustedFriendsId}`), `${e}_${a}_${s}`
+        }, L = {remoteResults: {}, cachedIds: []};
+        const N = e => e.map((({rounded_score: e, tokens: t, ...s}) => {
+            const {topic: o} = s, a = u.b.Topic;
+            return {id: `${a}_${o.replace(" ", "_")}`, type: a, tokens: t, rounded_score: e, data: s}
+        })), P = e => e.map((({rounded_score: e, tokens: t, ...s}) => {
+            var o;
+            const a = u.b.Event, i = null == s || null == (o = s.url) ? void 0 : o.match(E.A.id);
+            return {id: (null == i ? void 0 : i[0]) || "", type: a, tokens: t, rounded_score: e, data: s}
+        })), j = (e, t) => e.typeaheadV2.remoteResults[t], A = (e, t) => (s, o) => {
+            const a = j(o(), U(e, t)), i = a && a.timestamp;
+            return i && Date.now() - i <= 3e5 ? Promise.resolve() : s(M(e, t))
+        }, M = (e, t) => (s, o, {api: a}) => {
+            if (!e || !e.q || "" === e.q.trim()) return Promise.resolve();
+            const i = {queryId: U(e, t)}, {communityId: n, trustedFriendsId: r} = t || {}, c = e.result_type.split(","),
+                l = {actionTypes: k, context: "FETCH_TYPEAHEAD", meta: i};
+            if (c.includes(u.a.CommunityUsers) && n) {
+                const t = e => {
+                    const {entities: t} = (null == e ? void 0 : e.invite_action_results) || {};
+                    return t ? [Object(T.c)(t)] : void 0
+                };
+                return Object(S.b)(s, {
+                    params: {communityId: n, prefix: e.q},
+                    request: a.Typeahead.fetchCommunityInviteUsers
+                })(l, t)
+            }
+            if (c.includes(u.a.CommunityMembers) && n) {
+                const t = e => {
+                    const {entities: t} = (null == e ? void 0 : e.user_community_relationships) || {};
+                    return t ? [Object(T.c)(t)] : void 0
+                };
+                return Object(S.b)(s, {
+                    params: {communityId: n, prefix: e.q},
+                    request: a.Typeahead.fetchCommunityMembers
+                })(l, t)
+            }
+            return c.includes(u.a.TrustedFriendsSuggested) && r ? Object(S.b)(s, {
+                params: {
+                    trustedFriendsId: r,
+                    prefix: e.q
+                }, request: a.Typeahead.fetchTrustedFriendsSuggestions
+            })(l) : Object(S.b)(s, {params: e, request: a.Typeahead.fetch})(l)
+        };
+        D.a.register({
+            [O]: function (e = L, t) {
+                switch (t.type) {
+                    case k.REQUEST: {
+                        const {meta: {queryId: s}} = t;
+                        return Object(x.a)(e, (e => {
+                            e.remoteResults[s] || (e.remoteResults[s] = {fetchStatus: f.a.NONE}), e.remoteResults[s].fetchStatus = f.a.LOADING
+                        }))
+                    }
+                    case k.SUCCESS: {
+                        const {meta: {queryId: s}, payload: o} = t;
+                        if (!o) return e;
+                        const a = o.users.map((e => Object(R.a)(e, u.c.Remote))), i = {
+                            fetchStatus: f.a.LOADED,
+                            id: s,
+                            orderedSections: o.ordered_sections,
+                            events: P(o.events),
+                            topics: N(o.topics),
+                            users: Object(u.g)(a),
+                            timestamp: Date.now()
+                        };
+                        return Object(x.a)(e, (e => {
+                            e.cachedIds = e.cachedIds.filter((e => e !== s)), e.cachedIds.push(s), e.cachedIds.length >= 25 && (e.remoteResults = Object(C.a)(e.remoteResults, e.cachedIds.splice(0, 1))), e.remoteResults[s] = i
+                        }))
+                    }
+                    case k.FAILURE: {
+                        const {meta: {queryId: s}} = t;
+                        return Object(x.a)(e, (e => {
+                            e.remoteResults[s].fetchStatus = f.a.FAILED
+                        }))
+                    }
+                    default:
+                        return e
+                }
+            }
+        });
+        var H = s("UQTn"), q = s("M0jS"), z = s("G6rE");
+        const V = [u.a.Users], B = e => {
+                const {communityId: t, filter: s, query: o, source: a, trustedFriendsId: i} = e;
+                return U({q: o, result_type: (s || V).join(","), src: a}, {communityId: t, trustedFriendsId: i})
+            }, W = (e, t) => ((e, t) => {
+                const s = j(e, t);
+                return s && s.fetchStatus
+            })(e, B(t)), G = (e, t) => ((e, t) => {
+                const s = j(e, t);
+                return s && s.users || F
+            })(e, B(t)), Q = (e, t) => ((e, t) => {
+                const s = j(e, t);
+                return s && s.topics || F
+            })(e, B(t)), $ = (e, t) => ((e, t) => {
+                const s = j(e, t);
+                return s && s.events || F
+            })(e, B(t)), Y = (e, t) => (t.rounded_graph_weight || 0) - (e.rounded_graph_weight || 0),
+            K = () => Object(y.createSelector)(G, Object(y.createSelector)(((e, t) => t.query), ((e, t) => t.filter), H.d, H.e, ((e, t, s, o) => {
+                if (!e || !t || t.indexOf(u.a.Users) < 0) return Object(w.a)();
+                const a = Object(H.f)(s, e);
+                return Object(u.g)(a.map((e => o[e])).sort(Y).slice(0, 10))
+            })), W, ((e, t) => t.injectedItems), ((e, t) => t.query), ((e, t) => t.getUserExactMatch), ((e, t) => t.userLimit), ((e, t, s, o, a, i, n) => {
+                const r = Object(_.a)(o || [], (e => e.type === u.b.User ? e.data.id_str : void 0)),
+                    c = t.filter((e => r.indexOf(e.id) < 0)), l = e.filter((e => r.indexOf(e.id) < 0)),
+                    d = Object(I.a)(c, l).slice(0, n || 10), h = s === f.a.LOADED,
+                    p = i && i({query: a, hasResults: !!e.length, isLoaded: h}), m = p ? [...d, p] : d;
+                return {
+                    users: m.length ? m : Object(w.a)(),
+                    userExactMatch: p,
+                    filteredPrefetchUsers: c,
+                    filteredRemoteUsers: l
+                }
+            })),
+            Z = () => Object(y.createSelector)(K(), Object(y.createSelector)(Q, W, ((e, t) => t.query), ((e, t) => t.maxTopics), ((e, t) => t.getTopicExactMatch), ((e, t, s, o, a) => {
+                const i = t === f.a.LOADED, n = a && a({query: s, hasResults: !!e.length, isLoaded: i}),
+                    r = e.slice(0, o || 3);
+                return n && r.push(n), r.length ? r : Object(w.a)()
+            })), Object(y.createSelector)($, W, ((e, t) => t.query), ((e, t) => t.maxEvents), ((e, t) => t.filter), ((e, t, s, o, a) => {
+                const i = s && a && a.indexOf(u.a.Events) >= 0, n = e.slice(0, o || 1);
+                return n.length && i ? n : Object(w.a)()
+            })), ((e, t) => t.injectedItems), ((e, t) => t.orderResults), ((e, t, s, o, a) => {
+                const {users: i} = e, n = o && o.length ? o : null,
+                    r = a ? a(n, i, t, s, null == e ? void 0 : e.filteredRemoteUsers, null == e ? void 0 : e.filteredPrefetchUsers, null == e ? void 0 : e.userExactMatch) : Object(b.a)([n, s.length ? s : void 0, t.length ? t : void 0, i.length ? i : void 0]);
+                return t.length || i.length || s.length ? r : n ? [n] : Object(w.a)()
+            }));
+        var J = Object(v.a)().propsFromState((() => ({
+            fetchStatus: W,
+            items: Z()
+        }))).propsFromActions((() => ({
+            createLocalApiErrorHandler: Object(g.createLocalApiErrorHandlerWithContextFactory)("TYPEAHEAD_DROPDOWN_CONTAINER_CONTEXT"),
+            fetchTypeaheadIfNeeded: A,
+            fetchUsersIfNeeded: z.e.fetchManyIfNeeded,
+            fetchUsersPresenceIfNeeded: q.b.fetchManyIfNeeded,
+            prefetchTypeaheadUsersIfNeeded: H.b
+        }))).withAnalytics({element: "typeahead"});
+
+        class X extends n.a.Component {
+            constructor(e, t) {
+                super(e, t), this._fetchUsersIfNeeded = (e = []) => {
+                    const {fetchUsersIfNeeded: t, items: s, source: o} = this.props;
+                    if (this.context.featureSwitches.isTrue("follow_nudge_search_enabled") && this.context.loggedInUserId && o === u.d.SearchBox) {
+                        const o = Object(r.a)(e).filter((e => e.type === m.c.User)).map((e => e.id)),
+                            a = Object(r.a)(s).filter((e => e.type === m.c.User)).filter((e => !o.includes(e.id))).map((e => e.id));
+                        (null == a ? void 0 : a.length) && t(a)
+                    }
+                }, this._fetchTypeaheadResultsIfNeeded = e => {
+                    const t = this.context.featureSwitches.isTrue("c9s_community_composer_hashtag_suggestions_enabled");
+                    e.query && e.fetchTypeaheadIfNeeded({
+                        q: e.query,
+                        src: e.source,
+                        result_type: e.filter.join(","),
+                        context_text: e.contextText,
+                        topic_type: e.topicType,
+                        context_community_id: t ? e.communityId : void 0
+                    }, {
+                        communityId: e.communityId,
+                        trustedFriendsId: e.trustedFriendsId
+                    }).catch(e.createLocalApiErrorHandler({}))
+                }, this._handleItemClick = (e, t) => {
+                    const {analytics: s, onItemClick: o, query: a} = this.props;
+                    o(e, t);
+                    const i = h.a.forTypeaheadResult(e, t), n = i ? [i] : void 0;
+                    s.scribe({action: "click", data: {search_details: {query: a}, targets: n}})
+                }, this._scribeResults = () => {
+                    const {analytics: e, items: t, query: s} = this.props;
+                    e.scribe({
+                        action: "impression",
+                        data: {items: h.a.forTypeaheadResults(t), search_details: {query: s}}
+                    })
+                }, this._debouncedFetchTypeaheadResultsIfNeeded = Object(c.a)(this._fetchTypeaheadResultsIfNeeded, 250), this.state = {shouldShowPrefetchResults: !0}
+            }
+
+            componentDidMount() {
+                const {createLocalApiErrorHandler: e, prefetchTypeaheadUsersIfNeeded: t} = this.props;
+                this._debouncedFetchTypeaheadResultsIfNeeded(this.props), t().catch(e({})), this._fetchUsersIfNeeded()
+            }
+
+            componentWillUnmount() {
+                clearTimeout(this._prefetchResultsTimer)
+            }
+
+            componentDidUpdate(e) {
+                const {
+                        createLocalApiErrorHandler: t,
+                        domId: s,
+                        fetchUsersPresenceIfNeeded: o,
+                        filter: a,
+                        items: i,
+                        onItemsChanged: n,
+                        query: c,
+                        shouldDeferPrefetch: l,
+                        source: d
+                    } = this.props, {filter: h, query: u, source: y} = e, {loggedInUserId: _} = this.context,
+                    b = this.context.featureSwitches.isTrue("voice_rooms_typeahead_audiospace_ring_enabled") && _;
+                if (null != i && i.length && i !== e.items) {
+                    if (this._scribeResults(), n) {
+                        let e = !1;
+                        const t = s ? document.getElementById(s) : null;
+                        t && t.scrollHeight > t.offsetHeight && (e = !0), n(i, e)
+                    }
+                    if (b) {
+                        const e = Object(r.a)(i).filter((e => e.type === m.c.User)).map((e => e.id));
+                        e && o(e).catch(t({}))
+                    }
+                    this._fetchUsersIfNeeded(e.items)
+                }
+                c === u && a === h && d === y || (this._debouncedFetchTypeaheadResultsIfNeeded(this.props), l && (clearTimeout(this._prefetchResultsTimer), this.setState({shouldShowPrefetchResults: !1}), this._prefetchResultsTimer = setTimeout((() => {
+                    this.props.query && this.props.fetchStatus !== f.a.LOADED && this.setState({shouldShowPrefetchResults: !0})
+                }), p.a)))
+            }
+
+            render() {
+                const {
+                    analytics: e,
+                    communityId: t,
+                    contextText: s,
+                    createLocalApiErrorHandler: o,
+                    dropdownRef: i,
+                    fetchStatus: r,
+                    fetchTypeaheadIfNeeded: c,
+                    fetchUsersIfNeeded: d,
+                    fetchUsersPresenceIfNeeded: h,
+                    filter: u,
+                    getTopicExactMatch: p,
+                    getUserExactMatch: m,
+                    injectedItems: y,
+                    items: _,
+                    maxEvents: b,
+                    maxTopics: g,
+                    onItemClick: w,
+                    onItemsChanged: I,
+                    orderResults: v,
+                    prefetchTypeaheadUsersIfNeeded: x,
+                    query: C,
+                    shouldDeferPrefetch: E,
+                    topicType: D,
+                    trustedFriendsId: S,
+                    userLimit: T,
+                    ...R
+                } = this.props, O = C && r !== f.a.LOADED, F = O && !this.state.shouldShowPrefetchResults ? y : _;
+                return n.a.createElement(l.a, a()({}, R, {
+                    isLoading: !!O,
+                    items: F,
+                    onItemClick: this._handleItemClick,
+                    query: C,
+                    ref: i
+                }))
+            }
+        }
+
+        X.contextType = d.a, X.defaultProps = {filter: [u.a.Users], injectedItems: [], maxEvents: 3, maxTopics: 1};
+        const ee = n.a.forwardRef(((e, t) => n.a.createElement(X, a()({}, e, {dropdownRef: t})))),
+            te = J.forwardRef(ee);
+        t.a = te
+    }, V5Qi: function (e, t, s) {
+        "use strict";
+        s.d(t, "a", (function () {
+            return a
+        }));
+        var o = s("AQ79");
+        const a = (e, t) => e[o.c] ? e[o.c].conversations[t] : null
+    }, ZcYN: function (e, t, s) {
+        "use strict";
+        s.d(t, "b", (function () {
+            return ne
+        })), s.d(t, "a", (function () {
+            return le
+        }));
+        var o = s("ERkP"), a = s.n(o), i = s("MWbm"), n = s("htQn"), r = s("t62R"), c = s("rHpw"), l = s("iySH"),
+            d = s("IMYl"), h = s("+Kfv"), u = s("GZwR"), p = s("v6aA"), m = s("5mJL"), f = s("aA19"), y = s("OhSZ"),
+            _ = s("AQOc"), b = s("rxPX"), g = s("V5Qi"), w = s("G6rE");
+        const I = (e, t) => t.conversationId, v = (e, t) => Object(g.a)(e, I(0, t));
+        var x = Object(b.a)().propsFromState((() => ({
+            conversationId: I,
+            conversation: v,
+            users: w.e.selectAll
+        }))).adjustStateProps((({conversation: e, conversationId: t, users: s}) => {
+            const o = {conversation: void 0};
+            return null != e && e.data && (o.conversation = Object(_.b)(e.data, void 0, s)), o
+        }));
+        const C = c.a.create((e => ({
+            root: {
+                cursor: "pointer",
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                paddingVertical: e.componentDimensions.gutterVertical,
+                width: "100%"
+            },
+            avatarColumn: {flexGrow: 1, maxWidth: e.spaces.space40, minWidth: "32px"},
+            bodyColumn: {flexGrow: 7, alignItems: "center", flexDirection: "row", justifyContent: "space-between"},
+            disabled: {opacity: .6, backgroundColor: e.colors.gray0}
+        })));
+        var E = x((({conversation: e, isDisabled: t, isSelected: s, perspective: o}) => {
+            const {featureSwitches: i} = a.a.useContext(p.a),
+                n = i.isTrue("dm_vdl_enabled") && i.isTrue("dm_vdl_inbox_p0_enabled");
+            return e ? a.a.createElement(m.a, {
+                avatarCell: a.a.createElement(f.a, {
+                    conversation: e,
+                    perspective: o,
+                    size: "xLarge"
+                }),
+                avatarCellStyle: C.avatarColumn,
+                avatarSize: "xLarge",
+                cellStyle: C.bodyColumn,
+                style: [C.root, !s && t && C.disabled]
+            }, a.a.createElement(y.b, {
+                conversation: e,
+                perspective: o,
+                withParticipantsCount: !0,
+                withVDLRefresh: n
+            }), le({isSelected: s})) : null
+        })), D = s("LbZ7"), S = s("9Xij"), T = s("TIdA"), R = s("A91F");
+
+        class O extends a.a.PureComponent {
+            render() {
+                const {event: e, image: t, supportText: s} = this.props;
+                return a.a.createElement(i.a, {style: k.root}, a.a.createElement(D.a, {withGutter: !0}, a.a.createElement(i.a, {style: k.bodyColumn}, s ? a.a.createElement(r.b, {
+                    color: "gray700",
+                    size: "subtext2"
+                }, s) : null, a.a.createElement(r.b, {numberOfLines: 1}, e)), t ? a.a.createElement(i.a, {style: k.coverContainer}, a.a.createElement(S.a, {ratio: 1}, a.a.createElement(T.a, {
+                    accessibilityLabel: "",
+                    aspectMode: R.a.SQUARE,
+                    image: t
+                }))) : null))
+            }
+        }
+
+        const F = "100px", k = c.a.create((e => ({
+            root: {
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                paddingVertical: e.spaces.space16
+            },
+            bodyColumn: {flexGrow: 7, justifyContent: "center"},
+            coverContainer: {
+                backgroundColor: e.colors.gray200,
+                borderRadius: e.borderRadii.small,
+                flexGrow: 1,
+                justifyContent: "flex-end",
+                maxHeight: F,
+                maxWidth: F,
+                overflow: "hidden",
+                width: "25%"
+            }
+        })));
+        var U = O, L = s("5T6p"), N = s("FiRh"), P = s("j7Bv"), j = s("EHV7"), A = s("Gfoi"),
+            M = (s("qd3W"), s("MvUL"), s("yyPN")), H = s.n(M);
+        const q = c.a.create((e => ({
+            root: {
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                paddingVertical: e.spaces.space16
+            },
+            context: {alignItems: "center", flexDirection: "row"},
+            icon: {
+                color: e.colors.primary,
+                height: e.fontSizes.subtext2,
+                paddingRight: e.spaces.space4,
+                width: e.fontSizes.subtext2
+            },
+            disabled: {backgroundColor: e.colors.gray0},
+            searchIcon: {marginRight: e.spaces.space12, borderWidth: 0, backgroundColor: "none"},
+            searchIconCell: {flexDirection: "row", alignItems: "center"},
+            wrapperCellStyle: {justifyContent: "center"}
+        })));
+        var z = function (e) {
+            const {featureSwitches: t} = a.a.useContext(p.a), {
+                    isDisabled: s,
+                    query: o,
+                    resultContext: n,
+                    showIcon: c,
+                    style: l,
+                    topic: d,
+                    withNewTypeaheadUI: h
+                } = e, u = function (e, t, s = !1) {
+                    const o = H()(e), a = e.toLowerCase().indexOf(t.toLowerCase()), i = a + t.length;
+                    let n;
+                    if (0 === o.length) {
+                        const t = s ? [a > 0 ? [0, a] : void 0, [i, e.length]].filter(Boolean) : [[a, i]];
+                        n = [{highlights: -1 !== a ? t : void 0, text: e, entityType: "text", prefix: ""}]
+                    } else {
+                        const t = o.flatMap((({indices: t}, s, o) => {
+                            const a = 0 === s ? 0 : o[s - 1].indices[1], i = s === o.length - 1, n = [];
+                            return a !== t[0] && n.push(e.slice(a, t[0])), n.push(e.substring(t[0], t[1])), i && e.length !== t[1] && n.push(e.slice(t[1])), n
+                        }));
+                        let r = 0;
+                        const c = t.map(((e, t, s) => {
+                            r += t > 0 ? s[t - 1].length : 0;
+                            const o = e.length;
+                            return {runningTotal: r, containsQuery: -1 !== a && r + o >= a && r < i}
+                        }));
+                        n = t.map(((e, t) => {
+                            var o;
+                            const {containsQuery: n, runningTotal: r} = c[t], l = e.includes("#");
+                            let d;
+                            if (s && !n) d = [[0, e.length]]; else if (n) {
+                                const t = r < a ? a - r : 0, o = r + e.length < i ? e.length : i - r, n = l ? t - 1 : t,
+                                    c = l ? o - 1 : o;
+                                d = s ? [n > 0 ? [0, n] : void 0, c !== e.length - 1 ? [c, e.length] : void 0].filter(Boolean) : [[n, c]]
+                            }
+                            const h = l ? `${null == e ? void 0 : e.replace("#", "")}` : e;
+                            return {
+                                highlights: null != (o = d) && o.length ? d : void 0,
+                                text: h,
+                                entityType: l ? "hashtag" : "text",
+                                prefix: l ? "#" : ""
+                            }
+                        }))
+                    }
+                    return n
+                }(d, t.isTrue("responsive_web_typeahead_reverse_bolding_enabled") ? o : "", true),
+                f = a.a.createElement(r.b, null, u.map(((e, t) => a.a.createElement(N.b, {
+                    key: `${e.text}${t}`,
+                    part: e
+                })))), y = h ? "xxxLarge" : "xLarge",
+                _ = a.a.createElement(a.a.Fragment, null, f, n ? a.a.createElement(i.a, {style: q.context}, n && n.types[0] && "followable_topic" === n.types[0].type ? a.a.createElement(j.a, {style: q.icon}) : null, a.a.createElement(r.b, {color: "gray700"}, n.display_string || " ")) : null);
+            return a.a.createElement(i.a, {style: [q.root, s && q.disabled, l]}, c ? (e => {
+                const t = a.a.createElement(P.a, {Icon: A.a, color: "neutral", size: y, style: q.searchIcon});
+                return a.a.createElement(m.a, {
+                    avatarCell: t,
+                    avatarCellStyle: q.searchIconCell,
+                    avatarSize: y,
+                    cellStyle: q.wrapperCellStyle
+                }, e)
+            })(_) : _)
+        }, V = (s("kYxP"), s("IMA+")), B = s("qqsb"), W = s.n(B), G = s("tocL"), Q = s("M0jS");
+        const $ = (e, t) => Object(Q.c)(e, t.userId);
+        var Y = Object(b.a)().propsFromState((() => ({userSpace: $}))), K = "TypeaheadUser";
+        const Z = W.a.ae2205d2, J = W.a.d960b55c, X = W.a.fd06b02f, ee = Object.freeze({
+            num_of_followers: G.a.Follow,
+            bio: G.a.TextOnly,
+            location: G.a.Location,
+            num_tweets: G.a.NewTweets,
+            follow_relationship: G.a.Follow,
+            followers_follow: G.a.Follow,
+            social_proof: G.a.SocialProof,
+            follow_relationship_mutual_follow: G.a.FollowMutual,
+            follow_relationship_followed: G.a.FollowFollowed,
+            follow_relationship_following: G.a.FollowFollowing
+        });
+
+        class te extends a.a.PureComponent {
+            constructor(...e) {
+                super(...e), this._handleAvatarClick = () => {
+                    const {userSpace: e} = this.props;
+                    e || this._handleClick()
+                }, this._handleClick = () => {
+                    const {isDisabled: e, item: t, onItemClick: s} = this.props;
+                    s && s(t, !!e)
+                }
+            }
+
+            render() {
+                const {
+                        avatarUri: e,
+                        decoration: t,
+                        disabledMessage: s,
+                        displayNameLabel: o,
+                        isDisabled: i,
+                        isProtected: n,
+                        isVerified: r,
+                        name: c,
+                        screenName: l,
+                        source: d,
+                        userId: h,
+                        userSpace: p,
+                        withNewTypeaheadUI: m
+                    } = this.props, {featureSwitches: f} = this.context, y = this._getSocialContext(),
+                    _ = this._getResultContext() || y, b = d === u.d.SearchBox,
+                    g = p && f.isTrue("voice_rooms_typeahead_audiospace_ring_enabled") ? p : void 0;
+                return g && (g.accessibilityLabel = X({screenName: l})), a.a.createElement(V.a, {
+                    avatarSize: "xLarge",
+                    avatarUri: e,
+                    decoration: t,
+                    disabledMessage: i ? s : void 0,
+                    displayMode: m ? "ExperimentalUserTypeahead" : "UserCompact",
+                    displayNameLabel: o,
+                    isDisabled: i,
+                    isProtected: n,
+                    isVerified: r,
+                    name: c,
+                    onAvatarClick: this._handleAvatarClick,
+                    onCellClick: this._handleClick,
+                    onScreenNameClick: this._handleClick,
+                    presenceIndicator: b ? g : void 0,
+                    screenName: l,
+                    socialContext: _,
+                    testID: K,
+                    userId: h,
+                    withInteractiveStyling: !1,
+                    withLink: !1
+                })
+            }
+
+            _getSocialContext() {
+                const {socialContext: e} = this.props;
+                if (!e || !e.following) return;
+                const t = e.followed_by ? Z : J;
+                return {contextType: G.a.Follow, text: t}
+            }
+
+            _getResultContext() {
+                const {resultContext: e, source: t, withNewTypeaheadUI: s} = this.props;
+                if (!(s && e && e.display_string && e.types && t === u.d.SearchBox)) return;
+                return {
+                    contextType: (e.types.length ? ee[e.types[0].type] : void 0) || G.a.TextOnly,
+                    text: e.display_string
+                }
+            }
+        }
+
+        te.contextType = p.a, te.defaultProps = {withNewTypeaheadUI: !1};
+        var se = Y.forwardRef(te), oe = "typeaheadResult";
+        const ae = {viewType: "typeahead_result"}, ie = ({children: e}) => e;
+
+        function ne(e) {
+            return a.a.createElement(ie, {item: e.item}, a.a.createElement(re, e))
+        }
+
+        class re extends a.a.Component {
+            constructor(e, t) {
+                super(e, t), this._onViewRef = e => {
+                    this._viewRef = e;
+                    const {onRef: t} = this.props;
+                    t && t(e)
+                }, this._handleClick = () => {
+                    const {item: e} = this.props;
+                    e.type !== u.b.User && this.props.onClick && this.props.onClick(e, this.isDisabled)
+                }, this._withNewTypeaheadUI = this.context.featureSwitches.isTrue("responsive_web_account_search_readability_enabled") && e.source === u.d.SearchBox
+            }
+
+            componentDidMount() {
+                this._loaded = !0, this._viewRef && (this._rafId = window.requestAnimationFrame((() => {
+                    this._viewRef && this._viewRef.setNativeProps({style: {opacity: 1}})
+                })))
+            }
+
+            componentDidUpdate(e) {
+                const {onRef: t} = this.props;
+                t && t !== e.onRef && this._viewRef && t(this._viewRef)
+            }
+
+            componentWillUnmount() {
+                this._rafId && window.cancelAnimationFrame(this._rafId)
+            }
+
+            render() {
+                const {domId: e, isDisabled: t, isFocused: s, isInMultiSelect: o, isSelected: r, style: c} = this.props;
+                return a.a.createElement(h.a, {behavioralEventContext: ae}, a.a.createElement(i.a, {
+                    accessibilityRole: "option",
+                    accessibilityState: {checked: !(!o || !r) || void 0, selected: t ? void 0 : o && r || !o && !!s},
+                    nativeID: e,
+                    testID: oe
+                }, a.a.createElement(n.a, {
+                    accessibilityRole: o ? "checkbox" : "button",
+                    disabled: t,
+                    focusable: !0,
+                    onPress: this._handleClick,
+                    style: [s && ce.focused, ce.transitionStyles, this._loaded && ce.loaded, c],
+                    viewRef: this._onViewRef
+                }, this._renderResult())))
+            }
+
+            _renderResult() {
+                const {
+                    disabledMessage: e,
+                    getUserDisplayNameLabel: t,
+                    isDisabled: s,
+                    isSelected: o,
+                    item: n,
+                    onClick: c,
+                    renderUserDecoration: d,
+                    source: h
+                } = this.props;
+                switch (n.type) {
+                    case u.b.User: {
+                        const {data: i} = n, r = d ? d({userId: i.id_str, user: i, isSelected: o}) : void 0,
+                            l = t ? t(n, i) : void 0;
+                        return a.a.createElement(se, {
+                            avatarUri: i.profile_image_url_https,
+                            canDm: !!i.can_dm,
+                            canMediaTag: !!i.can_media_tag,
+                            decoration: r || void 0,
+                            disabledMessage: e,
+                            displayNameLabel: l,
+                            isDisabled: s,
+                            isProtected: !!i.protected,
+                            isVerified: !!i.verified,
+                            item: n,
+                            name: i.name,
+                            onItemClick: c,
+                            resultContext: i.result_context,
+                            screenName: i.screen_name,
+                            socialContext: i.social_context,
+                            source: h,
+                            userId: i.id_str,
+                            withNewTypeaheadUI: this._withNewTypeaheadUI
+                        })
+                    }
+                    case u.b.Event: {
+                        const {data: e} = n;
+                        return this._withNewTypeaheadUI ? a.a.createElement(L.a, {
+                            image: e.primary_image && e.primary_image.original_info,
+                            style: ce.itemPadding,
+                            supportText: e.supporting_text,
+                            title: e.topic,
+                            withNewTypeaheadUI: !0
+                        }) : a.a.createElement(U, {
+                            event: e.topic,
+                            image: e.primary_image && e.primary_image.original_info,
+                            supportText: e.supporting_text
+                        })
+                    }
+                    case u.b.Hashtag:
+                    case u.b.Topic: {
+                        const {query: e} = this.props, {data: t} = n, o = h === u.d.SearchBox;
+                        return a.a.createElement(z, {
+                            isDisabled: s,
+                            query: e || "",
+                            resultContext: t.result_context,
+                            showIcon: o,
+                            style: o ? ce.itemPadding : void 0,
+                            topic: t.topic,
+                            withNewTypeaheadUI: this._withNewTypeaheadUI
+                        })
+                    }
+                    case u.b.DMConversation:
+                        return !!this.context.loggedInUserId && a.a.createElement(E, {
+                            conversationId: n.id,
+                            isDisabled: s,
+                            isSelected: o,
+                            perspective: this.context.loggedInUserId
+                        });
+                    case u.b.SettingGroup: {
+                        const {text: e} = n.data;
+                        return a.a.createElement(i.a, {style: ce.navigationLink}, a.a.createElement(r.b, {
+                            style: ce.content,
+                            weight: "bold"
+                        }, e), a.a.createElement(l.a, {style: ce.icon}))
+                    }
+                    case u.b.Setting: {
+                        const {text: e} = n.data;
+                        return a.a.createElement(i.a, {style: ce.navigationLink}, a.a.createElement(r.b, {style: ce.content}, e), a.a.createElement(l.a, {style: ce.icon}))
+                    }
+                    case u.b.NoResult: {
+                        const {data: e} = n, {text: t} = e;
+                        return a.a.createElement(r.b, {style: ce.noResult}, t)
+                    }
+                    default:
+                        return null
+                }
+            }
+
+            get isDisabled() {
+                return !!this.props.isDisabled
+            }
+        }
+
+        re.contextType = p.a;
+        const ce = c.a.create((e => ({
+                checkIcon: {color: e.colors.primary},
+                navigationLink: {
+                    alignItems: "center",
+                    flexDirection: "row",
+                    flexGrow: 1,
+                    paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                    paddingVertical: e.spaces.space16
+                },
+                content: {flexGrow: 1, flexShrink: 1},
+                icon: {color: e.colors.gray700, paddingLeft: e.spaces.space12, flexShrink: 0},
+                noResult: {paddingHorizontal: e.componentDimensions.gutterHorizontal, paddingVertical: e.spaces.space16},
+                itemPadding: {
+                    paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                    paddingVertical: e.componentDimensions.gutterVertical
+                },
+                loaded: {opacity: 1},
+                focused: {backgroundColor: e.colors.gray0},
+                transitionStyles: {transitionProperty: "opacity", transitionDuration: "250ms", opacity: 0}
+            }))),
+            le = ({isSelected: e}) => e ? a.a.createElement(d.a, {accessibilityHidden: !0, style: ce.checkIcon}) : null
+    }, e5HP: function (e, t, s) {
+        "use strict";
+        s.d(t, "a", (function () {
+            return I
+        }));
+        var o = s("ERkP"), a = s.n(o), i = s("MWbm"), n = s("qqsb"), r = s.n(n), c = s("k/Ka"), l = s("Lsrn");
+        const d = (e = {}) => Object(c.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [l.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, a.a.createElement("g", null, a.a.createElement("path", {d: "M12 1C5.92 1 1 5.92 1 12s4.92 11 11 11 11-4.92 11-11S18.08 1 12 1zm5.05 12.48c0 .48-.39.87-.88.87-.477 0-.87-.393-.87-.87V9.94l-6.85 6.85c-.163.166-.387.26-.62.26-.233 0-.457-.094-.62-.26-.338-.341-.338-.899 0-1.24l6.85-6.85h-3.54c-.477 0-.87-.393-.87-.87 0-.49.39-.88.87-.88h5.65c.11 0 .23.03.33.07.11.04.2.1.29.19.09.09.15.18.19.29.04.1.07.22.07.33v5.65z"})));
+        d.metadata = {width: 24, height: 24};
+        var h = d, u = s("uFYP"), p = s("t62R"), m = s("rHpw");
+        const f = r.a.f1a1b791, y = r.a.if2bf8b4, _ = r.a.f3624b5c, b = r.a.b4b3b113, g = r.a.be222050,
+            w = r.a.hcbbe447;
+
+        class I extends a.a.Component {
+            render() {
+                const {color: e, nativeID: t, style: s, withCircleIcon: o} = this.props, n = o ? h : u.a;
+                return a.a.createElement(i.a, {style: [v.root, s]}, a.a.createElement(n, {style: [v.icon, e && v[e]]}), a.a.createElement(p.b, {
+                    color: e,
+                    nativeID: t,
+                    size: "subtext2"
+                }, this._getPromotedLabel()))
+            }
+
+            _getPromotedLabel() {
+                const {contentAuthorId: e, label: t, promotedContent: s} = this.props, {
+                        adMetadataContainer: o,
+                        advertiser: a,
+                        advertiser_name: i,
+                        disclosure_type: n
+                    } = s, r = e && a && e === a.id_str, c = "string" == typeof n && "political" === n.toLowerCase(),
+                    l = "string" == typeof n && "issue" === n.toLowerCase(),
+                    d = !(!o || "POLITICAL" !== o.disclaimerType) || c,
+                    h = !(!o || "ISSUE" !== o.disclaimerType) || l, {removePromotedAttributionForPreroll: u} = o || {};
+                let p;
+                return p = t || (!i || r || u ? d ? _ : h ? g : y : d ? b({fullName: i}) : h ? w({fullName: i}) : f({fullName: i})), p
+            }
+        }
+
+        I.defaultProps = {color: "gray700", withCircleIcon: !1};
+        const v = m.a.create((e => ({
+            root: {alignItems: "center", flexDirection: "row"},
+            icon: {color: e.colors.gray700, height: "1em", marginRight: e.spaces.space4, flexShrink: 0},
+            gray700: {color: e.colors.gray700},
+            white: {color: e.colors.white}
+        })))
+    }, o52z: function (e, t, s) {
+        "use strict";
+        s.d(t, "a", (function () {
+            return a
+        }));
+        var o = s("VPAj");
+        const a = Object(o.a)([]);
+        Object(o.a)({})
+    }, tAeL: function (e, t, s) {
+        "use strict";
+        s.d(t, "a", (function () {
+            return I
+        }));
+        var o = s("ERkP"), a = s.n(o), i = s("7nmT"), n = s.n(i), r = s("MWbm"), c = s("0yYu"), l = s("zTrU"),
+            d = s("w6IS"), h = s("ZcYN"), u = s("MXDK"), p = (s("kYxP"), s("JYMr")), m = s("rHpw"), f = s("qqsb"),
+            y = s.n(f), _ = s("kIAd");
+        const b = y.a.f2b3fe06, g = m.a.create((e => ({hidden: {visibility: "hidden"}})));
+        var w = ({isLoading: e}) => {
+            const [t, s] = a.a.useState(!1);
+            return a.a.useEffect((() => {
+                let t;
+                return e ? t = setTimeout((() => s(!0)), _.a) : s(!1), () => clearTimeout(t)
+            }), [e]), a.a.createElement(p.a, {ariaValueText: t ? b : "", indeterminate: t, style: !t && g.hidden})
+        };
+
+        class I extends a.a.Component {
+            constructor(e, t) {
+                super(e), this._setFocusedItemRef = e => {
+                    this._shouldScrollToFocusedItem && e && (Object(u.c)(this._getScrollParent(), e), this._shouldScrollToFocusedItem = !1)
+                }, this._resetScroll = () => {
+                    const e = this._getScrollParent();
+                    e && (e.scrollTop = 0)
+                }, this._getFlattenedItems = Object(l.a)((e => Object(d.a)(e))), this._handleItemClick = (e, t) => {
+                    const {items: s, onItemClick: o} = this.props, a = this._getFlattenedItems(s).indexOf(e);
+                    e && !t && !this._shouldBlockInteractivity && o(e, a), this._resetFocus()
+                }, this._getResultCount = () => {
+                    const {items: e} = this.props;
+                    return this._getFlattenedItems(e).length
+                }, this._setFocusIndex = (e, t) => {
+                    const {items: s, onItemFocusChanged: o} = this.props;
+                    this._shouldScrollToFocusedItem = t, this.setState({focusIndex: e}), o && o(this._getFlattenedItems(s)[e])
+                }, this._resetFocus = () => {
+                    this._setFocusIndex(this.props.withItemAlwaysSelected ? 0 : -1)
+                }, this.focusNext = () => {
+                    const {focusIndex: e} = this.state, t = this._getResultCount();
+                    if (0 === t) return;
+                    const s = e + 1 >= t ? 0 : e + 1;
+                    this._setFocusIndex(s, !0)
+                }, this.focusPrevious = () => {
+                    const {focusIndex: e} = this.state, t = this._getResultCount();
+                    if (0 === t) return;
+                    const s = e - 1 < 0 ? t - 1 : e - 1;
+                    this._setFocusIndex(s, !0)
+                }, this.hasFocusedItem = () => {
+                    const {focusIndex: e} = this.state, t = this._getResultCount();
+                    return e >= 0 && t > e
+                }, this.selectFocusedItem = () => {
+                    const {focusIndex: e} = this.state, {getItemIsDisabled: t, items: s} = this.props;
+                    if (this.hasFocusedItem()) {
+                        const o = this._getFlattenedItems(s)[e], a = !!t && t(o, o.data);
+                        this._handleItemClick(o, a)
+                    }
+                }, this.state = {focusIndex: e.withItemAlwaysSelected ? 0 : -1}
+            }
+
+            componentDidMount() {
+                this._resetFocus()
+            }
+
+            componentWillUnmount() {
+                clearTimeout(this._interactivityTimeout)
+            }
+
+            componentDidUpdate(e) {
+                e.items !== this.props.items && (this._resetFocus(), this._resetScroll(), this._interactivityTimeout && clearTimeout(this._interactivityTimeout), this._shouldBlockInteractivity = !0, this._interactivityTimeout = setTimeout((() => {
+                    this._shouldBlockInteractivity = !1
+                }), 500))
+            }
+
+            render() {
+                const {
+                    domId: e,
+                    isLoading: t,
+                    items: s,
+                    renderCallout: o,
+                    renderHeader: i,
+                    renderNoResultsState: n,
+                    selectedItems: c,
+                    style: l
+                } = this.props, d = !(!t && !s.length);
+                let h = 0;
+                const u = !!c;
+                return d ? a.a.createElement(r.a, {
+                    accessibilityMultiSelectable: u,
+                    accessibilityRole: "listbox",
+                    nativeID: e,
+                    style: l
+                }, o ? o() : null, a.a.createElement(w, {isLoading: !!t}), i ? i() : null, s.length ? s.map(((e, t) => {
+                    const o = !Array.isArray(s[t - 1]) && t > 0, a = t < s.length - 1,
+                        i = Array.isArray(e) ? this._renderTypeaheadGroup(e, h, o, a) : this._renderTypeaheadItem(e, h);
+                    return h += Array.isArray(e) ? e.length : 1, i
+                })) : null) : n ? n() : null
+            }
+
+            _renderTypeaheadGroup(e, t, s, o) {
+                const {withSectionDivider: i} = this.props;
+                return a.a.createElement(a.a.Fragment, {key: `typeaheadGroup-${t}`}, i && s ? a.a.createElement(c.a, {key: `typeaheadDividerTop-${t}`}) : null, e.map(((e, s) => this._renderTypeaheadItem(e, t + s))), i && o ? a.a.createElement(c.a, {key: `typeaheadDividerBottom-${t}`}) : null)
+            }
+
+            _renderTypeaheadItem(e, t) {
+                const {
+                        ariaDescendantId: s,
+                        getItemDisabledMessage: o,
+                        getItemIsDisabled: i,
+                        getUserDisplayNameLabel: n,
+                        query: r,
+                        renderUserDecoration: c,
+                        selectedItems: l,
+                        source: d
+                    } = this.props, {focusIndex: u} = this.state, p = !(!l || !e.id) && l.indexOf(e.id) >= 0, m = !!l,
+                    f = u === t, y = i && i(e, e.data), _ = o && o(e, e.data);
+                return a.a.createElement(h.b, {
+                    disabledMessage: _,
+                    domId: f ? s : void 0,
+                    getUserDisplayNameLabel: n,
+                    isDisabled: y,
+                    isFocused: f,
+                    isInMultiSelect: m,
+                    isSelected: p,
+                    item: e,
+                    key: `typeaheadItem-${t}-${e.id || ""}`,
+                    onClick: this._handleItemClick,
+                    onRef: f ? this._setFocusedItemRef : void 0,
+                    query: r,
+                    renderUserDecoration: c,
+                    source: d
+                })
+            }
+
+            _getScrollParent() {
+                if (!this._scrollParent) {
+                    const e = Object(u.a)(n.a.findDOMNode(this));
+                    this._scrollParent = e === window ? null : e
+                }
+                return this._scrollParent
+            }
+        }
+    }, uFYP: function (e, t, s) {
+        "use strict";
+        var o = s("ERkP"), a = s.n(o), i = s("k/Ka"), n = s("Lsrn");
+        const r = (e = {}) => Object(i.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [n.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, a.a.createElement("g", null, a.a.createElement("path", {d: "M20.75 2H3.25C2.007 2 1 3.007 1 4.25v15.5C1 20.993 2.007 22 3.25 22h17.5c1.243 0 2.25-1.007 2.25-2.25V4.25C23 3.007 21.993 2 20.75 2zM17.5 13.504c0 .483-.392.875-.875.875s-.875-.393-.875-.876V9.967l-7.547 7.546c-.17.17-.395.256-.62.256s-.447-.086-.618-.257c-.342-.342-.342-.896 0-1.237l7.547-7.547h-3.54c-.482 0-.874-.393-.874-.876s.392-.875.875-.875h5.65c.483 0 .875.39.875.874v5.65z"})));
+        r.metadata = {width: 24, height: 24}, t.a = r
+    }, woHV: function (e, t, s) {
+        "use strict";
+        s("ERkP");
+        var o = s("k/Ka");
+        var a = s("rHpw").a.create({
+            initial: {
+                alignItems: "stretch",
+                borderWidth: 0,
+                borderStyle: "solid",
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                margin: 0,
+                padding: 0,
+                position: "relative",
+                zIndex: 0,
+                minHeight: 0,
+                minWidth: 0
+            }
+        });
+        t.a = e => {
+            const {style: t, ...s} = e;
+            return Object(o.a)("form", {...s, action: "#", style: [a.initial, t]})
+        }
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/shared~loader.Typeahead~bundle.Delegate~bundle.LoggedOutHome~bundle.Search.e6d112a8.js.map

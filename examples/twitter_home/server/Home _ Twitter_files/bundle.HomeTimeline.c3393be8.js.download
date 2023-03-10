@@ -1,0 +1,454 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[62], {
+    cOLG: function (e, t, a) {
+        "use strict";
+        a.r(t), a.d(t, "HomeTimeline", (function () {
+            return Mt
+        }));
+        a("kYxP");
+        var n = a("ERkP"), s = a.n(n), l = a("0yYu"), c = a("mw9i"), r = a("k/OQ"), i = a("rHpw"), o = a("qqsb"),
+            d = a.n(o), u = a("lUZE"), m = a("aITJ"), p = a("es0u"), b = a("s14A"), h = a("dwig"), _ = a("v//M"),
+            f = a("VS6U"), E = a("LsPn"), y = a("v6aA"), g = a("0+qk"), w = a("mjJ+"), T = a("k/Ka"), v = a("Lsrn");
+        const L = (e = {}) => Object(T.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [v.a.root, e.style],
+            viewBox: "0 0 36 36"
+        }, s.a.createElement("g", null, s.a.createElement("path", {
+            d: "M27.325 20.595c0 7.333-5.913 13.278-13.206 13.278S.912 27.928.912 20.595 6.825 7.317 14.12 7.317s13.205 5.944 13.205 13.278",
+            fill: "#71C9F8"
+        }), s.a.createElement("path", {
+            d: "M24.576 20.682c0 5.802-4.678 10.506-10.45 10.506-5.77 0-10.448-4.704-10.448-10.506s4.678-10.506 10.45-10.506c5.77 0 10.448 4.704 10.448 10.506",
+            fill: "#97E3FF"
+        }), s.a.createElement("path", {
+            d: "M18.98 20.94l-3.86-.583v-6.215c0-.552-.45-1-1-1s-1 .448-1 1v7.076c0 .06.023.112.033.17.007.042.012.082.025.123.026.084.063.158.11.23.022.038.044.075.072.11.05.06.11.11.173.158.042.03.08.06.128.086.065.034.133.055.204.074.04.01.072.035.114.04l4.704.71c.05.01.1.012.15.012.487 0 .914-.355.988-.85.08-.548-.295-1.058-.84-1.14z",
+            fill: "#005FD1"
+        }), s.a.createElement("path", {
+            d: "M24.553 20.682c0 5.79-4.68 10.5-10.434 10.5S3.683 26.47 3.683 20.68c0-2.953 1.227-5.707 3.31-7.665l.674 1.127c.38.635 1.227.668 1.524.06l1.153-2.36 1.312-2.687c.24-.49-.104-1.067-.65-1.088l-2.988-.116-2.625-.1c-.678-.027-1.05.735-.67 1.37l.804 1.344C2.613 13.065.883 16.736.883 20.683c0 7.333 5.937 13.298 13.234 13.298s13.234-5.964 13.234-13.297h-2.8z",
+            fill: "#1DA1F2"
+        }), s.a.createElement("path", {
+            d: "M35 13.36h-1.467v-1.34c0-.552-.448-1-1-1s-1 .448-1 1v1.34h-1.467c-.552 0-1 .45-1 1s.448 1 1 1h1.467v1.342c0 .552.448 1 1 1s1-.448 1-1v-1.34H35c.552 0 1-.45 1-1s-.448-1-1-1z",
+            fill: "#FFAD1F"
+        }), s.a.createElement("path", {
+            d: "M28.646 4.138h-2.01v-2.01c0-.552-.448-1-1-1s-1 .448-1 1v2.01h-2.01c-.552 0-1 .448-1 1s.448 1 1 1h2.01v2.01c0 .552.448 1 1 1s1-.448 1-1v-2.01h2.01c.552 0 1-.448 1-1s-.447-1-1-1z",
+            fill: "#F6809A"
+        })));
+        L.metadata = {width: 36, height: 36};
+        var C = L;
+        const S = (e = {}) => Object(T.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [v.a.root, e.style],
+            viewBox: "0 0 36 36"
+        }, s.a.createElement("g", null, s.a.createElement("path", {
+            d: "M35.508 15.41l-9.295-3.387L22.438 1.47c-.108-.302-.357-.48-.722-.495-.322.007-.604.22-.698.53l-3.293 10.71-9.132 3.805c-.285.118-.467.4-.46.708.007.308.203.58.492.686L17.92 20.8l3.775 10.552c.107.298.39.496.704.496h.016c.322-.007.604-.22.698-.53l3.293-10.712 9.132-3.803c.284-.118.466-.4.46-.708-.007-.308-.203-.58-.492-.686z",
+            fill: "#61BCF6"
+        }), s.a.createElement("path", {
+            d: "M9.57 4.715l-2.906.065-.06-2.715C6.585 1.34 5.983.763 5.256.78 4.53.796 3.955 1.4 3.97 2.125l.063 2.715-2.747.062C.56 4.92-.016 5.522 0 6.248c.017.726.62 1.302 1.346 1.285l2.747-.062.062 2.716c.017.726.62 1.302 1.345 1.286.726-.016 1.302-.62 1.286-1.345l-.062-2.715 2.905-.066c.725-.017 1.3-.62 1.285-1.346-.017-.726-.62-1.302-1.346-1.285z",
+            fill: "#F16888"
+        }), s.a.createElement("path", {
+            d: "M14.205 29.69l-1.65.036-.034-1.518c-.016-.726-.618-1.302-1.344-1.286s-1.302.62-1.286 1.345l.034 1.518-1.54.035c-.726.016-1.302.62-1.286 1.345.017.726.62 1.302 1.345 1.286l1.54-.034.034 1.518c.017.726.62 1.302 1.345 1.286.726-.016 1.302-.62 1.286-1.345l-.034-1.518 1.65-.037c.726-.016 1.302-.62 1.286-1.345-.016-.727-.62-1.303-1.345-1.286z",
+            fill: "#FD9E1A"
+        })));
+        S.metadata = {width: 36, height: 36};
+        var O = S, M = a("3JQt"), k = a("M2x3"), x = a("/yvb"), P = a("yZDr");
+        var I = ({accessibilityLabel: e, hoverLabel: t, onPress: a, renderMenu: n}) => {
+            const l = s.a.createElement(P.a, null);
+            return s.a.createElement(x.a, {
+                accessibilityLabel: e,
+                hoverLabel: {label: t},
+                icon: l,
+                onPress: a,
+                pullRight: !0,
+                renderMenu: n,
+                type: "primaryText"
+            })
+        };
+        const A = d.a.j681ac0e, F = d.a.g8220472, H = d.a.ccdd3766, B = d.a.g2657de4, j = d.a.d126cb7c,
+            z = d.a.c41ecf3c, R = d.a.d18aa6d4, N = d.a.c90dcfa2, D = d.a.bc52b0ce, U = d.a.j6382fea, J = d.a.f89f6786,
+            W = d.a.e4acfd12, q = d.a.f0c7628a, G = d.a.j7d0cac6, K = d.a.eeab441a, Q = d.a.cae804fa;
+        const Z = i.a.create((e => ({
+            description: {
+                fontSize: e.fontSizes.headline1,
+                color: e.colors.text,
+                textAlign: "center",
+                fontWeight: e.fontWeights.bold
+            }
+        })));
+        var V = function ({onContentPreferencesSelect: e, onPress: t, onToggle: a, useLatest: n}) {
+            const {featureSwitches: l} = s.a.useContext(y.a), c = n ? F : H, r = n ? j : B, i = s.a.useCallback((t => {
+                t(), e()
+            }), [e]), o = s.a.useCallback((e => {
+                e(), a()
+            }), [a]), d = s.a.useCallback((e => {
+                let t, a, c;
+                l.isTrue("responsive_web_home_pinned_timelines_latest_enabled") ? (t = n ? N : z, a = n ? Q : G, c = n ? K : q) : (t = n ? R : z, a = n ? W : J, c = n ? D : U);
+                const r = n ? C : O, d = [{text: c, onClick: o, Icon: M.a, subText: a}, {
+                    link: "/settings/content_preferences",
+                    text: A,
+                    onClick: i,
+                    Icon: k.a
+                }];
+                return s.a.createElement(w.a, {
+                    DescriptionIcon: r,
+                    description: t,
+                    descriptionStyle: Z.description,
+                    isFixed: !0,
+                    items: d,
+                    onCloseRequested: e
+                })
+            }), [l, i, o, n]);
+            return s.a.createElement(I, {accessibilityLabel: c, hoverLabel: r, onPress: t, renderMenu: d})
+        }, X = a("EY8L"), Y = a("rxPX"), $ = a("wM4e"), ee = a("1YZw"), te = Object(Y.a)().propsFromState((() => ({
+            selectedTimeline: $.c,
+            useLatest: $.e
+        }))).propsFromActions((() => ({addToast: ee.b, updateSettings: $.f}))).withAnalytics();
+        const ae = {type: X.b.HOME}, ne = {type: X.b.HOME_LATEST}, se = d.a.e4c6d14c, le = d.a.bffa2da8;
+        var ce = te((function ({addToast: e, analytics: t, selectedTimeline: a, updateSettings: n, useLatest: l}) {
+                const {featureSwitches: c} = s.a.useContext(y.a), r = s.a.useCallback((() => {
+                    t.scribe({component: "customize", element: "see_preferences", action: "click"})
+                }), [t]), i = s.a.useCallback((() => {
+                    t.scribe({section: "navigation_bar", element: "customize_button", action: "click"})
+                }), [t]), o = s.a.useCallback((() => {
+                    const s = c.isTrue("responsive_web_home_pinned_timelines_latest_enabled"), r = l ? se : le;
+                    let i;
+                    s && l && a.type === X.b.HOME_LATEST && (i = ae), s || (i = a.type === X.b.HOME ? ne : ae), t.scribe({
+                        component: "customize",
+                        element: l ? "see_top" : "see_latest",
+                        action: "click"
+                    }), n({...i && {selectedTimeline: i}, useLatest: !l}).then((() => {
+                        s || e({text: r})
+                    }))
+                }), [e, t, c, a, n, l]);
+                return s.a.createElement(V, {onContentPreferencesSelect: r, onPress: i, onToggle: o, useLatest: l})
+            })), re = a("yoO3"), ie = a("fTQJ"), oe = a("EUHl"), de = a("aeN7"), ue = a("8UdT"), me = a("MDbM"),
+            pe = a("7BdX"), be = a("hqKg"), he = a("wrlS"), _e = a("doI8"), fe = a("WA1W"), Ee = a("9TPy");
+        var ye = Object(Y.a)().propsFromState((() => ({
+                module: Object(be.createSelector)(((e, t) => t.isLatestActive), ((e, t) => t.pinnedListsEnabled), ((e, t) => t.thirdPartyTimelinesEnabled), ((e, t) => t.customTimelinesShowTweetsEnabled), $.c, he.d, ((e, t, a, n, s, l) => s.type === X.b.LIST && s.id && t ? Object(Ee.a)({listId: s.id}) : s.type === X.b.CUSTOM && s.id && a ? Object(_e.a)(s.id, n) : Object(fe.e)({
+                    useGraphQL: e ? l.isTrue("responsive_web_graphql_home_latest_enabled") : l.isTrue("responsive_web_graphql_home_enabled"),
+                    useLatest: e
+                })))
+            }))).propsFromActions((() => ({updateSettings: $.f}))).withAnalytics(), ge = a("QIgh"), we = a("iu0J"),
+            Te = a("AP4B"), ve = ({shouldHideNewEntriesBar: e = !1, withUserPresence: t = !1}) => ({
+                ...Object(ge.a)({
+                    allowDownvote: !0,
+                    tweetDismissable: !0,
+                    shouldSelfThreadIncludeAvatar: !0,
+                    shouldHideNewEntriesBar: e,
+                    withUserPresence: t
+                }), ...Te.a, [ue.c.EventSummary]: Object(we.a)({})
+            }), Le = a("97Jx"), Ce = a.n(Le), Se = a("FIs5");
+        const Oe = [{
+                height: 200,
+                uri: "https://abs.twimg.com/sticky/illustrations/empty-states/hatched-baby-chick-400x200.v1.png",
+                width: 400
+            }, {
+                height: 400,
+                uri: "https://abs.twimg.com/sticky/illustrations/empty-states/hatched-baby-chick-800x400.v1.png",
+                width: 800
+            }, {
+                height: 600,
+                uri: "https://abs.twimg.com/sticky/illustrations/empty-states/hatched-baby-chick-1200x600.v1.png",
+                width: 1200
+            }], Me = {headerMessage: d.a.d4d57850, bodyMessage: d.a.f3f4c67c, buttonText: d.a.a399ed20}, ke = d.a.d2c66f10,
+            xe = d.a.c3fbf1da, Pe = d.a.bf17deda;
+        var Ie = ({onButtonPress: e, onImpression: t}) => {
+            const {featureSwitches: a} = s.a.useContext(y.a),
+                n = a.getStringValue("responsive_web_htl_empty_state_redesign_variant"),
+                l = "a_no_graphic_new_copy" === (c = n) || "b_new_graphic_new_copy" === c ? Me : void 0;
+            var c;
+            const r = (e => "b_new_graphic_new_copy" === e || "c_new_graphic_old_copy" === e ? Oe : void 0)(n);
+            return s.a.createElement(Se.a, Ce()({
+                buttonLink: "/i/connect_people",
+                buttonText: l ? l.buttonText : Pe,
+                header: l ? l.headerMessage : ke
+            }, r && {imageVariants: r}, {message: l ? l.bodyMessage : xe, onButtonPress: e, onImpression: t}))
+        };
+        const Ae = {count: void 0}, Fe = d.a.f089620c;
+        var He = ye((({
+                          analytics: e,
+                          isLatestActive: t = !1,
+                          isLatestPinned: a = !1,
+                          module: n,
+                          recordTTFT: l = de.f,
+                          shouldFetchLoadedContentOnMount: c = !0,
+                          timelineRef: r,
+                          updateSettings: i,
+                          withUserPresence: o = !1
+                      }) => {
+                const {featureSwitches: d} = s.a.useContext(y.a), u = d.isTrue("responsive_web_home_new_tweets_pill_v2"),
+                    m = s.a.useRef(!0), p = s.a.useCallback((() => {
+                        e.scribe({component: "empty_message", action: "impression"})
+                    }), [e]), b = s.a.useCallback((() => {
+                        e.scribe({component: "empty_message", element: "primary_cta", action: "click"})
+                    }), [e]), h = s.a.useCallback((({entries: e, fetchStatus: t}) => {
+                        if (t === me.a.FAILED && (m.current = !1), m.current && e.length) {
+                            const t = e.some((({type: e}) => e === ue.c.Tweet));
+                            m.current = !1, t && l()
+                        }
+                    }), [l, m]),
+                    _ = s.a.useCallback((() => s.a.createElement(Ie, {onButtonPress: b, onImpression: p})), [b, p]);
+                return s.a.createElement(ie.a, {
+                    entryConfiguration: ve({shouldHideNewEntriesBar: u, withUserPresence: o}),
+                    fetchTopOptions: Ae,
+                    module: n,
+                    newTweetsPillMode: oe.a.URT,
+                    onEntriesRendered: h,
+                    prerollDisplayLocation: pe.c.TIMELINE_HOME,
+                    renderEmptyState: _,
+                    shouldFetchLoadedContentOnMount: c,
+                    timelineRef: r,
+                    title: Fe
+                })
+            })), Be = a("zb92"), je = a("MWbm"), ze = a("cHvH"), Re = a("5mJL"), Ne = a("DNho"), De = a("XP29"),
+            Ue = a("t62R"), Je = a("cjZk"), We = a("3rWK"), qe = a("ll3R"), Ge = a("pNJr"), Ke = a("J0mu"),
+            Qe = a("KrGU"), Ze = a("N5qz"), Ve = a("G6rE"),
+            Xe = Object(Y.a)().propsFromState((() => ({loggedInUser: Ve.e.selectLoggedInUser}))).adjustStateProps((({loggedInUser: e}) => ({
+                userAvatarURI: e && e.profile_image_url_https,
+                userName: e && e.name
+            })));
+        const Ye = d.a.g34f2c63({verb: ""}), $e = d.a.e349147c, et = s.a.createElement(Je.a, null),
+            tt = s.a.createElement(We.a, null), at = s.a.createElement(qe.a, null), nt = s.a.createElement(Ge.a, null),
+            st = s.a.createElement(Ke.a, null), lt = s.a.createElement(Qe.a, null), ct = i.a.create((e => ({
+                root: {
+                    backgroundColor: e.colors.cellBackground,
+                    paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                    paddingVertical: e.spaces.space8
+                },
+                avatarColumn: {flexGrow: 1, minWidth: e.spaces.space32, maxWidth: e.spaces.space48},
+                avatar: {width: "100%"},
+                body: {flexDirection: "column", flexGrow: 1},
+                fakeInput: {
+                    paddingTop: e.spaces.space16,
+                    paddingBottom: e.spaces.space8,
+                    paddingHorizontal: e.spaces.space2
+                },
+                toolbar: {
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginRight: e.spaces.space2,
+                    marginTop: e.spaces.space20
+                },
+                toolbarSection: {alignItems: "center", flexDirection: "row"},
+                toolBarButton: {marginHorizontal: 0},
+                firstToolBarButton: {marginLeft: `-${e.spaces.space8}`},
+                iconContainer: {marginLeft: e.spacesPx.space2},
+                icon: {
+                    color: e.colors.primary,
+                    height: "1.5em",
+                    marginRight: e.spaces.space12,
+                    marginLeft: `calc(${e.spaces.space4} + ${e.spaces.space1})`,
+                    width: "1.5em"
+                },
+                firstIcon: {marginLeft: 0},
+                lastIcon: {marginRight: 0},
+                tweetButton: {marginLeft: e.spaces.space12}
+            })));
+        var rt = Xe((({userAvatarURI: e}) => s.a.createElement(ze.a, null, (({windowWidth: t}) => {
+            const a = !Ze.a.isOneColumnSquishedLayout(t);
+            return s.a.createElement(Re.a, {
+                avatarCell: s.a.createElement(Ne.a.Consumer, null, (({avatarSize: t}) => s.a.createElement(De.a, {
+                    size: t,
+                    style: ct.avatar,
+                    uri: e
+                }))), avatarCellStyle: ct.avatarColumn, cellStyle: ct.body, style: ct.root
+            }, s.a.createElement(Ue.b, {
+                color: "gray700",
+                numberOfLines: 1,
+                size: "headline1",
+                style: ct.fakeInput
+            }, $e), s.a.createElement(je.a, {style: ct.toolbar}, s.a.createElement(je.a, {style: [ct.toolbarSection, ct.iconContainer]}, s.a.createElement(x.a, {
+                disabled: !0,
+                icon: et,
+                size: "medium",
+                style: [ct.toolBarButton, ct.firstToolBarButton],
+                type: "brandText"
+            }), s.a.createElement(x.a, {
+                disabled: !0,
+                icon: tt,
+                size: "medium",
+                style: ct.toolBarButton,
+                type: "brandText"
+            }), a ? s.a.createElement(x.a, {
+                disabled: !0,
+                icon: at,
+                size: "medium",
+                style: ct.toolBarButton,
+                type: "brandText"
+            }) : null, s.a.createElement(x.a, {
+                disabled: !0,
+                icon: nt,
+                size: "medium",
+                style: ct.toolBarButton,
+                type: "brandText"
+            }), a ? s.a.createElement(x.a, {
+                disabled: !0,
+                icon: st,
+                size: "medium",
+                style: ct.toolBarButton,
+                type: "brandText"
+            }) : null, s.a.createElement(x.a, {
+                disabled: !0,
+                icon: lt,
+                size: "medium",
+                style: ct.toolBarButton,
+                type: "brandText"
+            })), s.a.createElement(je.a, {style: ct.toolbarSection}, s.a.createElement(x.a, {
+                disabled: !0,
+                style: ct.tweetButton,
+                type: "brandFilled"
+            }, Ye))))
+        })))), it = a("2dXj"), ot = Object(Be.a)({
+            loader: () => (it.a.preload() || Promise.resolve()).then((() => Promise.all([a.e(0), a.e(3), a.e(4), a.e(5), a.e(88)]).then(a.bind(null, "RrO2")))),
+            renderPlaceholder: () => s.a.createElement(rt, null)
+        }), dt = a("Es6L"), ut = a("ZB2A");
+        const mt = () => window.performance && "function" == typeof window.performance.now;
+        var pt = a("7JQg"), bt = a("+5pL"), ht = a("0KEI"), _t = a("2gye"), ft = a("kHBp"), Et = a("wqZ5");
+        const yt = e => ft.a.selectMany(e, Object(Et.f)(e));
+        var gt = Object(Y.a)().propsFromState((() => ({
+            enabledThirdPartyTimelineTools: _t.e,
+            pinnedLists: yt,
+            selectedTimeline: $.c,
+            settingsFetchStatus: $.d,
+            useLatest: $.e
+        }))).propsFromActions((() => ({
+            createLocalApiErrorHandlerFetchPins: Object(ht.createLocalApiErrorHandlerWithContextFactory)("HOME_TIMELINE_FETCH_PINS"),
+            createLocalApiErrorHandlerFetchAllTools: Object(ht.createLocalApiErrorHandlerWithContextFactory)("HOME_TIMELINE_FETCH_CONTENT_CONTROL_TOOL"),
+            fetchAllContentControlToolsIfNeeded: _t.c,
+            fetchPinsIfNeeded: Et.c,
+            updateSettings: $.f
+        }))).withAnalytics({page: "home"});
+        const wt = d.a.i5f7b6b8, Tt = d.a.d126cb7c, vt = d.a.ha8209bc, Lt = ut.a.HOME, Ct = {page: "custom_timeline"},
+            St = {page: "home"}, Ot = {page: "home_latest"};
+
+        function Mt({
+                        analytics: e,
+                        createLocalApiErrorHandlerFetchAllTools: t,
+                        createLocalApiErrorHandlerFetchPins: n,
+                        enabledThirdPartyTimelineTools: i,
+                        fetchAllContentControlToolsIfNeeded: o,
+                        fetchPinsIfNeeded: d,
+                        history: w,
+                        location: T,
+                        pinnedLists: v,
+                        selectedTimeline: L,
+                        settingsFetchStatus: C,
+                        updateSettings: S,
+                        useLatest: O
+                    }) {
+            const {featureSwitches: M, isRestrictedSession: k} = s.a.useContext(y.a), x = s.a.useRef(null),
+                P = s.a.useRef(!1), I = s.a.useRef(0), A = M.isTrue("home_timeline_latest_timeline_switch_enabled"),
+                F = M.isTrue("responsive_web_home_pinned_timelines_lists_enabled"),
+                H = M.isTrue("responsive_web_dtime_tpat_enabled"),
+                B = M.isTrue("responsive_web_dtime_show_new_tweets_enabled"), j = s.a.useRef(null),
+                z = s.a.useCallback((() => {
+                    var e;
+                    null == (e = j.current) || e.fetchTop({onlyIfStale: !0})
+                }), [j]);
+            s.a.useEffect((() => {
+                if (P.current = !0, window.addEventListener("focus", z), M.isTrue("responsive_web_framerate_tracking_home_enabled")) {
+                    const e = `home${m.b.isDesktopOS() ? "" : "_mobile"}`;
+                    (mt() ? a.e(365).then(a.bind(null, "Iid0")).then((({default: e}) => e)) : Promise.resolve(void 0)).then((t => {
+                        P.current && t && (x.current = t({reportNamespace: e}))
+                    }))
+                }
+                return () => {
+                    var e;
+                    null == (e = x.current) || e.stop(), P.current = !1, window.removeEventListener("focus", z)
+                }
+            }), [n, M, z]), s.a.useEffect((() => {
+                F && d().catch(n())
+            }), [n, d, F]), s.a.useEffect((() => {
+                H && o().catch(t())
+            }), [t, o, H]), s.a.useEffect((() => {
+                I.current = Date.now()
+            }), [L]);
+            const R = s.a.useMemo((() => O && M.isTrue("responsive_web_home_pinned_timelines_latest_enabled")), [M, O]),
+                N = s.a.useMemo((() => R ? L.type === X.b.HOME_LATEST : O && A), [R, A, L, O]),
+                D = s.a.useCallback((({id: t, label: a, type: n}) => {
+                    const s = L.type === n && L.id === t, l = Object(bt.a)(L), c = Object(bt.a)({type: n, id: t});
+                    return {
+                        isActive: () => s, label: a, key: l, onClick: () => {
+                            if (s) {
+                                var a;
+                                null == (a = j.current) || a.refreshOrGoTop()
+                            } else {
+                                const a = Date.now() - I.current;
+                                S({selectedTimeline: {type: n, ...t && {id: t}}}), e.scribe({
+                                    section: l,
+                                    element: c,
+                                    action: "click",
+                                    data: {duration_ms: a}
+                                })
+                            }
+                        }, retainScrollPosition: !1, to: "/home"
+                    }
+                }), [e, I, L, S]), U = s.a.useCallback((() => {
+                    var e;
+                    null == (e = j.current) || e.refreshOrGoTop()
+                }), [j]), J = s.a.useCallback((() => {
+                    const e = M.isTrue("responsive_web_audio_space_ring_home_timeline");
+                    return s.a.createElement(b.a, null, s.a.createElement(He, {
+                        customTimelinesShowTweetsEnabled: B,
+                        isLatestActive: N,
+                        isLatestPinned: R,
+                        pinnedListsEnabled: F,
+                        shouldFetchLoadedContentOnMount: N,
+                        thirdPartyTimelinesEnabled: H,
+                        timelineRef: e => {
+                            j.current = e
+                        },
+                        withUserPresence: e
+                    }))
+                }), [M, N, R, F, H, B]), W = s.a.useCallback((() => {
+                    const e = s.a.createElement(g.a, {history: w});
+                    return s.a.createElement(s.a.Fragment, null, Object(dt.a)() && !k ? s.a.createElement(s.a.Fragment, null, s.a.createElement(ot, {
+                        history: w,
+                        location: T
+                    }), s.a.createElement(l.a, null)) : null, s.a.createElement(h.a, {
+                        component: c.a,
+                        fab: e
+                    }, m.b.isKaiOS() ? s.a.createElement(E.a, {
+                        leftText: wt, onLeftClick: () => {
+                            w.push("/account")
+                        }
+                    }) : null, s.a.createElement(_.a, {fetchStatus: C, render: J})))
+                }), [w, k, T, J, C]), q = s.a.useMemo((() => {
+                    let e;
+                    return e = L.type === X.b.CUSTOM && L.id && H ? {
+                        ...Ct,
+                        section: Object(bt.a)(L)
+                    } : M.isTrue("responsive_web_home_namespace_update_enabled") ? {
+                        ...St,
+                        section: N ? "latest" : "home"
+                    } : N ? Ot : St, e
+                }), [M, N, L, H]), G = s.a.useMemo((() => {
+                    const e = D({type: X.b.HOME, label: vt}), t = O ? D({type: X.b.HOME_LATEST, label: Tt}) : void 0,
+                        a = F ? v.map((({id_str: e, name: t}) => D({type: X.b.LIST, id: e, label: t}))) : [],
+                        n = H ? i.map((({name: e, timeline: {id: t}}) => D({type: X.b.CUSTOM, id: t, label: e}))) : [];
+                    return [...R ? [e, t] : O && A ? [t] : [e], ...a, ...n]
+                }), [i, D, R, A, v, F, H, O]), K = !Object(dt.a)(), Q = G.length > 1,
+                Z = K && Q ? s.a.createElement(u.a, {style: kt.iconTwitter}) : void 0,
+                V = (Q ? A && (L.type === X.b.HOME || L.type === X.b.HOME_LATEST) : A) ? s.a.createElement(ce, null) : void 0,
+                Y = Q ? s.a.createElement(r.a, {links: G}) : void 0, $ = !Q && N ? Tt : vt, ee = !K || !Q ? $ : null;
+            return s.a.createElement(pt.c, {namespace: q}, s.a.createElement(re.a, {
+                behavioralEventViewType: Lt,
+                locationKey: q.page
+            }, s.a.createElement(f.a, {
+                centeredLogo: Z,
+                documentTitle: $,
+                history: w,
+                onTabRefresh: U,
+                primaryContent: W,
+                rightControl: V,
+                secondaryBar: Y,
+                sidebarContent: s.a.createElement(p.a, null),
+                title: ee
+            })))
+        }
+
+        const kt = i.a.create((e => ({iconTwitter: {flexGrow: 1, height: "1.75rem", color: e.colors.primary}})));
+        t.default = gt(Mt)
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/bundle.HomeTimeline.c3393be8.js.map

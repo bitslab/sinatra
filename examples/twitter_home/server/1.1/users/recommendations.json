@@ -1,0 +1,355 @@
+[
+  {
+    "user": {
+      "id": 705807268835672064,
+      "id_str": "705807268835672064",
+      "name": "James Fridman",
+      "screen_name": "fjamie013",
+      "location": null,
+      "profile_location": null,
+      "description": "Do not submit any personal photos that you do not want to be made public. Terms and conditions apply. https:\/\/t.co\/WWtgLUfRED",
+      "url": "https:\/\/linktr.ee\/jamesfridman",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https:\/\/linktr.ee\/jamesfridman",
+              "expanded_url": "https:\/\/linktr.ee\/jamesfridman",
+              "display_url": "linktr.ee\/jamesfridman",
+              "indices": [
+                0,
+                30
+              ]
+            }
+          ]
+        },
+        "description": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/WWtgLUfRED",
+              "expanded_url": "http:\/\/jamesfridman.com\/termsandconditions",
+              "display_url": "jamesfridman.com\/termsandcondit\u2026",
+              "indices": [
+                102,
+                125
+              ]
+            }
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 2143718,
+      "fast_followers_count": 0,
+      "normal_followers_count": 2143718,
+      "friends_count": 2,
+      "listed_count": 3138,
+      "created_at": "Fri Mar 04 17:29:00 +0000 2016",
+      "favourites_count": 0,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": true,
+      "statuses_count": 367,
+      "media_count": 363,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "F5F8FA",
+      "profile_background_image_url": null,
+      "profile_background_image_url_https": null,
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/707183159184629760\/mOyFvZ-G_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/707183159184629760\/mOyFvZ-G_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/705807268835672064\/1476361075",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": true,
+      "default_profile_image": false,
+      "pinned_tweet_ids": [],
+      "pinned_tweet_ids_str": [],
+      "has_custom_timelines": false,
+      "can_dm": true,
+      "can_media_tag": true,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false,
+      "want_retweets": false,
+      "advertiser_account_type": "none",
+      "advertiser_account_service_levels": [],
+      "analytics_type": "enabled",
+      "profile_interstitial_type": "",
+      "business_profile_state": "none",
+      "translator_type": "regular",
+      "withheld_in_countries": [],
+      "followed_by": false,
+      "require_some_consent": false
+    },
+    "user_id": "705807268835672064"
+  },
+  {
+    "user": {
+      "id": 1035856038912827392,
+      "id_str": "1035856038912827392",
+      "name": "A meme page to check every time MatLab crashes",
+      "screen_name": "memecrashes",
+      "location": null,
+      "profile_location": null,
+      "description": "Send your best Physics, Maths, Chemistry, Biology and Engineering memes by DM (we only own the content we sign)",
+      "url": null,
+      "entities": {
+        "description": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 328912,
+      "fast_followers_count": 0,
+      "normal_followers_count": 328912,
+      "friends_count": 265,
+      "listed_count": 642,
+      "created_at": "Sat Sep 01 11:44:59 +0000 2018",
+      "favourites_count": 3135,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 4716,
+      "media_count": 4087,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "F5F8FA",
+      "profile_background_image_url": null,
+      "profile_background_image_url_https": null,
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1035894197805633536\/nLQiQBdp_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1035894197805633536\/nLQiQBdp_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1035856038912827392\/1554150847",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": true,
+      "default_profile_image": false,
+      "pinned_tweet_ids": [
+        1288949707973234689
+      ],
+      "pinned_tweet_ids_str": [
+        "1288949707973234689"
+      ],
+      "has_custom_timelines": true,
+      "can_dm": true,
+      "can_media_tag": true,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false,
+      "want_retweets": false,
+      "advertiser_account_type": "none",
+      "advertiser_account_service_levels": [],
+      "analytics_type": "disabled",
+      "profile_interstitial_type": "",
+      "business_profile_state": "none",
+      "translator_type": "none",
+      "withheld_in_countries": [],
+      "followed_by": false,
+      "require_some_consent": false
+    },
+    "user_id": "1035856038912827392"
+  },
+  {
+    "user": {
+      "id": 1232783237623119872,
+      "id_str": "1232783237623119872",
+      "name": "NASA's Perseverance Mars Rover",
+      "screen_name": "NASAPersevere",
+      "location": "Jezero Crater, Mars",
+      "profile_location": null,
+      "description": "NASA Mars rover. Launch: July 30, 2020. Landing: Feb. 18, 2021. Hobbies: Photography, collecting rocks, off-roading. \ud83d\ude80 Team HQ @NASAJPL",
+      "url": "https:\/\/mars.nasa.gov\/mars2020",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https:\/\/mars.nasa.gov\/mars2020",
+              "expanded_url": "https:\/\/mars.nasa.gov\/mars2020",
+              "display_url": "mars.nasa.gov\/mars2020",
+              "indices": [
+                0,
+                30
+              ]
+            }
+          ]
+        },
+        "description": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 3023019,
+      "fast_followers_count": 0,
+      "normal_followers_count": 3023019,
+      "friends_count": 58,
+      "listed_count": 7332,
+      "created_at": "Wed Feb 26 21:43:46 +0000 2020",
+      "favourites_count": 1195,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": true,
+      "statuses_count": 908,
+      "media_count": 399,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "F5F8FA",
+      "profile_background_image_url": null,
+      "profile_background_image_url_https": null,
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1379527227436531712\/QasZP9s-_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1379527227436531712\/QasZP9s-_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1232783237623119872\/1620235042",
+      "profile_link_color": "1DA1F2",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": true,
+      "default_profile_image": false,
+      "pinned_tweet_ids": [],
+      "pinned_tweet_ids_str": [],
+      "has_custom_timelines": true,
+      "can_dm": true,
+      "can_media_tag": true,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false,
+      "want_retweets": false,
+      "advertiser_account_type": "none",
+      "advertiser_account_service_levels": [],
+      "analytics_type": "disabled",
+      "profile_interstitial_type": "",
+      "business_profile_state": "none",
+      "translator_type": "none",
+      "withheld_in_countries": [],
+      "followed_by": false,
+      "require_some_consent": false
+    },
+    "user_id": "1232783237623119872"
+  },
+  {
+    "user": {
+      "id": 29472803,
+      "id_str": "29472803",
+      "name": "NASA Webb Telescope",
+      "screen_name": "NASAWebb",
+      "location": "Lagrange Point 2",
+      "profile_location": null,
+      "description": "Launched: Dec. 25, 2021. First images: July 12, 2022. Follow along as the world's most powerful space telescope gets ready to #UnfoldTheUniverse!",
+      "url": "https:\/\/webb.nasa.gov",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https:\/\/webb.nasa.gov",
+              "expanded_url": "https:\/\/webb.nasa.gov",
+              "display_url": "webb.nasa.gov",
+              "indices": [
+                0,
+                21
+              ]
+            }
+          ]
+        },
+        "description": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1543885,
+      "fast_followers_count": 0,
+      "normal_followers_count": 1543885,
+      "friends_count": 77,
+      "listed_count": 8880,
+      "created_at": "Tue Apr 07 15:40:56 +0000 2009",
+      "favourites_count": 3993,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": true,
+      "statuses_count": 9908,
+      "media_count": 2401,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FCFCFC",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/685182791496134658\/Wmyak8D6_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/685182791496134658\/Wmyak8D6_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/29472803\/1640537408",
+      "profile_link_color": "784871",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "B2C1ED",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "pinned_tweet_ids": [
+        1545413807996129280
+      ],
+      "pinned_tweet_ids_str": [
+        "1545413807996129280"
+      ],
+      "has_custom_timelines": true,
+      "can_dm": true,
+      "can_media_tag": true,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false,
+      "want_retweets": false,
+      "advertiser_account_type": "none",
+      "advertiser_account_service_levels": [],
+      "analytics_type": "enabled",
+      "profile_interstitial_type": "",
+      "business_profile_state": "none",
+      "translator_type": "none",
+      "withheld_in_countries": [],
+      "followed_by": false,
+      "require_some_consent": false
+    },
+    "user_id": "29472803"
+  }
+]

@@ -1,0 +1,215 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app').app;
+var debug = require('debug')('dom-server:server');
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+/**
+ * Create a new socket instance
+ */
+
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+
+
+/********************************** Handle socket connections ****************************************/
+let domSocket = {};
+let changesData = {};
+let _leaderConnected = false;
+let handlersForDom2 = [];
+let randomToSend = [];
+let randomValues;
+
+io.on('connection', function (socket) {
+
+  function timeoutIntervalSocketHandler(targetEvent, hashedFunc) {
+    console.log(`dom1 sent me function = ${hashedFunc}`);
+    if (domSocket['dom2']){
+      domSocket['dom2'].emit(targetEvent, hashedFunc);
+    }
+  }
+
+  // Testing received object format below
+  socket.on('callHandler', function(ev, listenerOwnerId, id, eventObject, eventID, leaderTargetHTML = "", currentSinatraIdIndex) {
+    if (domSocket['dom2']) {
+      console.log(`calling ${ev} handler on id ${id}`);
+      console.log(eventObject);
+      domSocket['dom2'].emit('callHandler', ev, listenerOwnerId, id, eventObject, eventID, leaderTargetHTML, currentSinatraIdIndex);
+    }
+  });
+
+  socket.on('loggedEvent', function(loggedEvent) {
+    if (domSocket['dom2']) {
+      domSocket['dom2'].emit('loggedEvent', loggedEvent);
+    }
+    else {
+      handlersForDom2.push(loggedEvent);
+    }
+  });
+
+  socket.on('browserIdentity', function(identity) {
+    console.log(`Connection received for ${identity}`);
+
+    if (identity === 'DOM1') {
+      _leaderConnected = true;
+      domSocket['dom1'] = socket;
+      domSocket['dom2'] = null;
+      randomToSend = [];
+      handlersForDom2 = [];
+    }
+    else if (identity === 'DOM2') {
+      if (!domSocket['dom1']) {
+        console.error('Received dom2 connect before dom1');
+        return;
+      }
+
+      domSocket['dom2'] = socket;
+
+      // Send dom2 the same list of random values that was sent by dom1
+      //console.log(`sending random values => ${randomValues}`);
+      domSocket['dom2'].emit('random', randomValues);
+
+      // Send all handler references obtained from dom1 upto this point to dom2
+      console.info(`Sending ${handlersForDom2.length} events to DOM2`);
+      domSocket['dom2'].emit('loggedEvent', handlersForDom2);
+    }
+    else {
+      console.error(`Unknown identity '${identity}'`);
+    }
+  });
+
+  /**
+   * This socket event is sent by dom2 when it finishes executing all handlers in sequence
+   * to let express and consequently dom1 know that dom2 has reached dom1's state.
+   */
+  socket.on('dom2Updated', function() {
+    domSocket['dom1'].emit('dom2Updated');
+  });
+
+  socket.on('swapRole', function(pending) {
+    console.log("received message from dom1 to swap roles");
+    if (domSocket['dom2']) {
+      domSocket['dom2'].emit('swapRole', pending);
+
+      if (!pending) {
+        let tempDom1Socket = domSocket['dom1'];
+        domSocket['dom1'] = domSocket['dom2'];
+        domSocket['dom2'] = tempDom1Socket;
+      }
+    }
+  });
+
+  socket.on('swapComplete', function() {
+    domSocket['dom2'].emit('swapComplete');
+  });
+
+  socket.on('followerReply', function(eventID) {
+    domSocket['dom1'].emit('followerReply', eventID);
+  });
+
+  /**
+   * This event receives the list of random values from dom1
+   */
+  socket.on('random', function(dom1RandomValues) {
+    randomValues = dom1RandomValues;
+  });
+
+  socket.on('timeout', function(hashedFunc) {
+    timeoutIntervalSocketHandler('timeout', hashedFunc);
+  });
+
+  socket.on('pendingTimeouts', function(pendingTimeouts) {
+      if (domSocket['dom2']) domSocket['dom2'].emit('pendingTimeouts', pendingTimeouts);
+  });
+
+  socket.on('interval', function(hashedFunc) {
+    timeoutIntervalSocketHandler('interval', hashedFunc);
+  });
+});
+
+/**************************************************** END ************************************************/
+module.exports = server;

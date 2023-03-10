@@ -1,0 +1,1767 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[177], {
+    "+Aie": function (e, t, n) {
+        var i;
+        !function (o, r, s) {
+            if (o) {
+                for (var a, c = {
+                    8: "backspace",
+                    9: "tab",
+                    13: "enter",
+                    16: "shift",
+                    17: "ctrl",
+                    18: "alt",
+                    20: "capslock",
+                    27: "esc",
+                    32: "space",
+                    33: "pageup",
+                    34: "pagedown",
+                    35: "end",
+                    36: "home",
+                    37: "left",
+                    38: "up",
+                    39: "right",
+                    40: "down",
+                    45: "ins",
+                    46: "del",
+                    91: "meta",
+                    93: "meta",
+                    224: "meta"
+                }, l = {
+                    106: "*",
+                    107: "+",
+                    109: "-",
+                    110: ".",
+                    111: "/",
+                    186: ";",
+                    187: "=",
+                    188: ",",
+                    189: "-",
+                    190: ".",
+                    191: "/",
+                    192: "`",
+                    219: "[",
+                    220: "\\",
+                    221: "]",
+                    222: "'"
+                }, u = {
+                    "~": "`",
+                    "!": "1",
+                    "@": "2",
+                    "#": "3",
+                    $: "4",
+                    "%": "5",
+                    "^": "6",
+                    "&": "7",
+                    "*": "8",
+                    "(": "9",
+                    ")": "0",
+                    _: "-",
+                    "+": "=",
+                    ":": ";",
+                    '"': "'",
+                    "<": ",",
+                    ">": ".",
+                    "?": "/",
+                    "|": "\\"
+                }, h = {
+                    option: "alt",
+                    command: "meta",
+                    return: "enter",
+                    escape: "esc",
+                    plus: "+",
+                    mod: /Mac|iPod|iPhone|iPad/.test(navigator.platform) ? "meta" : "ctrl"
+                }, p = 1; p < 20; ++p) c[111 + p] = "f" + p;
+                for (p = 0; p <= 9; ++p) c[p + 96] = p.toString();
+                y.prototype.bind = function (e, t, n) {
+                    var i = this;
+                    return e = e instanceof Array ? e : [e], i._bindMultiple.call(i, e, t, n), i
+                }, y.prototype.unbind = function (e, t) {
+                    return this.bind.call(this, e, (function () {
+                    }), t)
+                }, y.prototype.trigger = function (e, t) {
+                    var n = this;
+                    return n._directMap[e + ":" + t] && n._directMap[e + ":" + t]({}, e), n
+                }, y.prototype.reset = function () {
+                    var e = this;
+                    return e._callbacks = {}, e._directMap = {}, e
+                }, y.prototype.stopCallback = function (e, t) {
+                    if ((" " + t.className + " ").indexOf(" mousetrap ") > -1) return !1;
+                    if (g(t, this.target)) return !1;
+                    if ("composedPath" in e && "function" == typeof e.composedPath) {
+                        var n = e.composedPath()[0];
+                        n !== e.target && (t = n)
+                    }
+                    return "INPUT" == t.tagName || "SELECT" == t.tagName || "TEXTAREA" == t.tagName || t.isContentEditable
+                }, y.prototype.handleKey = function () {
+                    var e = this;
+                    return e._handleKey.apply(e, arguments)
+                }, y.addKeycodes = function (e) {
+                    for (var t in e) e.hasOwnProperty(t) && (c[t] = e[t]);
+                    a = null
+                }, y.init = function () {
+                    var e = y(r);
+                    for (var t in e) "_" !== t.charAt(0) && (y[t] = function (t) {
+                        return function () {
+                            return e[t].apply(e, arguments)
+                        }
+                    }(t))
+                }, y.init(), o.Mousetrap = y, e.exports && (e.exports = y), void 0 === (i = function () {
+                    return y
+                }.call(t, n, t, e)) || (e.exports = i)
+            }
+
+            function d(e, t, n) {
+                e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent("on" + t, n)
+            }
+
+            function m(e) {
+                if ("keypress" == e.type) {
+                    var t = String.fromCharCode(e.which);
+                    return e.shiftKey || (t = t.toLowerCase()), t
+                }
+                return c[e.which] ? c[e.which] : l[e.which] ? l[e.which] : String.fromCharCode(e.which).toLowerCase()
+            }
+
+            function b(e) {
+                return "shift" == e || "ctrl" == e || "alt" == e || "meta" == e
+            }
+
+            function f(e, t, n) {
+                return n || (n = function () {
+                    if (!a) for (var e in a = {}, c) e > 95 && e < 112 || c.hasOwnProperty(e) && (a[c[e]] = e);
+                    return a
+                }()[e] ? "keydown" : "keypress"), "keypress" == n && t.length && (n = "keydown"), n
+            }
+
+            function _(e, t) {
+                var n, i, o, r = [];
+                for (n = function (e) {
+                    return "+" === e ? ["+"] : (e = e.replace(/\+{2}/g, "+plus")).split("+")
+                }(e), o = 0; o < n.length; ++o) i = n[o], h[i] && (i = h[i]), t && "keypress" != t && u[i] && (i = u[i], r.push("shift")), b(i) && r.push(i);
+                return {key: i, modifiers: r, action: t = f(i, r, t)}
+            }
+
+            function g(e, t) {
+                return null !== e && e !== r && (e === t || g(e.parentNode, t))
+            }
+
+            function y(e) {
+                var t = this;
+                if (e = e || r, !(t instanceof y)) return new y(e);
+                t.target = e, t._callbacks = {}, t._directMap = {};
+                var n, i = {}, o = !1, s = !1, a = !1;
+
+                function c(e) {
+                    e = e || {};
+                    var t, n = !1;
+                    for (t in i) e[t] ? n = !0 : i[t] = 0;
+                    n || (a = !1)
+                }
+
+                function l(e, n, o, r, s, a) {
+                    var c, l, u, h, p = [], d = o.type;
+                    if (!t._callbacks[e]) return [];
+                    for ("keyup" == d && b(e) && (n = [e]), c = 0; c < t._callbacks[e].length; ++c) if (l = t._callbacks[e][c], (r || !l.seq || i[l.seq] == l.level) && d == l.action && ("keypress" == d && !o.metaKey && !o.ctrlKey || (u = n, h = l.modifiers, u.sort().join(",") === h.sort().join(",")))) {
+                        var m = !r && l.combo == s, f = r && l.seq == r && l.level == a;
+                        (m || f) && t._callbacks[e].splice(c, 1), p.push(l)
+                    }
+                    return p
+                }
+
+                function u(e, n, i, o) {
+                    t.stopCallback(n, n.target || n.srcElement, i, o) || !1 === e(n, i) && (function (e) {
+                        e.preventDefault ? e.preventDefault() : e.returnValue = !1
+                    }(n), function (e) {
+                        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = !0
+                    }(n))
+                }
+
+                function h(e) {
+                    "number" != typeof e.which && (e.which = e.keyCode);
+                    var n = m(e);
+                    n && ("keyup" != e.type || o !== n ? t.handleKey(n, function (e) {
+                        var t = [];
+                        return e.shiftKey && t.push("shift"), e.altKey && t.push("alt"), e.ctrlKey && t.push("ctrl"), e.metaKey && t.push("meta"), t
+                    }(e), e) : o = !1)
+                }
+
+                function p(e, t, r, s) {
+                    function l(t) {
+                        return function () {
+                            a = t, ++i[e], clearTimeout(n), n = setTimeout(c, 1e3)
+                        }
+                    }
+
+                    function h(t) {
+                        u(r, t, e), "keyup" !== s && (o = m(t)), setTimeout(c, 10)
+                    }
+
+                    i[e] = 0;
+                    for (var p = 0; p < t.length; ++p) {
+                        var d = p + 1 === t.length ? h : l(s || _(t[p + 1]).action);
+                        f(t[p], d, s, e, p)
+                    }
+                }
+
+                function f(e, n, i, o, r) {
+                    t._directMap[e + ":" + i] = n;
+                    var s, a = (e = e.replace(/\s+/g, " ")).split(" ");
+                    a.length > 1 ? p(e, a, n, i) : (s = _(e, i), t._callbacks[s.key] = t._callbacks[s.key] || [], l(s.key, s.modifiers, {type: s.action}, o, e, r), t._callbacks[s.key][o ? "unshift" : "push"]({
+                        callback: n,
+                        modifiers: s.modifiers,
+                        action: s.action,
+                        seq: o,
+                        level: r,
+                        combo: e
+                    }))
+                }
+
+                t._handleKey = function (e, t, n) {
+                    var i, o = l(e, t, n), r = {}, h = 0, p = !1;
+                    for (i = 0; i < o.length; ++i) o[i].seq && (h = Math.max(h, o[i].level));
+                    for (i = 0; i < o.length; ++i) if (o[i].seq) {
+                        if (o[i].level != h) continue;
+                        p = !0, r[o[i].seq] = 1, u(o[i].callback, n, o[i].combo, o[i].seq)
+                    } else p || u(o[i].callback, n, o[i].combo);
+                    var d = "keypress" == n.type && s;
+                    n.type != a || b(e) || d || c(r), s = p && "keydown" == n.type
+                }, t._bindMultiple = function (e, t, n) {
+                    for (var i = 0; i < e.length; ++i) f(e[i], t, n)
+                }, d(e, "keypress", h), d(e, "keydown", h), d(e, "keyup", h)
+            }
+        }("undefined" != typeof window ? window : null, "undefined" != typeof window ? document : null)
+    }, "6oVL": function (e, t, n) {
+        "use strict";
+        n("kYxP"), n("MvUL");
+        var i = n("ERkP"), o = n.n(i), r = n("MWbm"), s = n("fEA7"), a = n.n(s), c = n("/yvb"), l = n("rHpw"),
+            u = n("qqsb"), h = n.n(u), p = n("cnVF"), d = n("v6aA"), m = n("mrHL"), b = n("Ukpf"), f = n("BTou"),
+            _ = n("Irs7"), g = "LoginForm_Login_Button";
+        const y = h.a.e919c3bc;
+
+        class S extends o.a.Component {
+            constructor(...e) {
+                super(...e), this._mobileLoginToken = a.a.v1().replace(/-/g, ""), this._handleSubmit = () => {
+                    const {analytics: e, onSubmit: t} = this.props;
+                    if (e.scribe({action: "submit"}), f.a.flushHTMLCache(), this._setLoginCookie(), t) return t(this._form.elements), !1
+                }, this._handleSubmitButtonClick = () => {
+                    !1 !== this._handleSubmit() && this._form.submit()
+                }, this._setFormRef = e => {
+                    e && (this._form = e)
+                }, this._setLoginCookie = () => {
+                    const e = new Date(Date.now());
+                    e.setTime(e.getTime() + 3e5), Object(m.e)(p.r, this._mobileLoginToken, {
+                        featureSwitches: this.context.featureSwitches,
+                        cookieOptions: {domain: void 0, expires: e}
+                    })
+                }
+            }
+
+            componentDidUpdate(e) {
+                this.props.autoSubmit && !e.autoSubmit && this._handleSubmitButtonClick()
+            }
+
+            componentDidMount() {
+                b.a.inject({scriptId: "jsInstLibrary", src: "https://twitter.com/i/js_inst?c_name=ui_metrics"})
+            }
+
+            render() {
+                const {
+                        children: e,
+                        formActionUrl: t,
+                        hideSubmitButton: n,
+                        horizontalLayout: i,
+                        loginReturnPath: s,
+                        submitButtonDisabled: a,
+                        submitButtonLabel: l,
+                        submitButtonSize: u,
+                        submitButtonStyle: h,
+                        submitButtonType: p
+                    } = this.props, [d, m] = "string" == typeof s ? s.split("?") : [],
+                    b = `${encodeURI(d || "/")}${m ? `?${m}` : ""}`,
+                    f = o.a.createElement(r.a, {style: i && v.horizontalFields}, o.a.createElement("input", {
+                        name: "redirect_after_login",
+                        type: "hidden",
+                        value: b
+                    }), o.a.createElement("input", {
+                        name: "remember_me",
+                        type: "hidden",
+                        value: "1"
+                    }), o.a.createElement("input", {
+                        name: "authenticity_token",
+                        type: "hidden",
+                        value: this._mobileLoginToken
+                    }), o.a.createElement("input", {
+                        name: "wfa",
+                        type: "hidden",
+                        value: "1"
+                    }), o.a.createElement("input", {
+                        autoComplete: "off",
+                        name: "ui_metrics",
+                        type: "hidden"
+                    }), e, n ? null : o.a.createElement(r.a, {style: i && v.loginButtonContainer}, o.a.createElement(c.a, {
+                        disabled: a,
+                        onPress: this._handleSubmitButtonClick,
+                        size: u,
+                        style: h,
+                        testID: g,
+                        type: p
+                    }, l)));
+                return o.a.createElement(r.a, {style: v.loginForm}, o.a.createElement("form", {
+                    action: t,
+                    children: f,
+                    method: "post",
+                    noValidate: !0,
+                    onSubmit: this._handleSubmit,
+                    ref: this._setFormRef
+                }))
+            }
+        }
+
+        S.contextType = d.a, S.defaultProps = {
+            autoSubmit: !1,
+            formActionUrl: "/sessions",
+            hideSubmitButton: !1,
+            submitButtonDisabled: !1,
+            submitButtonLabel: y,
+            submitButtonType: "brandFilled"
+        };
+        const v = l.a.create((e => ({
+            horizontalFields: {
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "stretch"
+            }, loginForm: {width: "100%"}, loginButtonContainer: {flexDirection: "column", justifyContent: "center"}
+        })));
+        t.a = Object(_.a)(S, {element: "inline_login_form"})
+    }, AS3p: function (e, t, n) {
+        "use strict";
+        n.d(t, "a", (function () {
+            return s
+        })), n.d(t, "c", (function () {
+            return a
+        })), n.d(t, "b", (function () {
+            return c
+        })), n.d(t, "d", (function () {
+            return l
+        })), n.d(t, "e", (function () {
+            return p
+        }));
+        var i = n("JbbX"), o = n("SrIh");
+        const r = 1e3, s = Object.freeze({
+            AcceptAllCookies: "acceptAllCookies",
+            RefuseNonEssentialCookies: "refuseNonEssentialCookies",
+            Invalid: "invalid",
+            NotSet: "notSet"
+        });
+
+        function a(e) {
+            const t = Object(i.a)(e);
+            return t ? u(t) ? h(t) ? t[1] ? s.AcceptAllCookies : t[2] ? s.RefuseNonEssentialCookies : (Object(o.a)("Invalid consent signal state"), s.Invalid) : s.NotSet : s.Invalid : s.NotSet
+        }
+
+        function c(e) {
+            Object(i.b)({consent_version: 2, text_version: r, 1: !0}, e)
+        }
+
+        function l(e) {
+            Object(i.b)({consent_version: 2, text_version: r, 2: !0}, e)
+        }
+
+        function u(e) {
+            return !(e[1] && e[2])
+        }
+
+        function h(e) {
+            return e[1] || e[2]
+        }
+
+        function p(e) {
+            const t = Object(i.a)(e);
+            return !t || (!u(t) || !h(t) || t.consent_version < 2 || t.text_version < r)
+        }
+    }, Chb3: function (e, t, n) {
+        "use strict";
+        n("kYxP");
+        var i = n("ERkP"), o = n.n(i), r = n("zCf4"), s = n("Hde2"), a = n("496R"), c = n("H1k/");
+
+        function l(e) {
+            return !["/i/flow/login"].includes(e)
+        }
+
+        t.a = Object(a.a)((function (e = {hideCookieBannerPicker: !1}) {
+            const t = function () {
+                const e = Object(r.g)(), [t, n] = o.a.useState((() => l(e.pathname)));
+                return o.a.useEffect((() => {
+                    n(l(e.pathname))
+                }), [n, e]), t
+            }();
+            return !e.hideCookieBannerPicker && t ? o.a.createElement(s.a, null, o.a.createElement(c.a, null)) : null
+        }))
+    }, "H1k/": function (e, t, n) {
+        "use strict";
+        n.d(t, "a", (function () {
+            return z
+        }));
+        var i = n("ERkP"), o = n.n(i), r = n("OQ9W"), s = n("+d3d"), a = n("v6aA"), c = (n("kYxP"), n("MWbm")),
+            l = n("t62R"), u = n("cHvH"), h = n("rHpw"), p = n("/yvb"), d = n("qqsb"), m = n.n(d), b = n("aITJ"),
+            f = n("Irs7"), _ = n("AS3p");
+        const g = m.a.d8817e36, y = m.a.b9288ee6, S = m.a.i1390ec2, v = {page: "cookie_compliance_banner"};
+
+        function w() {
+            const e = o.a.createElement(m.a.I18NFormatMessage, {$i18n: "ad048ab9"}, o.a.createElement(l.b, {
+                color: "buttonWhite",
+                link: "https://help.twitter.com/rules-and-policies/twitter-cookies",
+                withUnderline: !0
+            }, m.a.id7ef731));
+            return o.a.createElement(k, {body: e, title: S})
+        }
+
+        function E(e) {
+            const t = o.a.createElement(m.a.I18NFormatMessage, {$i18n: "bc8736af"}, o.a.createElement(l.b, {
+                accessibilityRole: "button",
+                color: "buttonWhite",
+                onClick: e.onExpand,
+                withUnderline: !0
+            }, m.a.gfb2ba01));
+            return o.a.createElement(k, {body: t, title: S})
+        }
+
+        function k(e) {
+            return o.a.createElement(c.a, {style: C.cookieComplianceMessageWrap}, o.a.createElement(l.b, {
+                color: "buttonWhite",
+                size: "headline2",
+                weight: "medium"
+            }, e.title), o.a.createElement(l.b, {
+                color: "buttonWhite",
+                size: "subtext2",
+                style: C.cookieComplianceExpandedDetails
+            }, e.body))
+        }
+
+        var T = o.a.forwardRef((function (e, t) {
+            const n = Object(f.b)(), {expand: i, isExpanded: r} = function () {
+                const [e, t] = o.a.useState(!1), n = Object(f.b)();
+                return {
+                    isExpanded: e, expand: () => {
+                        n.scribe({...v, action: "click", element: "expand_message"}), t(!0)
+                    }
+                }
+            }(), {acceptAllCookies: s, isBannerOpen: l, refuseNonEssentialCookies: d} = function () {
+                const e = Object(f.b)(), {featureSwitches: t} = o.a.useContext(a.a), [n, i] = o.a.useState((() => _.e(t) && !b.b.getTwitterAppVersion()));
+                return {
+                    isBannerOpen: n, acceptAllCookies() {
+                        e.scribe({...v, action: "click", element: "accept_all"}), _.b(t), i(!1)
+                    }, refuseNonEssentialCookies() {
+                        e.scribe({...v, action: "click", element: "refuse_non_essential"}), _.d(t), i(!1)
+                    }
+                }
+            }();
+            return o.a.useEffect((() => {
+                l && n.scribe({...v, action: "impression"})
+            }), [n, l]), l ? o.a.createElement(u.a, null, (({windowWidth: e}) => {
+                const n = e < h.a.theme.breakpoints.xLarge;
+                return o.a.createElement(c.a, {
+                    ref: t,
+                    style: [C.root, n && C.rootNarrow]
+                }, r ? o.a.createElement(w, null) : o.a.createElement(E, {onExpand: i}), o.a.createElement(c.a, {style: [C.buttonContainer, n && C.buttonContainerNarrow]}, o.a.createElement(p.a, {
+                    dominantColor: "alwaysBaseGray1100",
+                    onPress: s,
+                    size: "medium",
+                    style: [C.ctaButton, n && C.ctaButtonNarrow],
+                    type: h.a.isDarkMode() ? "onMediaDominantColorFilled" : "onMediaWhiteFilled"
+                }, g), o.a.createElement(p.a, {
+                    dominantColor: "alwaysBaseGray1100",
+                    onPress: d,
+                    size: "medium",
+                    style: [C.ctaButton, n && C.ctaButtonNarrow],
+                    type: h.a.isDarkMode() ? "onMediaDominantColorFilled" : "onMediaWhiteFilled"
+                }, y)))
+            })) : null
+        }));
+        const C = h.a.create((e => ({
+            root: {
+                alignItems: "center",
+                boxShadow: e.boxShadows.xSmall,
+                flexDirection: "row",
+                width: "100%",
+                justifyContent: "space-evenly",
+                paddingVertical: e.componentDimensions.gutterVertical,
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                backgroundColor: e.colors.buttonBlack
+            },
+            rootNarrow: {
+                flexDirection: "column",
+                paddingVertical: e.componentDimensions.gutterVertical,
+                paddingTop: e.spaces.space20,
+                backgroundColor: e.colors.buttonBlack
+            },
+            buttonContainer: {flexDirection: "column", marginVertical: e.spaces.space16, marginLeft: e.spaces.space20},
+            buttonContainerNarrow: {
+                width: "100%",
+                maxWidth: 550,
+                marginLeft: 0,
+                flexDirection: "column",
+                flexWrap: "wrap"
+            },
+            ctaButton: {
+                height: e.spaces.space40,
+                marginBottom: e.spaces.space8,
+                width: 420,
+                flexGrow: 0,
+                flexShrink: 0
+            },
+            ctaButtonNarrow: {marginLeft: 0, width: "100%"},
+            cookieComplianceMessageWrap: {flex: 1, maxWidth: 640},
+            cookieComplianceExpandedDetails: {marginTop: e.spaces.space8, marginBottom: e.spaces.space8},
+            background: {backgroundColor: e.colors.buttonBlack}
+        })));
+        var I = n("97Jx"), A = n.n(I), O = n("cnVF"), P = n("mrHL"), x = n("rxPX"), L = n("RqPI"),
+            j = Object(x.a)().propsFromState((() => ({currentCountry: L.A})));
+        const D = (e, t, n) => e.indexOf(t.toLowerCase()) > -1 && "1" !== n, R = m.a.ia5e7488;
+
+        class B extends o.a.Component {
+            constructor(e, t) {
+                super(e, t), this.state = {euWarningIsOpen: !1}, this._renderMessage = () => o.a.createElement(l.b, {
+                    color: "white",
+                    size: "subtext2"
+                }, o.a.createElement(m.a.I18NFormatMessage, {$i18n: "i3c34583"}, o.a.createElement(l.b, {
+                    color: "white",
+                    link: "https://help.twitter.com/rules-and-policies/twitter-cookies",
+                    style: M.link
+                }, m.a.a8a8d769))), this._handleEUBannerClose = () => {
+                    (e => {
+                        Object(P.e)(O.k, "1", {featureSwitches: e})
+                    })(this.context.featureSwitches), this.setState({euWarningIsOpen: !1})
+                };
+                const {currentCountry: n} = this.props, {featureSwitches: i} = this.context,
+                    r = i.getArrayValue("responsive_web_eu_countries", []),
+                    s = Object(P.d)({featureSwitches: i, cookieName: O.k});
+                this.state = {euWarningIsOpen: !!n && D(r, n, s)}
+            }
+
+            render() {
+                return this.state.euWarningIsOpen ? o.a.createElement(u.a, null, (({windowWidth: e}) => {
+                    const t = e < h.a.theme.breakpoints.medium;
+                    return o.a.createElement(c.a, {
+                        ref: this.props.innerRef,
+                        style: [M.root, t && M.rootNarrow]
+                    }, this._renderMessage(), o.a.createElement(p.a, {
+                        onPress: this._handleEUBannerClose,
+                        size: "medium",
+                        style: [M.closeButton, t && M.closeButtonNarrow],
+                        type: "onMediaOutlined"
+                    }, R))
+                })) : null
+            }
+        }
+
+        B.contextType = a.a;
+        const M = h.a.create((e => ({
+            root: {
+                alignItems: "center",
+                boxShadow: e.boxShadows.medium,
+                flexDirection: "row",
+                width: "100%",
+                justifyContent: "space-evenly",
+                backgroundColor: e.colors.alwaysBaseGray1100,
+                paddingHorizontal: e.spaces.space20,
+                paddingVertical: e.spaces.space20
+            },
+            rootNarrow: {flexDirection: "column"},
+            container: {alignItems: "center", flexShrink: 1},
+            closeButton: {marginLeft: e.spaces.space12, marginTop: 0, flexGrow: 0, flexShrink: 0},
+            closeButtonNarrow: {marginLeft: 0, marginTop: e.spaces.space12, width: "100%"},
+            link: {textDecorationLine: "underline"}
+        }))), N = o.a.forwardRef(((e, t) => o.a.createElement(B, A()({}, e, {innerRef: t}))));
+        var U = j.forwardRef(N);
+
+        function F(e, t = 100) {
+            return function (e, t = 100) {
+                const n = o.a.useMemo((() => Object(s.a)((t => {
+                    if (!e) return;
+                    if (!t) return void e(null);
+                    const n = t.getBoundingClientRect();
+                    n && e(n)
+                }), t)), [e, t]);
+                return o.a.useCallback((t => {
+                    if ("function" != typeof e) return;
+                    const i = n.bind(null, t);
+                    return i(), window.addEventListener("resize", i), t && r.a.observe(t, i), () => {
+                        window.removeEventListener("resize", i), r.a.unobserveAll(t), n.cancel()
+                    }
+                }), [e, n])
+            }(o.a.useMemo((() => "function" == typeof e ? t => {
+                e(t ? t.height : null)
+            } : void 0), [e]))
+        }
+
+        function z(e) {
+            const {featureSwitches: t} = o.a.useContext(a.a), n = F(e.onHeightChange);
+            return t.isTrue("responsive_web_cookie_compliance_banner_enabled") ? o.a.createElement(T, {ref: n}) : o.a.createElement(U, {ref: n})
+        }
+    }, M6MT: function (e, t, n) {
+        "use strict";
+        n.d(t, "b", (function () {
+            return i
+        })), n.d(t, "a", (function () {
+            return o
+        }));
+        const i = Object.freeze({granted: "granted", denied: "denied", prompt: "prompt"}),
+            o = Object.freeze({PERMISSION_DENIED: 1, POSITION_UNAVAILABLE: 2, TIMEOUT: 3})
+    }, "Pc/x": function (e, t, n) {
+        "use strict";
+        n.d(t, "a", (function () {
+            return v
+        }));
+        n("849X");
+        var i = n("epkG"), o = n("CEs6"), r = n("SrIh"), s = n("RqPI");
+
+        class a extends Error {
+            constructor(e, t, n) {
+                super(`${a.displayName}: ${e} HTTP-${t} message: ${n}`), this.url = e, this.status = t
+            }
+        }
+
+        a.displayName = "ProxseeApiError";
+        let c, l = 0;
+        const u = "X-Idempotence", h = {["X-Periscope-User-Agent"]: "Twitter/m5", ["X-Attempt"]: 1};
+
+        function p() {
+            const e = Date.now();
+            return l = e <= l ? l + 1 : e, Object.assign({}, h, {[u]: l, "content-type": "application/json"})
+        }
+
+        const d = "m5-proxsee-login-a2011357b73e", m = {}, b = {
+            host: "https://proxsee.pscp.tv", errorFilter: function (e, t) {
+                return t(e).then((t => {
+                    return t.status && ((n = t.status) < 200 || n > 399) ? Promise.reject(function (e, t) {
+                        const {uri: n} = e, {status: i} = t, r = Object(o.a)(t);
+                        return new a(n, i, r.msg)
+                    }(e, t)) : t;
+                    var n
+                }))
+            }
+        };
+        const f = Object.freeze({
+            SelfHarm: "SELF_HARM",
+            Violence: "VIOLENCE",
+            SexualContent: "SEXUAL_CONTENT",
+            ChildSafety: "CSE",
+            PrivateInformation: "PRIVATE_INFO",
+            AbusiveBehavior: "HARASSMENT"
+        }), _ = new class {
+            constructor(e = m) {
+                this.reportSpaceFor = {
+                    SelfHarm: e => this._reportSpace({abuse_type: f.SelfHarm, ...e}),
+                    Violence: e => this._reportSpace({abuse_type: f.Violence, ...e}),
+                    SexualContent: e => this._reportSpace({abuse_type: f.SexualContent, ...e}),
+                    ChildSafety: e => this._reportSpace({abuse_type: f.ChildSafety, ...e}),
+                    PrivateInformation: e => this._reportSpace({abuse_type: f.PrivateInformation, ...e}),
+                    AbusiveBehavior: e => this._reportSpace({abuse_type: f.AbusiveBehavior, ...e})
+                };
+                const {httpConfig: t} = e;
+                this.client = new i.a({...b, ...t}), this._authToken = void 0, this._authPromise = null
+            }
+
+            init(e) {
+                c = e
+            }
+
+            initialized() {
+                return !!c
+            }
+
+            isLoggedIn() {
+                return !!this._authToken
+            }
+
+            isTwitterAuthenticated() {
+                if (!this.initialized()) return !1;
+                const e = c.store.getState();
+                return Object(s.o)(e)
+            }
+
+            authToken() {
+                return this._authToken
+            }
+
+            dispatch(e) {
+                return this.initialized() ? this.client.dispatch(e).then(o.a) : Promise.reject(new Error("[ProxseeApi] config not initialized"))
+            }
+
+            post(e, t, n = {}) {
+                const {params: i} = n, o = Object.assign(p(), n.headers),
+                    r = JSON.stringify({...t, cookie: this._authToken}),
+                    s = "Twitter" === this._authUserType ? `twitter/${e}` : e;
+                return this.dispatch({method: "POST", path: `/api/v2/${s}`, headers: o, params: i, data: r})
+            }
+
+            login() {
+                return this._authPromise ? this._authPromise : this.initialized() ? this.isTwitterAuthenticated() ? this.isLoggedIn() ? Promise.resolve() : (this._authPromise = c.api.Auth.authenticatePeriscope().then((e => this.loginTwitterToken(e.token))).then((e => {
+                    if (!e) throw new Error("[ProxseeApi] invalid loginTwitterToken response");
+                    this._authToken = e.cookie, this._authUserType = e.type
+                })).catch((e => {
+                    const t = {err: e};
+                    Object(r.a)("[ProxseeApi] failed to login", {extra: t})
+                })).then((() => {
+                    this._authPromise = null
+                })), this._authPromise) : Promise.resolve() : Promise.reject(new Error("[ProxseeApi] config not initialized"))
+            }
+
+            loginTwitterToken(e) {
+                const t = {jwt: e, vendor_id: d, create_user: !1, direct: !0};
+                return this.post("loginTwitterToken", t)
+            }
+
+            publicPath(e) {
+                return this.isLoggedIn() ? e : `${e}Public`
+            }
+
+            accessChat(e) {
+                return this.login().then((() => this.post(this.publicPath("accessChat"), {chat_token: e})))
+            }
+
+            getChatHistory(e, t = {}) {
+                return this.login().then((() => {
+                    const {params: n} = t, i = Object.assign(p(), t.headers), o = JSON.stringify({
+                        access_token: e.access_token,
+                        cursor: e.cursor,
+                        limit: 1e3,
+                        since: null,
+                        quick_get: !0
+                    });
+                    return this.dispatch({method: "POST", host: e.host, path: e.path, headers: i, params: n, data: o})
+                }))
+            }
+
+            createClip(e) {
+                return this.login().then((() => this.post("createClip", e).catch((e => {
+                    Object(r.a)("[ProxseeApi] failed to create clip", {extra: {err: e}})
+                }))))
+            }
+
+            getClip(e) {
+                return this.login().then((() => this.post("getClip", {clip_id: e}).catch((e => {
+                    Object(r.a)("[ProxseeApi] failed to get clip", {extra: {err: e}})
+                }))))
+            }
+
+            _reportSpace(e) {
+                return this.login().then((() => this.post("markAbuse", e).catch((e => {
+                    Object(r.a)("[ProxseeApi] failed to report space", {extra: {err: e}})
+                }))))
+            }
+        };
+        var g = n("G6rE");
+        let y;
+        const S = new Error("[AudioModule] config not initialized");
+        var v = new class {
+            constructor() {
+                this.proxsee = _
+            }
+
+            init(e) {
+                y = e, _.init(y)
+            }
+
+            initialized() {
+                return !!y
+            }
+
+            loggedInUser() {
+                if (this.initialized()) {
+                    const e = y.store.getState();
+                    return g.e.selectLoggedInUser(e)
+                }
+            }
+
+            audioSpace(e) {
+                return y ? y.api.AudioSpaces.byId(e) : Promise.reject(S)
+            }
+
+            subscribeToScheduledSpace(e) {
+                return y ? y.api.AudioSpaces.subscribeToScheduledSpaceById(e) : Promise.reject(S)
+            }
+
+            unsubscribeFromScheduledSpace(e) {
+                return y ? y.api.AudioSpaces.unsubscribeFromScheduledSpaceById(e) : Promise.reject(S)
+            }
+
+            searchAudioSpace(e, t) {
+                return y ? y.api.AudioSpaces.search(e, t) : Promise.reject(S)
+            }
+        }
+    }, Sksh: function (e, t, n) {
+        "use strict";
+        n("849X");
+        var i = n("+d3d"), o = n("VY6S"), r = n("SrIh"), s = n("M0jS");
+        t.a = new class {
+            constructor() {
+                this.usersInApp = {}, this._throttledInitialFetch = Object(i.a)((() => {
+                    this.store.dispatch(s.b.fetchManyIfNeeded(Object.keys(this.usersInApp)))
+                }), 1500)
+            }
+
+            init(e) {
+                this.store = e
+            }
+
+            registerUserInApp(e) {
+                Object.keys(this.usersInApp).length > 50 && (this.usersInApp = {}, Object(r.a)(new Error("Registered users in app has exceeded 50"), {level: "warning"})), this.usersInApp[e] ? this.usersInApp[e] = this.usersInApp[e] + 1 : (this.usersInApp[e] = 1, Object(o.a)(this._throttledInitialFetch(), 100))
+            }
+
+            deregisterUserInApp(e) {
+                this.usersInApp[e] && this.usersInApp[e] > 1 ? this.usersInApp[e] = this.usersInApp[e] - 1 : delete this.usersInApp[e]
+            }
+        }
+    }, TpKd: function (e, t, n) {
+        "use strict";
+        n.d(t, "a", (function () {
+            return r
+        })), n.d(t, "c", (function () {
+            return s
+        })), n.d(t, "b", (function () {
+            return a
+        }));
+        var i = n("mrHL");
+        const o = "external_referer";
+
+        function r(e) {
+            return Object(i.d)({cookieName: o, featureSwitches: e})
+        }
+
+        function s(e, t) {
+            const n = t && t.encryptedReferralDetails || "", r = t && t.encryptedReferer || "",
+                s = t && void 0 !== t.referralType ? `${t.referralType}` : "";
+            if (!n && !r && !s) return;
+            const a = `${encodeURIComponent(r)}|${s}|${encodeURIComponent(n)}`;
+            Object(i.e)(o, a, {cookieOptions: {maxAge: 604800, encode: e => e}, featureSwitches: e})
+        }
+
+        const a = e => {
+            const t = r(e);
+            if (t && t.split("|").length > 1) {
+                const e = t.split("|");
+                return {encryptedReferer: e[0], referralType: e[1], encryptedReferralDetails: e[2]}
+            }
+        }
+    }, XTym: function (e, t, n) {
+        "use strict";
+        var i = n("97Jx"), o = n.n(i), r = (n("kYxP"), n("ERkP")), s = n.n(r), a = n("+/1j"), c = n("MWbm"),
+            l = n("qqsb"), u = n.n(l), h = n("hOZg"), p = n("zTrU"), d = n("t62R"), m = n("SV7d"), b = n("/yvb"),
+            f = n("mw9i"), _ = n("Oe3h"), g = n("0FVZ"), y = n("cHvH"), S = n("rHpw");
+        const v = u.a.af8fa2ae, w = s.a.createElement(h.a, null);
+
+        class E extends s.a.Component {
+            constructor(...e) {
+                super(...e), this._getMemoizedBehavioralEventContext = Object(p.a)((e => ({viewType: e}))), this._getMemoizedToastBehavioralEventContext = Object(p.a)((e => ({
+                    viewState: e ? {
+                        type: "toast",
+                        entityToken: e
+                    } : void 0, viewType: "toast"
+                }))), this._renderAriaOnly = () => {
+                    const {testID: e, text: t} = this.props;
+                    return s.a.createElement(c.a, {
+                        accessibilityRole: "alert",
+                        style: S.a.visuallyHidden,
+                        testID: e
+                    }, s.a.createElement(a.a, null, t))
+                }, this._renderContent = () => {
+                    const {action: e, text: t, withAutoDismiss: n, withClearButton: i} = this.props;
+                    return s.a.createElement(s.a.Fragment, null, s.a.createElement(d.b, {
+                        color: "whiteOnColor",
+                        style: k.titleText
+                    }, t), s.a.createElement(c.a, {
+                        accessibilityHidden: n,
+                        style: k.actionButtons
+                    }, e && this._renderActionLabel(e), i && s.a.createElement(b.a, {
+                        accessibilityLabel: v,
+                        borderColor: "transparent",
+                        color: "white",
+                        icon: w,
+                        onPress: this._handleClose,
+                        style: k.closeButton
+                    })))
+                }, this._renderContentWithLayer = ({windowWidth: e}) => {
+                    const {LayerComponent: t, behavioralEventEntityToken: n, testID: i} = this.props,
+                        r = this._getMemoizedToastBehavioralEventContext(n);
+                    return s.a.createElement(t, null, s.a.createElement(f.a, null, s.a.createElement(_.a, {id: "Toast"}, ((t, n) => s.a.createElement(m.b, {behavioralEventContext: r}, s.a.createElement(c.a, o()({ref: t()}, n({
+                        accessibilityRole: "alert",
+                        style: [k.root, e > S.a.theme.breakpoints.medium && k.rootWide],
+                        testID: i
+                    })), this._renderContent()))))))
+                }, this._renderContentWithoutLayer = ({windowWidth: e}) => {
+                    const {behavioralEventEntityToken: t, testID: n} = this.props,
+                        i = this._getMemoizedToastBehavioralEventContext(t);
+                    return s.a.createElement(f.a, null, s.a.createElement(m.b, {behavioralEventContext: i}, s.a.createElement(c.a, {
+                        accessibilityRole: "alert",
+                        style: [k.root, e > S.a.theme.breakpoints.medium && k.rootWide],
+                        testID: n
+                    }, this._renderContent())))
+                }, this._createTimer = () => {
+                    const {action: e, autoDismissDelay: t, onClose: n, text: i, withAutoDismiss: o} = this.props;
+                    if (o) {
+                        const o = t || E.calculateDismissDelay(i, !!e);
+                        this._timerId = setTimeout(n, o)
+                    }
+                }, this._handleActionPress = e => {
+                    this._stopTimer();
+                    const {action: t, onClose: n} = this.props;
+                    null != t && t.onAction && t.onAction(e), n(e)
+                }, this._handleClose = e => {
+                    this._stopTimer(), this.props.onClose(e)
+                }
+            }
+
+            componentDidMount() {
+                this._createTimer()
+            }
+
+            componentWillUnmount() {
+                this._stopTimer()
+            }
+
+            render() {
+                const {ariaOnly: e, withoutLayer: t} = this.props;
+                return e ? this._renderAriaOnly() : s.a.createElement(y.a, null, t ? this._renderContentWithoutLayer : this._renderContentWithLayer)
+            }
+
+            _renderActionLabel(e) {
+                const {behavioralEventViewType: t, label: n, link: i} = e, o = t || "",
+                    r = this._getMemoizedBehavioralEventContext(o);
+                return s.a.createElement(m.a, {behavioralEventContext: r}, s.a.createElement(d.b, {
+                    children: n,
+                    color: "whiteOnColor",
+                    link: i,
+                    onClick: this._handleActionPress,
+                    style: [k.actionText, !i && k.actionMargin],
+                    weight: "bold",
+                    withInteractiveStyling: !0
+                }))
+            }
+
+            static calculateDismissDelay(e, t) {
+                const n = 1e3 * ("string" == typeof e ? e.split(" ").length : 0) / 5 + 225;
+                return (n < 4e3 ? 4e3 : n) + (t ? 2e3 : 0)
+            }
+
+            _stopTimer() {
+                clearTimeout(this._timerId)
+            }
+        }
+
+        E.defaultProps = {withAutoDismiss: !0, withClearButton: !1, LayerComponent: g.a.ModalToasts};
+        const k = S.a.create((e => ({
+            root: {
+                alignItems: "center",
+                backgroundColor: e.colors.primary,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                padding: e.spaces.space12
+            },
+            rootWide: {alignSelf: "center", borderRadius: e.borderRadii.small, marginBottom: e.spaces.space32},
+            titleText: {flexShrink: 1, paddingHorizontal: e.spaces.space12},
+            actionText: {alignSelf: "center", whiteSpace: "nowrap", marginRight: e.spaces.space12},
+            actionButtons: {flexDirection: "row"},
+            actionMargin: {marginHorizontal: e.spaces.space12},
+            closeButton: {marginLeft: e.spaces.space12, paddingHorizontal: e.spaces.space4}
+        })));
+        t.a = E
+    }, "a/ea": function (e, t, n) {
+        "use strict";
+        n.d(t, "c", (function () {
+            return a
+        })), n.d(t, "d", (function () {
+            return c
+        })), n.d(t, "e", (function () {
+            return u
+        })), n.d(t, "a", (function () {
+            return p
+        })), n.d(t, "b", (function () {
+            return d
+        }));
+        var i = n("Ssj5"), o = n("M6MT");
+        const r = "geoLocation", s = Object.freeze({permissionStatus: void 0, position: void 0});
+        const a = e => e.geoLocation.permissionStatus, c = e => e.geoLocation.position,
+            l = "rweb/geoLocation/SET_PERMISSION_STATUS", u = e => ({payload: e, type: l}),
+            h = "rweb/geoLocation/SET_POSITION", p = () => (e, t) => m().then((t => e({
+                payload: t,
+                type: h
+            }))).catch((t => (e(u(o.b.denied)), Promise.reject(t)))),
+            d = () => (e, t) => c(t()) ? Promise.resolve() : e(p()),
+            m = () => new Promise(((e, t) => navigator.geolocation.getCurrentPosition((t => {
+                const n = {
+                    timestamp: t.timestamp,
+                    coords: {
+                        latitude: t.coords.latitude,
+                        longitude: t.coords.longitude,
+                        altitude: t.coords.altitude,
+                        accuracy: t.coords.accuracy,
+                        altitudeAccuracy: t.coords.altitudeAccuracy,
+                        heading: t.coords.heading,
+                        speed: t.coords.speed
+                    }
+                };
+                return e(n)
+            }), t)));
+        i.a.register({
+            [r]: function (e = s, t) {
+                switch (t.type) {
+                    case l:
+                        return {...e, permissionStatus: t.payload};
+                    case h:
+                        return {...e, position: t.payload};
+                    default:
+                        return e
+                }
+            }
+        })
+    }, donR: function (e, t, n) {
+        "use strict";
+        n.r(t), n.d(t, "inputDetect", (function () {
+            return bt
+        })), n.d(t, "BottomCookieBannerPicker", (function () {
+            return ft
+        })), n.d(t, "DtabBar", (function () {
+            return _t
+        })), n.d(t, "GlobalKeyboardShortcuts", (function () {
+            return gt
+        })), n.d(t, "LivePipeline", (function () {
+            return yt
+        })), n.d(t, "ModalSheet", (function () {
+            return St
+        })), n.d(t, "SmartLockPrompt", (function () {
+            return vt
+        })), n.d(t, "Seo", (function () {
+            return wt
+        })), n.d(t, "Toast", (function () {
+            return Et
+        })), n.d(t, "appReloader", (function () {
+            return kt
+        })), n.d(t, "badgeTimers", (function () {
+            return Tt
+        })), n.d(t, "bindKeyboardShortcuts", (function () {
+            return Ct
+        })), n.d(t, "ie11Reflower", (function () {
+            return It
+        })), n.d(t, "multiAccountListFetcher", (function () {
+            return At
+        })), n.d(t, "redirectEmailUser", (function () {
+            return Ot
+        })), n.d(t, "scribeExternalReferer", (function () {
+            return Pt
+        })), n.d(t, "getScreenReaderShortcutsDataAttribute", (function () {
+            return xt
+        })), n.d(t, "altSvc", (function () {
+            return Lt
+        })), n.d(t, "AppInstallOnLandingPrompt", (function () {
+            return jt
+        })), n.d(t, "AudioModule", (function () {
+            return Dt
+        })), n.d(t, "initGeoLocation", (function () {
+            return Rt
+        })), n.d(t, "userPresence", (function () {
+            return Bt
+        }));
+        var i = {};
+        n.r(i), n.d(i, "initialize", (function () {
+            return xe
+        })), n.d(i, "detectedTypes", (function () {
+            return Le
+        })), n.d(i, "detectedType", (function () {
+            return je
+        })), n.d(i, "register", (function () {
+            return De
+        })), n.d(i, "registerSome", (function () {
+            return Re
+        })), n.d(i, "registerEvery", (function () {
+            return Be
+        })), n.d(i, "unregister", (function () {
+            return Me
+        })), n.d(i, "reset", (function () {
+            return Ne
+        })), n.d(i, "KEYBOARD", (function () {
+            return Ee
+        })), n.d(i, "MOUSE", (function () {
+            return ke
+        })), n.d(i, "_private", (function () {
+            return Ue
+        }));
+        var o = n("pf9B"), r = n("ERkP"), s = n.n(r), a = n("6/RC"), c = n("muX9"), l = n("zCf4"), u = n("O6Yq");
+        var h = function () {
+            Object(l.g)();
+            const e = function () {
+                let e;
+                return a.canUseDOM && (e = window.location.href), e ? Object(u.a)(e) : null
+            }();
+            return e ? s.a.createElement(c.a, null, s.a.createElement("link", {href: e, rel: "canonical"})) : null
+        }, p = (n("kYxP"), n("aITJ")), d = n("sebV"), m = n("TnY3"), b = n("v6aA"), f = n("RxYA"), _ = n("rxPX");
+        const g = (e, t) => t.location.pathname.includes("/intent/"),
+            y = (e, t) => t.location.pathname.includes("/login"),
+            S = (e, t) => t.location.pathname.includes("/ocf_arkose_challenge");
+        var v = Object(_.a)().propsFromState((() => ({
+            isIntentRoute: g,
+            isLoginRoute: y,
+            isArkoseRoute: S
+        }))).adjustStateProps((({
+                                    isArkoseRoute: e,
+                                    isIntentRoute: t,
+                                    isLoginRoute: n
+                                }) => ({hideAppPrompt: t || n || e})));
+
+        class w extends s.a.Component {
+            constructor(...e) {
+                super(...e), this._isStandaloneApp = d.a.isStandaloneApp(), this._isWebView = !!p.b.getTwitterAppVersion(), this._isNotesRoute = this.props.location.pathname.startsWith("/i/notes"), this.state = {showPrompt: !this.props.hideAppPrompt && !this.context.loggedInUserId && !this._isStandaloneApp && this.context.featureSwitches.isTrue("responsive_web_use_app_prompt_enabled") && !this.context.featureSwitches.isTrue("responsive_web_open_in_app_prompt_enabled") && !this._isWebView && !this._isNotesRoute}, this._handleClose = () => {
+                    this.setState({showPrompt: !1})
+                }
+            }
+
+            render() {
+                return this.state.showPrompt ? s.a.createElement(f.a, {
+                    onClose: this._handleClose,
+                    onlyShowOnce: !0,
+                    useBottomBanner: !0
+                }) : null
+            }
+        }
+
+        w.contextType = b.a;
+        var E = Object(m.a)(v(w)), k = n("Chb3"), T = (n("Cm4o"), n("KrtT"), n("/yvb")), C = n("mw9i"), I = n("t62R"),
+            A = n("rHpw"), O = n("Hde2"), P = n("8jkQ"), x = n("P1r1"),
+            L = Object(_.a)().propsFromState((() => ({dtabBarInfo: x.m}))).adjustStateProps((({dtabBarInfo: e}) => ({
+                dtabAll: e && e.dtabAll,
+                dtabRweb: e && e.dtabRweb,
+                hide: e && e.hide,
+                ttsToken: e && e.ttsToken
+            }))).propsFromActions((() => ({setDtabBarInfo: x.I})));
+
+        class j extends s.a.PureComponent {
+            constructor(e, t) {
+                super(e, t), this._renderButtons = () => s.a.createElement(s.a.Fragment, null, s.a.createElement(T.a, {
+                    onClick: this._handleInfo,
+                    size: "xSmall",
+                    type: "destructiveFilled"
+                }, "Info"), s.a.createElement(T.a, {
+                    onClick: this._handleClear,
+                    size: "xSmall",
+                    type: "destructiveFilled"
+                }, "Clear"), s.a.createElement(T.a, {
+                    onClick: this._handleClose,
+                    size: "xSmall",
+                    type: "destructiveFilled"
+                }, "Hide")), this._handleInfo = () => {
+                    const e = this._getOverrides();
+                    window.prompt(e.join("\n"), window.encodeURIComponent(e.join(";")))
+                }, this._getOverrides = () => {
+                    const {dtabAll: e, ttsToken: t} = this.props;
+                    let n = [];
+                    return e && !t ? n = e : t && (n = [`tts_token=${t}`]), n.filter((e => !!e))
+                }, this._handleClear = () => {
+                    const e = `OK to clear overrides?\n${this._getOverrides().join("\n")}`;
+                    if (window.confirm(e)) {
+                        const e = new URL(P.c.get());
+                        e.searchParams.set("dtab_local", ""), e.searchParams.set("tts_token", ""), P.c.navigateTo(e.toString())
+                    }
+                }, this._handleClose = () => {
+                    const {dtabAll: e, dtabRweb: t, setDtabBarInfo: n, ttsToken: i} = this.props;
+                    this.setState({show: !1}), n({dtabAll: e, dtabRweb: t, ttsToken: i, hide: !0})
+                }, this._shouldShow = () => {
+                    const {dtabAll: e, hide: t, ttsToken: n} = this.props;
+                    return !(t || !e && !n)
+                }, this.state = {show: this._shouldShow()}
+            }
+
+            render() {
+                const {dtabAll: e, ttsToken: t} = this.props,
+                    n = t || e ? s.a.createElement(O.a, {style: D.root}, s.a.createElement(C.a, {
+                        isLarge: !0,
+                        style: D.container,
+                        withGutter: !0
+                    }, s.a.createElement(I.b, {
+                        color: "whiteOnColor",
+                        numberOfLines: 1,
+                        size: "subtext2",
+                        style: D.text
+                    }, "Staging override is active"), this._renderButtons())) : null;
+                return this.state.show ? n : null
+            }
+        }
+
+        j.defaultProps = {hide: !1};
+        const D = A.a.create((e => ({
+            root: {backgroundColor: e.colors.red500},
+            container: {
+                alignItems: "center",
+                flexDirection: "row",
+                height: e.spaces.space40,
+                justifyContent: "space-between"
+            },
+            text: {width: "100%"}
+        })));
+        var R = L(j), B = n("rRIm"), M = n("pQ3Z"), N = n.n(M), U = n("MWbm"), F = n("6oVL"), z = n("cnVF"),
+            H = n("mrHL"), K = n("SrIh"), W = n("BnI0"), V = n("RqPI");
+        var q = Object(_.a)().propsFromState((() => ({loginReturnPath: V.t}))).withAnalytics({component: "smartlock_prompt"});
+
+        class $ extends s.a.Component {
+            constructor(e, t) {
+                super(e, t), this.state = {
+                    autoSubmit: !1,
+                    password: "",
+                    smartLockDisabled: !1,
+                    userName: ""
+                }, this._smartLockSupported = !!(window.PasswordCredential && navigator.credentials && navigator.credentials.get) && !t.loggedInUserId, this._isSmartLockDisabledFromCookie = "1" === e.getCookie({
+                    featureSwitches: t.featureSwitches,
+                    cookieName: z.z
+                })
+            }
+
+            componentDidMount() {
+                "/login/error" === this.props.location.pathname ? Object(W.a)(this.context.featureSwitches) : this._checkShouldDisplayPrompt()
+            }
+
+            componentDidUpdate(e) {
+                N()(e.location, this.props.location) || this._checkShouldDisplayPrompt()
+            }
+
+            render() {
+                const {loginReturnPath: e} = this.props, {autoSubmit: t, password: n, userName: i} = this.state;
+                return this._shouldDisplaySmartLockPrompt() ? s.a.createElement(U.a, {style: X.hidden}, s.a.createElement(F.a, {
+                    autoSubmit: t,
+                    loginReturnPath: e
+                }, s.a.createElement("input", {
+                    name: "session[username_or_email]",
+                    type: "hidden",
+                    value: i
+                }), s.a.createElement("input", {name: "session[password]", type: "hidden", value: n}))) : null
+            }
+
+            _scribeAction(e, t) {
+                const {analytics: n} = this.props;
+                n.scribe({...t, action: e})
+            }
+
+            _checkShouldDisplayPrompt() {
+                const {location: {pathname: e}} = this.props, {smartLockDisabled: t} = this.state;
+                if (this._shouldDisplaySmartLockPrompt()) {
+                    this._scribeAction("impression");
+                    const n = (t || this._isSmartLockDisabledFromCookie) && "/login" === e ? "required" : "optional";
+                    let i = !0;
+                    setTimeout((() => i = !1), 250), navigator.credentials.get({
+                        mediation: n,
+                        password: !0
+                    }).then((e => {
+                        if (e) {
+                            i ? this._scribeAction("select", {element: "unmediated"}) : this._scribeAction("select", {element: "mediated"});
+                            const {id: t, password: n} = e;
+                            this.setState({autoSubmit: !0, userName: t, password: n})
+                        } else this._smartLockSupported && this.setState({smartLockDisabled: !0}, (() => Object(W.a)(this.context.featureSwitches))), i ? this._scribeAction("cancel", {element: "no_credentials"}) : this._scribeAction("cancel", {element: "with_credentials"})
+                    }), (e => {
+                        e && "NotSupportedError" !== e.name && "NotAllowedError" !== e.name && "InvalidStateError" !== e.name && Object(K.a)(e)
+                    }))
+                }
+            }
+
+            _shouldDisplaySmartLockPrompt(e = this.props) {
+                const {loggedInUserId: t} = this.context, {location: {pathname: n}} = e, i = "/login" === n;
+                return !t && this._smartLockSupported && i
+            }
+        }
+
+        $.contextType = b.a, $.defaultProps = {getCookie: H.d};
+        const X = A.a.create((e => ({hidden: {display: "none"}})));
+        var G = Object(m.a)(q($)), Y = n("cHvH"), J = n("0FVZ"), Z = n("XTym"), Q = n("HPNB"), ee = n("ZB2A"),
+            te = n("+Kfv"), ne = n("1YZw"),
+            ie = Object(_.a)().propsFromState((() => ({toast: ne.d}))).propsFromActions((() => ({onClose: ne.c}))),
+            oe = "toast";
+        var re = ie((({onClose: e, toast: t}) => {
+            const n = Object(l.g)(), i = Object(ee.b)(n), o = s.a.useMemo((() => ({viewType: i})), [i]);
+            return t ? s.a.createElement(Y.a, null, (({windowWidth: n}) => {
+                const i = Q.a.shouldRenderAsModal(n) ? J.a.ModalToasts : J.a.Toasts;
+                return s.a.createElement(te.a, {behavioralEventContext: o}, s.a.createElement(Z.a, {
+                    LayerComponent: i,
+                    action: t.action,
+                    ariaOnly: t.ariaOnly,
+                    autoDismissDelay: t.autoDismissDelay,
+                    behavioralEventEntityToken: t.behavioralEventEntityToken,
+                    key: t.id,
+                    onClose: e,
+                    testID: oe,
+                    text: t.text,
+                    withAutoDismiss: t.withAutoDismiss,
+                    withClearButton: t.withClearButton
+                }))
+            })) : null
+        })), se = n("0KEI");
+        var ae = (e, t, n) => {
+                if (e.isTrue("responsive_web_alt_svc")) {
+                    const e = n(Object(se.createLocalApiErrorHandlerWithContextFactory)("APP_INITIALIZATION_ALT_SVC")({}));
+                    t.AltSvc.fetch().catch(e)
+                }
+            }, ce = n("3+LL"), le = n("Pc/x"), ue = n("2g+p"), he = n("fs1G"), pe = n("k49u"), de = n("l0YN"),
+            me = n("auX9"), be = n("B5iK");
+        const fe = (e, t = 1e3) => {
+            window.requestIdleCallback ? window.requestIdleCallback((() => e.fire())) : setTimeout((() => e.fire()), t)
+        };
+        var _e = e => {
+            if (!V.o(e.getState())) return;
+            const t = e.dispatch(Object(se.createLocalApiErrorHandlerWithContextFactory)("BADGE_TIMERS")({
+                showToast: !1,
+                [pe.a.AccessDeniedByBouncer]: {customAction: he.a}
+            })), n = n => e.dispatch(n).catch(t), i = new be.b(3e4).interval((() => {
+                "background" !== ue.a.currentState && (n(Object(de.c)()), Object(me.b)(e.getState()).forEach(n))
+            }));
+            i.start(), fe(i);
+            ue.a.addEventListener("change", (e => {
+                "active" === e && fe(i)
+            }))
+        }, ge = n("+Aie"), ye = n.n(ge), Se = n("YlqV"), ve = n("z0MJ"), we = n.n(ve);
+        const Ee = "keyboard", ke = "mouse";
+        let Te = [];
+        const Ce = {[Ee]: !1, [ke]: !1};
+
+        class Ie {
+            constructor(e) {
+                this._handleTimerEnd = () => {
+                    this._count >= 3 && this._handleDetected(), this._reset()
+                }, this._handleDetected = () => {
+                    this._reset(), this.detach(), this.detected()
+                }, this._reset = () => {
+                    clearTimeout(this._timer), this._timer = void 0, this._count = 0
+                }, this._handleMouseMove = () => {
+                    this._count = this._count + 1, this._count >= 3 ? this._handleDetected() : this._timer || (this._timer = setTimeout(this._handleTimerEnd, 500))
+                }, this.attach = () => {
+                    document.addEventListener("mousemove", this._handleMouseMove), document.addEventListener("touchend", this._reset)
+                }, this.detach = () => {
+                    document.removeEventListener("mousemove", this._handleMouseMove), document.removeEventListener("touchend", this._reset)
+                }, this.detected = e, this._count = 0
+            }
+        }
+
+        class Ae {
+            constructor(e) {
+                this._handleKeyDown = e => {
+                    const {altKey: t, ctrlKey: n, metaKey: i, target: o} = e;
+                    var r;
+                    !(t || n || i) && ((r = o) instanceof HTMLInputElement || r instanceof HTMLTextAreaElement) || (this.detach(), this.detected())
+                }, this.attach = () => {
+                    document.addEventListener("keydown", this._handleKeyDown)
+                }, this.detach = () => {
+                    document.removeEventListener("keydown", this._handleKeyDown)
+                }, this.detected = e
+            }
+        }
+
+        function Oe(e) {
+            Ce[e] = !0;
+            const t = Te.filter((({matches: e}) => e())), n = Te.filter((({matches: e}) => !e()));
+            Te = n, t.forEach((({callback: e}) => e()))
+        }
+
+        let Pe;
+        const xe = () => {
+            Pe = [new Ae((() => Oe(Ee))), new Ie((() => Oe(ke)))], Pe.forEach((e => e.attach()))
+        }, Le = () => Object.keys(Ce).filter((e => Ce[e])), je = e => Ce[e], De = (e, t) => {
+            const n = () => Ce[t];
+            n() ? we()(e) : Te.push({matches: n, callback: e})
+        }, Re = (e, t) => {
+            const n = () => t.some((e => Ce[e]));
+            n() ? we()(e) : Te.push({matches: n, callback: e})
+        }, Be = (e, t) => {
+            const n = () => t.every((e => Ce[e]));
+            n() ? we()(e) : Te.push({matches: n, callback: e})
+        }, Me = e => {
+            const t = Te.indexOf(e);
+            t > -1 && Te.splice(t, 1)
+        }, Ne = () => {
+            Te = [], Object.keys(Ce).forEach((e => {
+                Ce[e] = !1
+            })), Pe.forEach((e => e.detach()))
+        }, Ue = {MOUSE_INTERVAL_TIME_IN_MS: 500, SUCCESSIVE_MOUSE_EVENTS: 3, detected: Oe};
+        var Fe = n("a/ea"), ze = n("M6MT");
+        const He = e => {
+            var t, n, i;
+            return null != (t = navigator) && t.permissions ? null == (n = navigator) || null == (i = n.permissions) ? void 0 : i.query({name: "geolocation"}).then((function (t) {
+                return e.dispatch(Object(Fe.e)(t.state)), t.onchange = function () {
+                    e.dispatch(Object(Fe.e)(this.state))
+                }, Promise.resolve(t.state)
+            })) : Promise.resolve()
+        };
+        var Ke = e => Object(x.o)(e.getState()) ? He(e).then((t => {
+            t === ze.b.granted && e.dispatch(Object(Fe.a)())
+        })) : Promise.resolve();
+        var We = {
+            init: e => {
+                const t = t => {
+                    if ("active" === t && e && e.body) {
+                        const t = e.body.style.display;
+                        e.body.style.display = "none", e.body.clientHeight, e.body.style.display = t
+                    }
+                };
+                p.b.isDesktopOS() && p.b.isIE() && ue.a.addEventListener("change", t)
+            }
+        }, Ve = n("OrGc");
+        n("849X");
+
+        function qe(e) {
+            return Object.keys($e(e))
+        }
+
+        function $e(e) {
+            return e.reduce(((e, t) => (e[t] = !0, e)), {})
+        }
+
+        class Xe {
+            constructor({callback: e, makeEventSource: t, topics: n}) {
+                this.topics = [], this.backoffDuration = 0, this._handleMessage = ({data: e}) => {
+                    try {
+                        const t = JSON.parse(e);
+                        this.connection && "/system/config" === t.topic && (this.connection.hasConfig = !0), this.callback(t)
+                    } catch (e) {
+                    }
+                }, this._handleError = () => {
+                    if (!this.connection || this.connection.eventSource.readyState === this.connection.eventSource.OPEN) return;
+                    const e = this.connection;
+                    e && e.eventSource.readyState === e.eventSource.CONNECTING && function (e, t) {
+                        const n = $e(e), i = Object.keys(n), o = qe(t);
+                        return i.length === o.length && o.every((e => n[e]))
+                    }(e.topics, this._getTopicsForAutoSubscribe()) || (this._cleanup(), this.connection && this.connection.hasConfig ? this.backoffDuration = 1e3 : this.backoffDuration = Math.max(1e3, Math.min(2 * this.backoffDuration, 6e4)), this.backoffTimeoutId = setTimeout(this._connect, this.backoffDuration * (.5 + Math.random())))
+                }, this._connect = () => {
+                    this._cleanup();
+                    const e = this._getTopicsForAutoSubscribe();
+                    this.makeEventSource(e).then((t => {
+                        if ("object" != typeof t) throw new Error("EventSource must be defined");
+                        t.addEventListener("message", this._handleMessage), t.addEventListener("error", this._handleError), this.connection = {
+                            eventSource: t,
+                            topics: e,
+                            hasConfig: !1
+                        }
+                    })).catch((() => {
+                        this._handleError()
+                    }))
+                }, this.makeEventSource = t, this.callback = e, this.setTopics(n), this._connect()
+            }
+
+            setTopics(e) {
+                this.topics = e
+            }
+
+            getAutoSubscribedTopics() {
+                return this.connection ? this.connection.topics : []
+            }
+
+            _getTopicsForAutoSubscribe() {
+                return this.topics.slice(0, Xe.MAX_AUTO_SUBSCRIBE_TOPICS)
+            }
+
+            _cleanup() {
+                const e = this.connection;
+                e && (e.eventSource.removeEventListener("message", this._handleMessage), e.eventSource.removeEventListener("error", this._handleError), e.eventSource.close(), this.connection = null), clearTimeout(this.backoffTimeoutId)
+            }
+
+            teardown() {
+                this._cleanup()
+            }
+        }
+
+        Xe.MAX_AUTO_SUBSCRIBE_TOPICS = 20;
+
+        function Ge(e) {
+            return e.json().then((e => e.errors.some((e => 392 === e.code))))
+        }
+
+        var Ye = n("+d3d");
+
+        class Je {
+            constructor(e) {
+                this.sessionId = "", this.pendingState = {
+                    topics: [],
+                    forceSubscribeAll: !1
+                }, this.appliedState = {topics: []}, this.setTopics = (e = []) => {
+                    this.pendingState.topics = qe(e), this._applyPendingState()
+                }, this._subscribeAll = () => {
+                    this.pendingState.forceSubscribeAll = !0, this._applyPendingState()
+                }, this._applyPendingState = () => {
+                    const e = this.pendingState.forceSubscribeAll ? this.pendingState.topics : this.pendingState.topics.filter((e => -1 === this.appliedState.topics.indexOf(e))),
+                        t = this.appliedState.topics.filter((e => -1 === this.pendingState.topics.indexOf(e))),
+                        n = !this.sessionId, i = 0 === e.length && 0 === t.length;
+                    n || i || (this.appliedState = {topics: this.pendingState.topics}, this.pendingState = {
+                        topics: this.appliedState.topics,
+                        forceSubscribeAll: !1
+                    }, this.updateSubscriptions({toSubscribe: e, toUnsubscribe: t, sessionId: this.sessionId}))
+                };
+                const {updateSubscriptions: t, throttlePeriod: n = Je.UPDATE_SUBSCRIPTIONS_THROTTLE} = e;
+                this.updateSubscriptions = t, this.throttlePeriod = n, null !== n && n >= 0 && (this._applyPendingState = Object(Ye.a)(this._applyPendingState, n, {leading: !1}))
+            }
+
+            setConfig(e = null, t = []) {
+                if (clearInterval(this.intervalId), !e || !e.config) return;
+                this.sessionId = e.config.session_id, this.appliedState = {topics: t}, this._applyPendingState();
+                const n = (e.config.subscription_ttl_millis || Je.DEFAULT_TTL) - Je.TIMEOUT_PREEMPT_DURATION;
+                this.intervalId = setInterval(this._subscribeAll, n)
+            }
+
+            teardown() {
+                clearInterval(this.intervalId), this.updateSubscriptions({
+                    toSubscribe: [],
+                    toUnsubscribe: this.appliedState.topics,
+                    sessionId: this.sessionId
+                })
+            }
+        }
+
+        function Ze({condition: e, promiseFactory: t, sideEffect: n}) {
+            return (...i) => {
+                const o = t(...i);
+                return o.then(e).then((e => {
+                    e && n()
+                })).then((() => o), (() => o))
+            }
+        }
+
+        Je.DEFAULT_TTL = 12e4, Je.TIMEOUT_PREEMPT_DURATION = 2e4, Je.UPDATE_SUBSCRIPTIONS_THROTTLE = 1e3;
+
+        class Qe {
+            constructor({makeEventSource: e, updateSubscriptions: t}) {
+                this.isSuspended = !1, this.eventSourceConnector = null, this.subscriptionsByTopic = {}, this._closeEventSource = () => {
+                    this._clearExpiryTimeout(), this.livePipelineResubscriber.setConfig(null), this.eventSourceConnector && (this.eventSourceConnector.teardown(), this.eventSourceConnector = null)
+                }, this.restartEventSource = () => {
+                    this._closeEventSource(), this._reconcileTopics()
+                }, this._handleMessage = ({payload: e, topic: t}) => {
+                    t === Qe.SYSTEM_CONFIG_TOPIC && this.eventSourceConnector && this.livePipelineResubscriber.setConfig(e, this.eventSourceConnector.getAutoSubscribedTopics());
+                    const n = Promise.resolve(e);
+                    return (this.subscriptionsByTopic[t] || []).map((e => n.then(e.callback)))
+                }, this.makeEventSource = e, this.livePipelineResubscriber = new Je({
+                    updateSubscriptions: Ze({
+                        promiseFactory: t,
+                        condition: Ge,
+                        sideEffect: this.restartEventSource
+                    })
+                })
+            }
+
+            teardown() {
+                this._clearExpiryTimeout(), this.subscriptionsByTopic = {}, this.livePipelineResubscriber.teardown(), this.eventSourceConnector && (this.eventSourceConnector.teardown(), this.eventSourceConnector = null)
+            }
+
+            suspend() {
+                this.isSuspended = !0, this._reconcileTopics()
+            }
+
+            resume() {
+                this.isSuspended = !1, this._reconcileTopics()
+            }
+
+            subscribeTopic(e, t) {
+                if (!e) return {
+                    teardown: () => {
+                    }
+                };
+                const n = {topic: e, callback: t};
+                return this.subscriptionsByTopic[e] = this.subscriptionsByTopic[e] || [], this.subscriptionsByTopic[e].push(n), this._reconcileTopics(), {
+                    teardown: () => {
+                        const t = (this.subscriptionsByTopic[e] || []).filter((e => e !== n));
+                        0 === t.length ? delete this.subscriptionsByTopic[e] : this.subscriptionsByTopic[e] = t, this._reconcileTopics()
+                    }
+                }
+            }
+
+            _reconcileTopics() {
+                const e = this.isSuspended ? [] : Object.keys(this.subscriptionsByTopic), t = e.length > 0;
+                t && this._clearExpiryTimeout(), this.livePipelineResubscriber.setTopics(e), this.eventSourceConnector && this.eventSourceConnector.setTopics(e), t && !this.eventSourceConnector ? (this._closeEventSource(), this.eventSourceConnector = new Xe({
+                    makeEventSource: this.makeEventSource,
+                    callback: this._handleMessage,
+                    topics: e
+                })) : t || !this.eventSourceConnector || this.connectionExpiryTimeoutId || (this.connectionExpiryTimeoutId = setTimeout(this._closeEventSource, Qe.UNUSED_CONNECTION_EXPIRY))
+            }
+
+            _clearExpiryTimeout() {
+                clearTimeout(this.connectionExpiryTimeoutId), this.connectionExpiryTimeoutId = null
+            }
+        }
+
+        Qe.SYSTEM_CONFIG_TOPIC = "/system/config", Qe.UNUSED_CONNECTION_EXPIRY = 3e4;
+        var et = n("nS6Z"), tt = n("pXBW");
+        let nt;
+        var it = {
+            isSupported: e => "EventSource" in window && e.isTrue("livepipeline_client_enabled"),
+            isSupportedAndReady(e) {
+                return this.isSupported(e) && !!nt
+            },
+            create(e, t, n) {
+                if (!this.isSupported(e)) throw new Error("This browser does not support LivePipeline");
+                if (nt) throw new Error("LivePipeline should only be initialized once");
+                return nt = new Qe({
+                    makeEventSource: e => {
+                        const t = (e => {
+                            const t = e.map(encodeURIComponent).join(","),
+                                i = e => `${e}/live_pipeline/events?topic=${t}`, o = i(et.b),
+                                r = n.getReplacementHost(new URL(o));
+                            return r ? i(`https://${r}`) : o
+                        })(e);
+                        return Promise.resolve(new window.EventSource(t, {withCredentials: !0}))
+                    }, updateSubscriptions: e => t.LivePipeline.updateSubscriptions(e).catch((e => {
+                        if (e) if (e instanceof tt.a && Object(pe.c)(e, pe.a.SessionNotFound)) nt && nt.restartEventSource(); else if (!(e instanceof tt.a) && e instanceof Error) return Promise.reject(e);
+                        return Promise.resolve()
+                    }))
+                }), ue.a.addEventListener("change", (e => this._handleAppStateChange(e))), nt
+            },
+            get() {
+                if (!nt) throw new Error("LivePipeline instance has not been initialized");
+                return nt
+            },
+            destroy() {
+                nt && nt.teardown(), nt = void 0
+            },
+            _handleAppStateChange(e) {
+                "active" === e ? this.get().resume() : this.get().suspend()
+            }
+        };
+        var ot = e => {
+            const t = Object(se.createLocalApiErrorHandlerWithContextFactory)("MULTI_ACCOUNT_LIST_UPDATER"),
+                n = e.dispatch(t({showToast: !1, [pe.a.AccessDeniedByBouncer]: {customAction: he.a}})),
+                i = t => e.dispatch(t).catch(n);
+            (window.requestIdleCallback || window.requestAnimationFrame)((() => {
+                i(Object(me.d)()).then((() => {
+                    Object(me.b)(e.getState()).forEach(i)
+                }))
+            }))
+        }, rt = n("Sksh"), st = (n("MvUL"), n("Sp5X"));
+        const at = ["/login/error", "/i/sms_login", "/i/flow/lite_login", "/i/flow/login", "/i/flow/signup"];
+        var ct = (e, t) => {
+            const n = !V.o(t), i = V.h(t), o = V.g(t), {pathname: r} = st.a.location;
+            -1 === at.indexOf(r) && (n && i ? st.a.replace("/i/sms_login") : n && o && st.a.replace("/i/flow/lite_login"))
+        }, lt = n("YeIG"), ut = n("qzfk"), ht = n("Mx3A"), pt = n("TpKd");
+        const dt = {page: "external", action: "referred"};
+        var mt = (e, t, n, i) => {
+            const o = e => i.dispatch(Object(se.createLocalApiErrorHandlerWithContextFactory)(e)({})),
+                r = st.a && st.a.location.query,
+                s = ht.b({query: r, httpReferer: document.referrer || "", requestUrl: window.location.href});
+            if (Object(lt.a)(s)) return Promise.resolve();
+            if (s.referer && !P.c.isExternalUrl(s.referer) && !P.c.isInternalRedirect(s.referer)) return Promise.resolve();
+            s.referer || (s.referer = ""), s.referral_details_str || (s.referral_details_str = ""), s.referral_type || (s.referral_type = 0);
+            const a = Object(pt.a)(t);
+            a && (s.external_referer_cookie_value = a);
+            const c = s.referral_type === ht.a.Access, l = {...dt, client: Object(ut.a)().clientName};
+            a && c && (l.action = "set_access_referer_cookie");
+            const u = n.createEventObject(l, "client_event", s), h = n.createPayload([u]);
+            let p, d;
+            p = s ? e.Ocf.referer({
+                landing_url: s.url,
+                referral_details: s.referral_details_str || void 0,
+                referrer_url: s.referer || void 0
+            }).catch((() => o("OCF_EXTERNAL_REFERER"))) : Promise.resolve(), d = s ? e.Attribution.recordUserEvent({
+                event: "open",
+                referring_link_url: s.url
+            }).catch((() => o("ATTRIBUTION_EXTERNAL_REFERER"))) : Promise.resolve();
+            const m = e.Jot.externalReferer(h).then((e => {
+                e && Object(pt.c)(t, e[0])
+            })).catch((() => o("SCRIBE_EXTERNAL_REFERER")));
+            return Promise.all([m, p, d])
+        };
+        const bt = i, ft = k.a, _t = R, gt = B.a, yt = it, St = o.a, vt = G, wt = h, Et = re, kt = ce, Tt = _e,
+            Ct = function (e, t) {
+                const n = Object.keys(e);
+                let i, o = !1;
+                const r = () => {
+                    o || (i = ye()(t), n.forEach((t => i.bind(t, (n => {
+                        var i;
+                        Object(Se.i)(window.location.pathname) || (i = e[t], e => {
+                            e.preventDefault(), e.stopPropagation(), i(e)
+                        })(n)
+                    })))))
+                };
+                return Re(r, [Ee, ke]), () => {
+                    o = !0, Me(r), i && i.unbind(n)
+                }
+            }, It = We, At = ot, Ot = ct, Pt = mt, xt = Ve.d, Lt = ae, jt = E, Dt = le.a, Rt = Ke, Bt = rt.a
+    }, rRIm: function (e, t, n) {
+        "use strict";
+        n.d(t, "b", (function () {
+            return O
+        }));
+        n("kYxP");
+        var i = n("ERkP"), o = n.n(i), r = n("6/RC"), s = n("MWbm"), a = n("rHpw"), c = n("t62R"), l = n("qqsb"),
+            u = n.n(l), h = n("uScj"), p = n("fs1G"), d = n("BcsE"), m = n("VPAj"), b = n("aITJ"), f = n("v6aA"),
+            _ = n("sTyV"), g = n("sebV"), y = n("QK5w"), S = n("OrGc"), v = n("TnY3"), w = n("rxPX"), E = n("G6rE"),
+            k = Object(w.a)().propsFromState((() => ({loggedInUser: E.e.selectLoggedInUser}))).adjustStateProps((({loggedInUser: e}) => ({loggedInUserScreenName: e ? e.screen_name : void 0})));
+        const T = u.a.b47e760e, C = u.a.fd2c7b44, I = new h.a, A = e => {
+            if (e.target instanceof HTMLInputElement) {
+                const t = e.target.tagName.toLowerCase();
+                return "input" === t || "textarea" === t
+            }
+            return !1
+        }, O = e => {
+            if (!r.canUseDOM) return p.a;
+            return I.subscribe(e).unsubscribe
+        };
+
+        class P extends o.a.Component {
+            constructor(...e) {
+                super(...e), this._bindKeyboardShortcuts = () => {
+                    const {history: e, loggedInUserScreenName: t} = this.props, n = t => n => {
+                            n.preventDefault(), I.getListeners().length ? I.notify(t) : e.push({
+                                pathname: "/explore",
+                                state: {searchFocused: !0, searchPrefill: t}
+                            })
+                        }, i = {
+                            [S.e.search]: n(),
+                            [S.e.goToUser]: n("@"),
+                            [S.e.openKeyboardShortcuts]: () => e.push("/i/keyboard_shortcuts"),
+                            [S.e.goExplore]: () => e.push("/explore"),
+                            [S.e.goSettings]: () => e.push("/settings")
+                        }, o = t => ({
+                            [S.e.goProfile]: () => e.push(`/${t}`),
+                            [S.e.goLikes]: () => e.push(`/${t}/likes`),
+                            [S.e.goLists]: () => e.push(`/${t}/lists`)
+                        }), r = this.context.userClaims.isTrueAndEnabled("subscriptions_feature_1007"),
+                        s = t && r ? {...o(t), [S.e.goTopArticles]: () => e.push("/i/articles")} : t ? o(t) : {}, a = {
+                            ...i, ...s,
+                            [S.e.goHome]: () => e.push("/home"),
+                            [S.e.goDisplay]: () => e.push("/i/display"),
+                            [S.e.goNotifications]: () => e.push("/notifications"),
+                            [S.e.goMentions]: () => e.push("/notifications/mentions"),
+                            [S.e.goMessages]: () => e.push("/messages"),
+                            [S.e.newMessage]: () => e.push("/messages/compose"),
+                            [S.e.newTweet]: () => e.push("/compose/tweet"),
+                            [S.e.goMomentMaker]: () => e.push("/i/moment_maker"),
+                            [S.e.goBookmarks]: () => e.push("/i/bookmarks")
+                        }, c = this.props.loggedInUserScreenName ? a : i;
+                    this._unbindKeyboardShortcuts = Object(_.a)(c)
+                }, this._handleKeyDown = e => {
+                    A(e) || "Backspace" !== e.key || (this._backspaceDown = Date.now(), e.preventDefault(), e.stopPropagation())
+                }, this._handleKeyUp = e => {
+                    if (!A(e) && "Backspace" === e.key) {
+                        e.preventDefault(), e.stopPropagation();
+                        const t = this._backspaceDown, n = !!Object(d.a)(t) && Date.now() - t < 500,
+                            i = Object(y.a)({}, {location: this.props.location});
+                        n && i ? this.props.history.goBack() : window.close()
+                    }
+                }
+            }
+
+            componentDidMount() {
+                this._bindKeyboardShortcuts(), b.b.isKaiOS() && g.a.isStandaloneApp() && (document.addEventListener("keydown", this._handleKeyDown), document.addEventListener("keyup", this._handleKeyUp))
+            }
+
+            componentWillUnmount() {
+                this._unbindKeyboardShortcuts && this._unbindKeyboardShortcuts(), b.b.isKaiOS() && g.a.isStandaloneApp() && (document.removeEventListener("keydown", this._handleKeyDown), document.removeEventListener("keyup", this._handleKeyUp))
+            }
+
+            render() {
+                return this.props.loggedInUserScreenName ? o.a.createElement(s.a, {
+                    accessibilityLevel: 2,
+                    accessibilityRole: "heading",
+                    style: a.a.visuallyHidden
+                }, o.a.createElement(c.b, null, T), o.a.createElement(c.b, {
+                    focusable: !1,
+                    link: "/i/keyboard_shortcuts"
+                }, C)) : null
+            }
+        }
+
+        P.contextType = f.a;
+        const x = k(P), L = r.canUseDOM ? Object(v.a)(x) : Object(m.a)(null);
+        t.a = L
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/loader.AppModules.9647dd38.js.map

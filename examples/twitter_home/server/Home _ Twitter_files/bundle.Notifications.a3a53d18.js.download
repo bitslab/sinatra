@@ -1,0 +1,636 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[77], {
+    "+Bsv": function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), i = a.n(n), s = a("/yvb"), o = a("rHpw"), r = a("qqsb"), c = a.n(r), l = a("M2x3"),
+            d = "settingsAppBar";
+        const p = c.a.bb081ea2, m = {viewType: "settings_button"},
+            u = i.a.memo((({onPress: e, pullRight: t, to: a}) => i.a.createElement(s.a, {
+                accessibilityLabel: p,
+                behavioralEventContext: m,
+                hoverLabel: {label: p},
+                icon: i.a.createElement(l.a, null),
+                link: a,
+                onPress: e,
+                pullRight: t,
+                style: h.button,
+                testID: d,
+                type: "primaryText"
+            }))), h = o.a.create((e => ({button: {marginVertical: `calc(-${e.spaces.space12})`}})));
+        t.a = u
+    }, IpT4: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), i = a.n(n), s = a("k/Ka"), o = a("Lsrn");
+        const r = (e = {}) => Object(s.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [o.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, i.a.createElement("g", null, i.a.createElement("path", {d: "M22.238 2.257c-.293-.293-.768-.293-1.06 0L2.52 20.917c-.293.292-.293.767 0 1.06.146.146.338.22.53.22s.384-.073.53-.22l18.658-18.66c.293-.293.293-.767 0-1.06zM2.986 17.82c.155 0 .312-.048.446-.148.112-.083 2.752-2.104 2.708-7.248-.02-2.16.643-3.98 1.913-5.266 1.093-1.107 2.577-1.72 4.18-1.727 1.325.006 2.562.42 3.578 1.195.137.104.297.153.455.153.227 0 .45-.102.598-.295.25-.33.188-.8-.142-1.052-1.278-.975-2.828-1.493-4.483-1.5h-.003c-2.008.008-3.87.78-5.248 2.173-1.536 1.551-2.368 3.8-2.348 6.332.037 4.33-2.02 5.967-2.103 6.03-.332.247-.4.718-.154 1.05.147.2.374.303.603.303zm16.844-7.382c.002-.246-.003-.487-.017-.723-.024-.414-.387-.74-.792-.706-.413.023-.728.378-.705.79.012.205.017.413.015.624-.024 2.868.785 4.765 1.526 5.896h-8.314c-.414 0-.75.336-.75.75s.336.75.75.75h3.522c-.1 1.48-1.323 2.66-2.828 2.66-1.003 0-1.913-.514-2.436-1.372-.214-.354-.675-.467-1.03-.25-.354.214-.467.675-.25 1.03.795 1.31 2.185 2.09 3.716 2.09 2.332 0 4.227-1.85 4.328-4.158h4.922c.32 0 .604-.206.707-.51.104-.305 0-.643-.255-.84-.087-.066-2.145-1.7-2.108-6.032z"})));
+        r.metadata = {width: 24, height: 24}, t.a = r
+    }, PnKw: function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return b
+        }));
+        a("kYxP");
+        var n = a("ERkP"), i = a.n(n), s = a("MWbm"), o = a("TIdA"), r = a("t62R"), c = a("A91F"), l = a("/yvb"),
+            d = a("rHpw"), p = "inlinePrompt", m = "inlinePrompt-primaryAction", u = "inlinePrompt-secondaryAction",
+            h = "inlinePrompt-centeredImageContainer";
+
+        class b extends i.a.Component {
+            constructor(...e) {
+                super(...e), this._renderImage = (e, t) => {
+                    const a = i.a.createElement(o.a, {
+                        accessibilityLabel: "",
+                        aspectMode: c.a.exact(e.width / e.height),
+                        backgroundColor: e.backgroundColor,
+                        customVariants: t,
+                        image: e
+                    });
+                    return e.isCentered ? i.a.createElement(s.a, {
+                        style: y.centeredImage,
+                        testID: h
+                    }, i.a.createElement(s.a, {style: {width: `${e.width}px`, height: `${e.height}px`}}, a)) : a
+                }, this._renderTitle = () => {
+                    const {headline: e} = this.props;
+                    return e ? i.a.createElement(r.b, {
+                        accessibilityRole: "heading",
+                        align: "left",
+                        size: "title3",
+                        style: y.flexGrow,
+                        weight: "heavy",
+                        withHashflags: !0
+                    }, e) : null
+                }, this._renderBodyText = () => {
+                    const {subtext: e} = this.props;
+                    return e ? i.a.createElement(r.b, {
+                        align: "left",
+                        color: "gray700",
+                        style: this.styles.body,
+                        withHashflags: !0
+                    }, e) : null
+                }, this._renderAction = ({action: e, buttonSize: t, buttonType: a, style: n, testID: o}) => {
+                    const {secondaryAction: r} = this.props, {link: c, onClick: d, text: p} = e;
+                    return i.a.createElement(s.a, {
+                        style: [this.styles.actionContainer, n, {justifyContent: "flex-start"}],
+                        testID: o
+                    }, i.a.createElement(l.a, {
+                        link: c,
+                        onPress: d,
+                        size: t,
+                        style: {width: r ? "100%" : "auto"},
+                        type: a
+                    }, p))
+                }
+            }
+
+            render() {
+                const {
+                    image: e,
+                    imageVariants: t,
+                    primaryAction: a,
+                    rightControl: n,
+                    secondaryAction: o,
+                    shouldRenderBorder: r
+                } = this.props;
+                return i.a.createElement(s.a, {style: r ? [g.root, g.rootMargin] : y.root}, i.a.createElement(i.a.Fragment, null, e ? this._renderImage(e, t) : null, i.a.createElement(s.a, {
+                    style: this.styles.rootPadding,
+                    testID: p
+                }, this._renderTitle(), this._renderBodyText(), a ? this._renderAction({
+                    action: a,
+                    buttonType: "primaryFilled",
+                    style: this.styles.primaryAction,
+                    buttonSize: "large",
+                    testID: m
+                }) : null, o ? this._renderAction({
+                    action: o,
+                    buttonType: "primaryOutlined",
+                    style: this.styles.secondaryAction,
+                    buttonSize: "large",
+                    testID: u
+                }) : null)), n ? i.a.createElement(s.a, {style: y.rightControl}, n) : null)
+            }
+
+            get styles() {
+                return this.props.isCompact ? E : f
+            }
+        }
+
+        b.defaultProps = {shouldRenderBorder: !1};
+        const y = d.a.create((e => ({
+            root: {backgroundColor: e.colors.cellBackground},
+            flexGrow: {flexGrow: 1},
+            centeredImage: {display: "flex", flexDirection: "row", justifyContent: "center"},
+            rightControl: {
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                paddingVertical: e.componentDimensions.gutterVertical,
+                position: "absolute",
+                right: 0,
+                top: 0
+            }
+        }))), g = d.a.create((e => ({
+            root: {
+                borderColor: e.colors.nestedBorderColor,
+                borderWidth: e.borderWidths.small,
+                borderRadius: e.borderRadii.xLarge,
+                overflow: "hidden"
+            }, rootMargin: {marginLeft: e.spaces.space16, marginRight: e.spaces.space16}
+        }))), f = d.a.create((e => ({
+            rootPadding: {padding: e.spaces.space32},
+            body: {marginTop: e.spaces.space8},
+            actionContainer: {flexDirection: "row"},
+            primaryAction: {marginTop: e.spaces.space28},
+            secondaryAction: {marginTop: e.spaces.space16}
+        }))), E = d.a.create((e => ({
+            rootPadding: {padding: e.spaces.space16},
+            body: {marginTop: e.spaces.space2},
+            actionContainer: {flexDirection: "row"},
+            primaryAction: {marginTop: e.spaces.space4},
+            secondaryAction: {marginTop: e.spaces.space2}
+        })))
+    }, QuZr: function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return ye
+        }));
+        var n = a("97Jx"), i = a.n(n), s = (a("kYxP"), a("ERkP")), o = a.n(s), r = a("FIs5"), c = a("qqsb"), l = a.n(c),
+            d = a("MWbm"), p = a("PnKw"), m = a("t62R"), u = a("rHpw"), h = a("RoyM"), b = a("7JQg"), y = a("Irs7"),
+            g = a.p + "illustration_unmention_1200w.a6d67a68.png",
+            f = a.p + "illustration_unmention_1800w.62507078.png";
+        const E = 600, w = 175, _ = {
+            image: {url: f, width: 1800, height: 525},
+            customVariants: [{uri: a.p + "illustration_unmention_600w.b146e2e8.png", width: E, height: w}, {
+                uri: g,
+                width: 1200,
+                height: 350
+            }, {uri: f, width: 1800, height: 525}]
+        };
+        var T = a("qFUP");
+        const v = "leave_this_conversation_inline_education", C = l.a.j24c37b2, x = l.a.e839db3a, A = l.a.eba8b1c8,
+            M = l.a.i859a9d4, k = l.a.ac1daf50,
+            I = ({onClose: e}) => o.a.createElement(b.c, {namespace: {element: "leave_this_conversation_education_sheet"}}, o.a.createElement(T.a, {
+                actionLabel: C,
+                onAction: e,
+                onClose: e
+            })), P = u.a.create((e => ({
+                footerLearnMoreLink: {whiteSpace: "nowrap"},
+                wrapper: {borderBottomColor: e.colors.borderColor, borderBottomWidth: e.borderWidths.small}
+            })));
+        var S = e => {
+                const {onDismiss: t} = e, [a, n] = o.a.useState(!1), i = Object(y.b)();
+                o.a.useEffect((() => {
+                    i.scribe({element: v, action: "impression"})
+                }), [i]);
+                const s = [{
+                    text: x, onClick: () => {
+                        i.scribe({element: v, action: "dismiss"}), t()
+                    }
+                }];
+                return o.a.createElement(o.a.Fragment, null, a && o.a.createElement(I, {
+                    onClose: () => {
+                        n(!1)
+                    }
+                }), o.a.createElement(d.a, {style: P.wrapper}, o.a.createElement(p.a, {
+                    headline: A,
+                    image: _.image,
+                    imageVariants: _.customVariants,
+                    rightControl: o.a.createElement(h.a, {feedbackItems: s, isDisplayedOnMedia: !0}),
+                    subtext: o.a.createElement(o.a.Fragment, null, k, " ", o.a.createElement(m.b, {
+                        color: "text",
+                        onClick: () => {
+                            n(!0)
+                        },
+                        size: "subtext1",
+                        style: P.footerLearnMoreLink,
+                        weight: "bold",
+                        withInteractiveStyling: !0,
+                        withUnderline: !0
+                    }, M))
+                })))
+            }, L = a("v6aA"), O = a("yoO3"), R = a("fTQJ"), j = a("EUHl"), D = a("VE3M"), V = a("f42t"), B = a("5waQ"),
+            U = a("zTrU"), z = a("8UdT"), H = a("rxPX"), F = a("xZGM"), N = a("z2Pn");
+        const W = Object(U.a)(((e, t) => t && t.notificationsModule(e)));
+        const G = {
+                notifications_alt_a: [{
+                    height: 200,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/rooster-head-400x200.v1.png",
+                    width: 400
+                }, {
+                    height: 400,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/rooster-head-800x400.v1.png",
+                    width: 800
+                }, {
+                    height: 600,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/rooster-head-1200x600.v1.png",
+                    width: 1200
+                }],
+                notifications_alt_b: [{
+                    height: 200,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/bell-400x200.v1.png",
+                    width: 400
+                }, {
+                    height: 400,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/bell-800x400.v1.png",
+                    width: 800
+                }, {
+                    height: 600,
+                    uri: "https://abs.twimg.com/sticky/illustrations/empty-states/bell-1200x600.v1.png",
+                    width: 1200
+                }]
+            }, Q = {
+                notifications_alt_a: {
+                    [B.a.All]: {
+                        headerMessage: l.a.b6a43e78,
+                        bodyMessage: l.a.f269c47e,
+                        buttonText: l.a.g6871092
+                    }, [B.a.Mentions]: {headerMessage: l.a.e577e1a2, bodyMessage: l.a.b91e5a3a}
+                },
+                notifications_alt_b: {
+                    [B.a.All]: {
+                        headerMessage: l.a.g264f126,
+                        bodyMessage: l.a.a3420a9c,
+                        buttonText: l.a.g6871092
+                    }, [B.a.Mentions]: {headerMessage: l.a.ef0b8028, bodyMessage: l.a.b91e5a3a}
+                }
+            }, q = e => ["control", "notifications_alt_a", "notifications_alt_b"].includes(e), J = e => G[e],
+            K = (e, t, a) => {
+                var n, i;
+                return null == (n = Q[t]) || null == (i = n[a]) ? void 0 : i[e]
+            }, Z = (e, t) => K("bodyMessage", e, t);
+        var Y = a("ezF+"), $ = a("QIgh"), X = a("AP4B");
+        var ee = {
+            loader: () => Promise.all([a.e(0), a.e(3), a.e(4), a.e(5), a.e(237)]).then(a.bind(null, "RfPh")),
+            loaderKey: "defaultNotificationLoader",
+            strategy: a("XBtf").a.Critical
+        };
+        var te = Y.e(ee), ae = a("xWpm"), ne = a("VrCx");
+        const ie = {
+            [z.c.Notification]: te,
+            [z.c.Tweet]: Y.c({
+                selectDisplayType: e => e.content.displayType,
+                handlers: {
+                    [ne.a.Tweet]: Object(ae.f)({
+                        allowDownvote: !0,
+                        withMuteConversation: !0,
+                        withUnreadStyles: !0
+                    }), [ne.a.QuotedTweet]: Object(ae.c)({isCondensed: !0})
+                }
+            })
+        };
+        var se = {...Object($.a)({tweetDismissable: !0, withMuteConversation: !0}), ...ie, ...X.a};
+        const oe = l.a.eb75875e, re = l.a.e9f1fbcc, ce = l.a.f287bb3a, le = l.a.h994ec40, de = l.a.c06d4306,
+            pe = l.a.bfdb3c12, me = l.a.h1d919ec, ue = l.a.ib4510fe;
+
+        class he extends o.a.Component {
+            constructor(...e) {
+                super(...e), this._getNewItemsPillLabel = () => {
+                    switch (this.props.notificationsType) {
+                        case B.a.All:
+                            return ue;
+                        default:
+                            return
+                    }
+                }, this._getEmptyMessageBody = () => {
+                    const e = this.context.featureSwitches.isTrue("responsive_web_reactions_enabled");
+                    switch (this.props.notificationsType) {
+                        case B.a.Mentions:
+                            return q(this._emptyStateVariant) && "control" !== this._emptyStateVariant ? Z(this._emptyStateVariant, this.props.notificationsType) : de;
+                        case B.a.Verified:
+                            return e ? me : pe;
+                        default:
+                            return q(this._emptyStateVariant) && "control" !== this._emptyStateVariant ? Z(this._emptyStateVariant, this.props.notificationsType) : e ? le : ce
+                    }
+                }, this._getEmptyMessageHeader = () => {
+                    return q(this._emptyStateVariant) && "control" !== this._emptyStateVariant ? (e = this._emptyStateVariant, t = this.props.notificationsType, K("headerMessage", e, t)) : re;
+                    var e, t
+                }, this._renderEmptyTimeline = () => {
+                    if (this._emptyStateVariant = this.context.featureSwitches.getStringValue("responsive_web_notifications_empty_state_redesign_variant"), q(this._emptyStateVariant) && "control" !== this._emptyStateVariant) {
+                        const a = (e = this._emptyStateVariant, t = this.props.notificationsType, K("buttonText", e, t));
+                        return o.a.createElement(r.a, i()({}, a && {
+                            buttonLink: "/i/connect_people",
+                            buttonText: a
+                        }, {
+                            header: this._getEmptyMessageHeader(),
+                            imageVariants: J(this._emptyStateVariant),
+                            message: this._getEmptyMessageBody(),
+                            onButtonPress: this._handleEmptyTimelineButtonPress,
+                            onImpression: this._handleEmptyTimelineImpression
+                        }))
+                    }
+                    var e, t;
+                    return o.a.createElement(r.a, {
+                        header: this._getEmptyMessageHeader(),
+                        message: this._getEmptyMessageBody(),
+                        onImpression: this._handleEmptyTimelineImpression
+                    })
+                }, this._handleEmptyTimelineImpression = () => {
+                    const {analytics: e} = this.props;
+                    e.scribe({component: "empty_message", action: "impression"})
+                }, this._handleEmptyTimelineButtonPress = () => {
+                    const {analytics: e} = this.props;
+                    e.scribe({component: "empty_message", element: "primary_cta", action: "click"})
+                }, this._handleAtTop = () => {
+                    this._updateLastReadIfNeeded()
+                }, this._renderTimelineHeader = () => {
+                    const {
+                        addLeaveThisConversationEducationFlag: e,
+                        notificationsType: t,
+                        shouldShowUnmentionEducation: a,
+                        timelineHasTweets: n
+                    } = this.props;
+                    return a && t === B.a.Mentions && n && this.context.featureSwitches.isTrue("dont_mention_me_mentions_tab_education_enabled") ? o.a.createElement(S, {onDismiss: e}) : void 0
+                }
+            }
+
+            componentDidMount() {
+                const {notificationsType: e, setNotificationsType: t} = this.props;
+                t(e)
+            }
+
+            componentWillUnmount() {
+                const {markAllAsRead: e, notificationsType: t} = this.props;
+                this._updateLastReadIfNeeded(), t === B.a.All && e()
+            }
+
+            render() {
+                const {notificationsModule: e} = this.props;
+                return e ? o.a.createElement(O.a, null, o.a.createElement(R.a, {
+                    entryConfiguration: se,
+                    header: this._renderTimelineHeader(),
+                    key: "notification-timeline",
+                    module: e,
+                    newTweetsPillLabel: this._getNewItemsPillLabel(),
+                    newTweetsPillMode: j.a.CLIENT,
+                    onAtTop: this._handleAtTop,
+                    renderEmptyState: this._renderEmptyTimeline,
+                    title: oe
+                })) : null
+            }
+
+            _updateLastReadIfNeeded() {
+                const {notificationsType: e, unreadCount: t, updateLastRead: a} = this.props;
+                t && a(e)
+            }
+        }
+
+        he.contextType = L.a;
+        const be = e => Object(V.a)((e => {
+            const t = Object(U.a)(W);
+            return Object(H.a)().propsFromState((() => ({
+                shouldShowUnmentionEducation: e => Object(F.I)(e, F.o),
+                unreadCount: (a, {ntabData: n}) => {
+                    var i;
+                    return null == (i = t(e, n)) ? void 0 : i.selectUnreadEntriesCount(a)
+                },
+                timelineHasTweets: (a, {ntabData: n}) => {
+                    const i = t(e, n), s = null == i ? void 0 : i.selectEntries(a);
+                    return !!(null == s ? void 0 : s.some((e => e.type === z.c.Tweet)))
+                }
+            }))).adjustStateProps((({
+                                        shouldShowUnmentionEducation: a,
+                                        timelineHasTweets: n,
+                                        unreadCount: i
+                                    }, {ntabData: s}) => ({
+                ntabData: null,
+                notificationsModule: t(e, s),
+                notificationsType: e,
+                shouldShowUnmentionEducation: a,
+                timelineHasTweets: n,
+                unreadCount: i
+            }))).propsFromActions((({ntabData: a}) => {
+                var n;
+                return {
+                    addLeaveThisConversationEducationFlag: () => Object(F.E)(F.o),
+                    markAllAsRead: null == (n = t(e, a)) ? void 0 : n.markAllAsRead,
+                    updateLastRead: a && a.updateLastSeenCursor,
+                    setNotificationsType: N.j
+                }
+            })).withAnalytics({page: "ntab", section: e})
+        })(e)(he), {ntabData: D.a}), ye = ({notificationsType: e}) => be(e)
+    }, RoyM: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), i = a.n(n), s = a("IG7M"), o = a("rHpw"), r = (a("kYxP"), a("zb92"));
+        var c = Object(r.a)({loader: () => a.e(0).then(a.bind(null, "ACNv"))}), l = a("Irs7"), d = a("4bW+");
+        const p = o.a.create((e => ({curationControl: {marginStart: e.spaces.space20}})));
+        t.a = Object(l.a)((e => {
+            const {analytics: t, feedbackItems: a, isDisplayedOnMedia: n} = e;
+            if (a && a.length > 0) {
+                const e = e => i.a.createElement(c, {actionItems: a, onClose: e}),
+                    o = () => t.scribe({element: "caret", action: "click"});
+                return i.a.createElement(s.a, {
+                    onClick: o,
+                    renderActionMenu: e,
+                    style: p.curationControl,
+                    testID: d.a.caret,
+                    withDarkBackground: n
+                })
+            }
+            return null
+        }))
+    }, WR6I: function (e, t, a) {
+        "use strict";
+        a.r(t), a.d(t, "NotificationsScreen", (function () {
+            return B
+        }));
+        a("kYxP");
+        var n = a("ERkP"), i = a.n(n), s = a("zCf4"), o = a("mw9i"), r = a("k/OQ"), c = a("qqsb"), l = a.n(c),
+            d = a("+Bsv"), p = a("es0u"), m = a("dwig"), u = a("VS6U"), h = a("v6aA"), b = a("0+qk"), y = a("yoO3"),
+            g = a("pnqf"), f = a("5FtR"), E = a("wytG"), w = a("rxPX"), _ = a("G6rE");
+        var T = Object(w.a)().propsFromState((() => ({loggedInUser: _.e.selectLoggedInUser}))).adjustStateProps((({loggedInUser: e}) => ({isLoggedInUserVerified: !!e && e.verified}))).withAnalytics({page: "ntab"});
+        const v = l.a.eb75875e, C = l.a.f8321d82, x = l.a.cdb53d7a, A = l.a.h3290872, M = l.a.a98ba778,
+            k = "/notifications", I = "/notifications/mentions", P = "/notifications/verified",
+            S = i.a.createElement(d.a, {pullRight: !0, to: "/settings/notifications"}), L = l.a.eb75875e,
+            O = Object(g.a)(Object(E.a)((() => Promise.resolve().then(a.bind(null, "hCg+"))))),
+            R = Object(g.a)(Object(E.a)((() => Promise.resolve().then(a.bind(null, "lGAB"))))),
+            j = Object(g.a)(Object(E.a)((() => Promise.resolve().then(a.bind(null, "srGC"))))),
+            D = [{to: k, key: C, label: C, retainScrollPosition: !1}, {
+                to: I,
+                key: x,
+                label: x,
+                retainScrollPosition: !1
+            }], V = [...D, {to: P, key: A, label: A, retainScrollPosition: !1}], B = e => {
+                const {featureSwitches: t} = i.a.useContext(h.a),
+                    a = t.isTrue("responsive_web_ntab_verified_mentions_vit_internal_dogfood"), {
+                        history: n,
+                        isLoggedInUserVerified: c,
+                        location: l
+                    } = e, d = c || a, g = i.a.createElement(s.d, null, i.a.createElement(s.b, {
+                        component: O,
+                        exact: !0,
+                        path: k
+                    }), i.a.createElement(s.b, {component: R, exact: !0, path: I}), i.a.createElement(s.b, {
+                        component: j,
+                        exact: !0,
+                        path: P
+                    }));
+                return l.pathname !== P || d ? i.a.createElement(y.a, null, i.a.createElement(u.a, {
+                    documentTitle: v,
+                    history: n,
+                    primaryContent: (() => {
+                        const e = i.a.createElement(b.a, {history: n});
+                        return i.a.createElement(m.a, {component: o.a, fab: e}, g)
+                    })(),
+                    rightControl: S,
+                    secondaryBar: (() => {
+                        const e = d ? V : D;
+                        return i.a.createElement(r.a, {accessibilityLabel: M, links: e})
+                    })(),
+                    sidebarContent: i.a.createElement(p.a, null),
+                    title: L
+                })) : i.a.createElement(f.a, {to: k})
+            };
+        t.default = T(B)
+    }, f42t: function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return c
+        }));
+        var n = a("97Jx"), i = a.n(n), s = (a("kYxP"), a("ERkP")), o = a.n(s);
+
+        class r extends o.a.Component {
+            constructor(...e) {
+                super(...e), this.state = {isLoaded: !1}
+            }
+
+            componentDidMount() {
+                return this._isMounted = !0, this.load()
+            }
+
+            componentDidUpdate(e) {
+                return this.props.modules === e.modules ? null : this.load()
+            }
+
+            componentWillUnmount() {
+                this._isMounted = !1
+            }
+
+            load() {
+                this.setState({isLoaded: !1});
+                const {modules: e} = this.props, t = Object.keys(e);
+                return Promise.all(t.map((t => e[t]()))).then((e => t.reduce(((t, a, n) => (t[a] = e[n], t)), {}))).then((e => {
+                    if (!this._isMounted) return null;
+                    this.setState({modules: e, isLoaded: !0})
+                }))
+            }
+
+            render() {
+                const {isLoaded: e} = this.state, t = e ? this.state.modules : {};
+                return o.a.Children.only(this.props.children(t || {}))
+            }
+        }
+
+        const c = (e, t) => a => o.a.createElement(r, {modules: t}, (t => o.a.createElement(e, i()({}, t, a))))
+    }, "hCg+": function (e, t, a) {
+        "use strict";
+        a.r(t);
+        var n = a("5waQ"), i = a("QuZr");
+        t.default = Object(i.a)({notificationsType: n.a.All})
+    }, lGAB: function (e, t, a) {
+        "use strict";
+        a.r(t);
+        var n = a("5waQ"), i = a("QuZr");
+        t.default = Object(i.a)({notificationsType: n.a.Mentions})
+    }, qFUP: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), i = a.n(n), s = a("MWbm"), o = a("t62R"), r = a("feu+"), c = a("rHpw"), l = a("qqsb"),
+            d = a.n(l), p = a("k/Ka"), m = a("Lsrn");
+        const u = (e = {}) => Object(p.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [m.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, i.a.createElement("g", null, i.a.createElement("path", {d: "M18.13 20.495c-.04.2-.15.37-.31.48-1.78 1.22-3.58 1.77-5.82 1.77-2.11 0-4.08-.61-5.73-1.67l1.08-1.08c1.36.8 2.95 1.26 4.65 1.26 1.92 0 3.46-.47 4.97-1.51.33-.22.82-.13 1.04.2.11.16.16.36.12.55zm-4.52-13.46l-1.33 1.33c-.05-.01-.11-.01-.16-.01h-.1c-1.6.06-2.92 1.55-3.12 3.39l-1.88 1.88c-.11-.39-.16-.81-.16-1.24 0-3.3 2.07-5.7 4.93-5.7.74 0 1.34.15 1.82.35z"}), i.a.createElement("path", {d: "M17.73 2.925l-1.09 1.08c-1.36-.79-2.95-1.25-4.64-1.25-5.1 0-9.25 4.15-9.25 9.25 0 1.69.46 3.27 1.26 4.63l-1.09 1.09c-1.05-1.66-1.66-3.62-1.66-5.73 0-5.92 4.82-10.74 10.74-10.74 2.11 0 4.07.61 5.73 1.67zm5.01 9.07c0 4.88-4.35 5.18-4.84 5.18-2.9 0-3.5-1.75-3.5-1.75s-1.32 1.49-3.63 1.49c-.11 0-.21-.01-.32-.02l1.91-1.91c.55-.2 1.04-.6 1.44-1.17h.01c.14-.2.25-.41.36-.63l2.47-2.48c-.25 1.48-.53 3.09-.53 3.09-.33 1.89 1.37 2.11 1.9 2.11 1.42 0 3.24-.99 3.24-3.9 0-1.69-.46-3.28-1.26-4.64l1.09-1.09c1.06 1.66 1.66 3.62 1.66 5.72zm-.99-8.51L3.48 21.745c-.17.17-.39.26-.61.26-.23 0-.45-.09-.62-.26-.34-.34-.34-.89 0-1.23l18.26-18.26c.17-.17.4-.26.62-.26s.45.09.62.26c.34.34.34.89 0 1.23z"})));
+        u.metadata = {width: 24, height: 24};
+        var h = u, b = a("pu5c"), y = a("IpT4"), g = a("Irs7");
+        const f = d.a.aed79c54, E = d.a.h12044a4, w = d.a.f100e566, _ = d.a.f094f6d6, T = d.a.b00255b6,
+            v = d.a.geea29ee, C = d.a.c54678e8, x = d.a.ga4fa180, A = d.a.h8dde772, M = d.a.i859a9d4,
+            k = () => i.a.createElement(i.a.Fragment, null, i.a.createElement(o.b, null, E), i.a.createElement(s.a, {style: S.details}, i.a.createElement(h, {style: S.icon}), i.a.createElement(s.a, null, i.a.createElement(o.b, {style: S.title}, w), i.a.createElement(o.b, null, _)), i.a.createElement(b.a, {style: S.icon}), i.a.createElement(s.a, null, i.a.createElement(o.b, {style: S.title}, T), i.a.createElement(o.b, null, v)), i.a.createElement(y.a, {style: S.icon}), i.a.createElement(s.a, null, i.a.createElement(o.b, {style: S.title}, C), i.a.createElement(o.b, null, x)))),
+            I = () => i.a.createElement(s.a, {style: S.footerContainer}, i.a.createElement(o.b, {align: "center"}, A, " ", i.a.createElement(o.b, {
+                color: "text",
+                link: "https://help.twitter.com/using-twitter/mentions-and-replies#mention-control",
+                style: S.footerLearnMoreLink,
+                withUnderline: !0
+            }, M))), P = () => i.a.createElement(o.b, {style: S.headline}, f), S = c.a.create((e => ({
+                details: {
+                    display: "grid",
+                    gridTemplateColumns: "auto auto",
+                    gridColumnGap: e.spaces.space24,
+                    gridRowGap: e.spaces.space24,
+                    paddingTop: e.spaces.space32
+                },
+                footerContainer: {display: "flex", alignItems: "center"},
+                footerLearnMoreLink: {whiteSpace: "nowrap"},
+                headline: {fontSize: e.fontSizes.title2},
+                icon: {color: e.colors.text, width: e.spaces.space24, height: e.spacesPx.space24},
+                image: {width: "100%"},
+                title: {
+                    color: e.colors.text,
+                    fontSize: e.fontSizes.headline2,
+                    fontWeight: e.fontWeights.medium,
+                    paddingBottom: e.spaces.space4
+                }
+            })));
+        t.a = e => {
+            const {actionLabel: t, onAction: a, onClose: n, onSecondaryAction: s, secondaryActionLabel: o} = e,
+                c = Object(g.b)();
+            i.a.useEffect((() => {
+                c.scribeAction("impression")
+            }), [c]);
+            const l = s ? e => {
+                c.scribeAction("secondary_cta"), null == s || s(e)
+            } : void 0, d = n ? () => {
+                c.scribeAction("close"), n()
+            } : void 0;
+            return i.a.createElement(r.a, {
+                actionLabel: t,
+                footer: i.a.createElement(I, null),
+                graphicDisplayMode: "none",
+                headline: i.a.createElement(P, null),
+                isFullHeightOnMobile: !0,
+                onAction: e => {
+                    c.scribeAction("primary_cta"), a(e)
+                },
+                onClose: d,
+                onSecondaryAction: l,
+                secondaryActionLabel: o,
+                subtext: i.a.createElement(k, null),
+                withBottomPadding: !0
+            })
+        }
+    }, qJ6t: function (e, t, a) {
+        "use strict";
+        a.r(t), a.d(t, "notificationsModule", (function () {
+            return d
+        })), a.d(t, "updateLastSeenCursor", (function () {
+            return p
+        }));
+        var n = a("fs1G"), i = a("k49u"), s = a("0KEI"), o = a("vWJI"), r = a("ZNT5"), c = a("UtAB"), l = a("5waQ");
+        const d = (e = l.a.All) => Object(r.a)({
+            timelineId: `notifications-${e}`,
+            network: {
+                getEndpoint: e => e.URT.fetchNotifications, getEndpointParams: t => {
+                    const {polling: a, ...n} = t;
+                    return {type: e, ...n}
+                }
+            },
+            context: "FETCH_NOTIFICATIONS_TIMELINE",
+            perfKey: "notifications",
+            postFetchAction: c.a,
+            staleIntervalMs: 5e3
+        }), p = (e = l.a.All) => (t, a, {api: r}) => {
+            const c = d(e), l = c && o.getTopCursor(c.selectEntries(a()));
+            if (l) {
+                const a = {cursor: o.getValue(l), type: e},
+                    c = t(Object(s.createLocalApiErrorHandlerWithContextFactory)("APP_UPDATE_NOTIFICATION_LAST_READ")({[i.a.AppInReadOnlyMode]: {customAction: n.a}}));
+                r.URT.updateNotificationsLastSeenCursor(a).catch(c)
+            }
+        };
+        t.default = d(l.a.All)
+    }, srGC: function (e, t, a) {
+        "use strict";
+        a.r(t);
+        var n = a("5waQ"), i = a("QuZr");
+        t.default = Object(i.a)({notificationsType: n.a.Verified})
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/bundle.Notifications.a3a53d18.js.map

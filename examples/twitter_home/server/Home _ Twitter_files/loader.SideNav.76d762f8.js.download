@@ -1,0 +1,950 @@
+(window.webpackJsonp = window.webpackJsonp || []).push([[192], {
+    "0kTQ": function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return i
+        }));
+        var n = a("qqsb"), r = a.n(n), o = a("k49u"), s = a("LVU8");
+        const c = r.a.b20a3894, i = {
+            [o.a.AppInReadOnlyMode]: {customAction: s.b},
+            [o.a.TargetUserNotFound]: {toast: {text: c}},
+            showToast: !0
+        }
+    }, "55jz": function (e, t, a) {
+        "use strict";
+        a("kYxP");
+        var n = a("ERkP"), r = a.n(n), o = a("MWbm"), s = a("OOKO"), c = a("CKsB"), i = a("t62R"), l = a("IMA+"),
+            d = a("Znyr"), u = a("G1WX"), h = a("rHpw"), m = a("qqsb"), p = a.n(m), y = a("IMYl"), b = a("fs1G"),
+            g = a("k49u"), C = a("Irs7");
+        const E = p.a.d86bbf0f, w = p.a.h6beb5fb, x = p.a.b7dc3885;
+
+        class v extends r.a.Component {
+            constructor(...e) {
+                super(...e), this._renderAdditionalMenuItems = () => (this.props.additionalMenuItems || []).map(((e, t) => r.a.createElement(r.a.Fragment, {key: t}, 0 === t ? r.a.createElement(s.a, null) : null, r.a.createElement(c.a, {
+                    Icon: e.Icon,
+                    actionText: e.actionText,
+                    isSelected: e.isSelected,
+                    link: e.link,
+                    onClick: this._handleMenuItemClick(e.scribeElement, e.onClick),
+                    selectable: !0,
+                    testID: e.testID
+                })))), this._renderTitle = () => {
+                    const {title: e} = this.props;
+                    return e ? r.a.createElement(i.b, {size: "headline1", style: f.title, weight: "bold"}, e) : null
+                }, this._renderUserAccounts = () => {
+                    const {accountUsers: e, activeUser: t, withBadges: a = !1} = this.props;
+                    return e.filter((e => e.user_id !== (null == t ? void 0 : t.id_str))).length > 0 ? r.a.createElement(r.a.Fragment, null, e.map((e => {
+                        const n = e.user_id === t.id_str, o = e.badgeCount;
+                        return r.a.createElement(l.a, {
+                            accessibilityLabel: n ? void 0 : x({screenName: e.screen_name}),
+                            avatarUri: e.avatar_image_url,
+                            decoration: this._renderUserDecoration({badgeCount: o, withBadges: a, isActiveUser: n}),
+                            displayMode: "UserCompact",
+                            isProtected: e.is_protected,
+                            isVerified: e.is_verified,
+                            key: e.user_id,
+                            name: e.name,
+                            onCellClick: n ? void 0 : this._handleMultiAccountSwitch({
+                                hasBadge: !!o,
+                                isProtected: e.is_protected,
+                                userId: e.user_id
+                            }),
+                            screenName: e.screen_name,
+                            userId: e.user_id,
+                            withLink: !1
+                        })
+                    }))) : r.a.createElement(l.a, {
+                        avatarUri: t.profile_image_url_https,
+                        decoration: this._renderUserDecoration({withBadges: a, isActiveUser: !0}),
+                        displayMode: "UserCompact",
+                        isProtected: t.protected,
+                        isVerified: t.verified,
+                        name: t.name,
+                        screenName: t.screen_name,
+                        userId: t.id_str,
+                        withLink: !1
+                    })
+                }, this._renderUserDecoration = ({
+                                                     badgeCount: e,
+                                                     isActiveUser: t,
+                                                     withBadges: a
+                                                 }) => t ? r.a.createElement(y.a, {style: [f.iconCheckMark, f.userDecoration]}) : e && a ? r.a.createElement(d.a, {
+                    count: e,
+                    standalone: !0,
+                    style: f.userDecoration,
+                    truncatedCountFormatter: w,
+                    unreadCountLabel: E
+                }) : void 0, this._handleMultiAccountSwitch = ({hasBadge: e, isProtected: t, userId: a}) => () => {
+                    const {accountSwitch: n, onClose: r} = this.props;
+                    n({hasBadge: e, isProtected: t, userId: a}), r()
+                }, this._handleFetch = () => {
+                    const {createLocalApiErrorHandlerAccountsFetch: e, fetchAccounts: t} = this.props;
+                    t().catch(e({[g.a.AppInReadOnlyMode]: {customAction: b.a}}))
+                }, this._handleMenuItemClick = (e, t) => () => {
+                    const {analytics: a, onClose: n} = this.props;
+                    e && a.scribe({element: e, action: "click"}), null == t || t(), n()
+                }
+            }
+
+            render() {
+                const {fetchStatus: e, shouldDisplayFetchRenderer: t} = this.props;
+                return r.a.createElement(o.a, {style: f.menuContainer}, this._renderTitle(), t ? r.a.createElement(u.a, {
+                    fetchStatus: e,
+                    onRequestRetry: this._handleFetch,
+                    render: this._renderUserAccounts
+                }) : this._renderUserAccounts(), this._renderAdditionalMenuItems())
+            }
+        }
+
+        const f = h.a.create((e => ({
+            iconCheckMark: {color: e.colors.primary, flexShrink: 0},
+            menuContainer: {paddingVertical: e.spaces.space12},
+            userDecoration: {marginLeft: e.spaces.space12},
+            title: {
+                paddingBottom: e.componentDimensions.gutterVertical,
+                paddingHorizontal: e.componentDimensions.gutterHorizontal
+            }
+        })));
+        t.a = Object(C.a)(v)
+    }, FITr: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("k/Ka"), s = a("Lsrn");
+        const c = (e = {}) => Object(o.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [s.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M20.235 14.61c-.375-1.745-2.342-3.506-4.01-4.125l-.544-4.948 1.495-2.242c.157-.236.172-.538.037-.787-.134-.25-.392-.403-.675-.403h-9.14c-.284 0-.542.154-.676.403-.134.25-.12.553.038.788l1.498 2.247-.484 4.943c-1.668.62-3.633 2.38-4.004 4.116-.04.16-.016.404.132.594.103.132.304.29.68.29H8.64l2.904 6.712c.078.184.26.302.458.302s.38-.118.46-.302l2.903-6.713h4.057c.376 0 .576-.156.68-.286.146-.188.172-.434.135-.59z"})));
+        c.metadata = {width: 24, height: 24}, t.a = c
+    }, "IMA+": function (e, t, a) {
+        "use strict";
+        var n = a("97Jx"), r = a.n(n), o = (a("kYxP"), a("ERkP")), s = a.n(o), c = a("MWbm"), i = a("TIdA"),
+            l = a("t62R"), d = a("5mJL"), u = a("DNho"), h = a("SV7d"), m = a("nBUg"), p = a("ir4X"), y = a("htQn"),
+            b = a("e5HP"), g = a("FBXD"), C = a("Nqmc"), E = a("qjak"), w = a("rHpw"), x = a("oSwX"), v = a("1I0O"),
+            f = a("pBrB"), S = a("jV+4");
+        const I = Object.freeze({TWEET: "tweets", USER: "users"}), _ = Object.freeze({
+            UserCompact: "UserCompact",
+            UserConcise: "UserConcise",
+            UserDetailed: "UserDetailed",
+            ExperimentalUserTypeahead: "ExperimentalUserTypeahead"
+        }), k = i.a.createLayoutCache(), T = {viewType: "user_cell"};
+
+        class L extends s.a.PureComponent {
+            constructor(...e) {
+                super(...e), this._renderUserName = () => {
+                    const {
+                        badgeContext: e,
+                        disabledMessage: t,
+                        displayNameLabel: a,
+                        isBlocking: n,
+                        isDisabled: r,
+                        isFollowedBy: o,
+                        isProtected: i,
+                        isVerified: d,
+                        name: u,
+                        onScreenNameClick: h,
+                        promotedContent: m,
+                        promotedItemType: p,
+                        screenName: y,
+                        screenNameSuffix: b,
+                        translatorType: g,
+                        withFollowsYou: C,
+                        withLink: E
+                    } = this.props, w = s.a.createElement(S.a, {
+                        badgeContext: e,
+                        displayNameLabel: a,
+                        isProtected: i,
+                        isVerified: d,
+                        name: u,
+                        onLinkClick: h,
+                        promotedContent: p === I.TWEET ? m : void 0,
+                        screenName: y,
+                        screenNameSuffix: b,
+                        translatorType: g,
+                        withFollowsYou: C && o,
+                        withHoverCard: !n && !r && E,
+                        withLink: !r && E,
+                        withScreenName: !t,
+                        withStackedLayout: !0
+                    });
+                    return t ? s.a.createElement(c.a, {style: A.disabledMessageContainer}, w, s.a.createElement(l.b, {color: "gray700"}, t)) : w
+                }, this._renderSocialContext = () => {
+                    const {avatarSize: e, displayMode: t, socialContext: a} = this.props;
+                    return a ? s.a.createElement(m.b.UseProps, null, (n => s.a.createElement(C.a, {
+                        avatarSize: e,
+                        contextType: a.contextType,
+                        iconSize: "large",
+                        link: a.link,
+                        style: A.socialContext,
+                        text: a.text,
+                        weight: "bold",
+                        withLeftPadding: !n.socialContextRefreshEnabled() && t !== _.ExperimentalUserTypeahead
+                    }))) : null
+                }, this._renderUserTypeaheadSocialContext = () => {
+                    const {socialContext: e} = this.props, {Icon: t, text: a} = e && Object(E.a)({
+                        link: e.link,
+                        text: e.text,
+                        iconSize: "small",
+                        contextType: e.contextType
+                    }) || {};
+                    return e ? s.a.createElement(c.a, {style: A.userTypeaheadSocialContext}, s.a.createElement(c.a, {style: A.userTypeaheadSocialContextIcon}, t), s.a.createElement(l.b, {
+                        color: "gray700",
+                        numberOfLines: 1,
+                        style: A.userTypeaheadSocialContextText
+                    }, a)) : null
+                }, this._renderHighlightedUserLabel = () => {
+                    const {highlightedLabel: e} = this.props;
+                    return e ? s.a.createElement(p.a, {label: e}) : null
+                }, this._isEligibleForBio = () => {
+                    const {displayMode: e} = this.props;
+                    return -1 !== [_.UserDetailed, _.UserConcise].indexOf(e)
+                }, this._handleKeyPress = e => {
+                    e.defaultPrevented || "Enter" !== e.key || this._handleClick(e)
+                }, this._handleClick = Object(g.a)((e => {
+                    const {onCellClick: t} = this.props;
+                    e.preventDefault(), t && t()
+                }))
+            }
+
+            render() {
+                const {
+                        accessibilityLabel: e,
+                        accessibilityState: t,
+                        avatarDecoration: a,
+                        avatarSize: n,
+                        avatarUri: o,
+                        bottomControl: i,
+                        decoration: l,
+                        displayMode: m,
+                        isBlocking: p,
+                        isDisabled: g,
+                        onAvatarClick: C,
+                        onCellClick: E,
+                        onScreenNameClick: w,
+                        presenceIndicator: f,
+                        promotedContent: S,
+                        promotedItemType: L,
+                        screenName: B,
+                        style: U,
+                        testID: H,
+                        userId: M,
+                        withDarkerInteractiveBackground: P,
+                        withInteractiveStyling: R,
+                        withLink: D,
+                        withUsernameCenterAligned: z
+                    } = this.props, N = D && !p, O = m === _.UserCompact || z, F = m === _.ExperimentalUserTypeahead,
+                    j = S && L === I.USER && "earned" !== (S.disclosure_type && S.disclosure_type.toLowerCase()) ? s.a.createElement(b.a, {
+                        contentAuthorId: M,
+                        promotedContent: S,
+                        style: A.promotedIndicator
+                    }) : null, W = {
+                        accessibilityHidden: !0,
+                        decoration: a,
+                        focusable: !1,
+                        imageLayoutCache: k,
+                        onClick: C,
+                        onHoverCardScreenNameClick: w,
+                        promotedContent: S,
+                        screenName: B,
+                        style: A.avatar,
+                        uri: o,
+                        userId: M,
+                        withHoverCard: N,
+                        withLink: D
+                    },
+                    V = s.a.createElement(u.a.Consumer, null, (({avatarSize: e}) => f ? s.a.createElement(v.a, r()({}, W, f, {size: e})) : s.a.createElement(x.default, r()({size: e}, W)))),
+                    q = t && "boolean" == typeof t.checked, K = void 0 !== E,
+                    G = (q ? "radio" : K && "button") || "listitem", X = this._renderUserName(),
+                    Y = this._renderHighlightedUserLabel(), Q = this._renderBio(), $ = Y || Q || j || i,
+                    J = s.a.createElement(s.a.Fragment, null, Y, Q, j, i ? s.a.createElement(c.a, {style: A.bottomControl}, i) : null);
+                return s.a.createElement(h.a, {behavioralEventContext: T}, s.a.createElement(y.a, {
+                    accessibilityLabel: e,
+                    accessibilityRole: G,
+                    accessibilityState: t,
+                    disabled: !!g,
+                    focusable: q || K,
+                    onClick: this._handleClick,
+                    onKeyPress: this._handleKeyPress,
+                    pointerEvents: g ? "none" : void 0,
+                    style: [A.root, U],
+                    testID: H,
+                    withDarkerInteractiveBackground: P,
+                    withInteractiveStyling: null != R ? R : !!E
+                }, F ? null : this._renderSocialContext(), s.a.createElement(d.a, {
+                    avatarCell: V,
+                    avatarCellStyle: [A.avatarColumn, O && A.bodyColumnCentered],
+                    avatarSize: F ? "xxxLarge" : n,
+                    cellStyle: [A.bodyColumn, O && A.bodyColumnCentered]
+                }, s.a.createElement(c.a, {style: A.body}, X, l), O ? null : J, F ? this._renderUserTypeaheadSocialContext() : null), $ && O ? s.a.createElement(d.a, {
+                    avatarCell: null,
+                    avatarCellStyle: A.avatarColumn,
+                    cellStyle: A.bodyColumn
+                }, J) : null))
+            }
+
+            _renderBio() {
+                const {
+                    description: e,
+                    displayMode: t,
+                    entities: a,
+                    userId: n,
+                    withheldDescription: r,
+                    withheldEntities: o
+                } = this.props;
+                return a && e && this._isEligibleForBio() ? s.a.createElement(f.a, {
+                    description: e,
+                    entities: a,
+                    isConcise: t === _.UserConcise,
+                    style: A.bio,
+                    userId: n,
+                    withheldDescription: r,
+                    withheldEntities: o
+                }) : null
+            }
+        }
+
+        L.defaultProps = {testID: "UserCell", withLink: !0};
+        const A = w.a.create((e => ({
+            root: {
+                paddingHorizontal: e.componentDimensions.gutterHorizontal,
+                paddingVertical: e.componentDimensions.gutterVertical
+            },
+            avatarColumn: {justifyContent: "flex-start"},
+            bodyColumn: {flexGrow: 1},
+            bodyColumnCentered: {justifyContent: "center"},
+            avatar: {display: "block", width: "100%"},
+            bio: {paddingTop: e.spaces.space4, whiteSpace: "normal"},
+            socialContext: {marginBottom: e.spaces.space4},
+            userTypeaheadSocialContext: {alignItems: "center", flexDirection: "row", textColor: e.colors.gray700},
+            userTypeaheadSocialContextIcon: {flexShrink: 0},
+            userTypeaheadSocialContextText: {paddingLeft: e.spaces.space2},
+            body: {alignItems: "center", flexDirection: "row", justifyContent: "space-between"},
+            promotedIndicator: {margin: 0, paddingTop: e.spaces.space4, paddingBottom: 0, paddingHorizontal: 0},
+            bottomControl: {paddingTop: e.spaces.space4},
+            disabledMessageContainer: {flexShrink: 1}
+        })));
+        t.a = L
+    }, LzTg: function (e, t, a) {
+        "use strict";
+        a.r(t), a.d(t, "default", (function () {
+            return F
+        }));
+        var n = a("ERkP"), r = a.n(n), o = a("MWbm"), s = a("cHvH"), c = a("rHpw"), i = (a("kYxP"), a("qqsb")),
+            l = a.n(i), d = a("y8wG"), u = a("v6aA"), h = a("0kTQ"), m = a("3Wr5"), p = a("0KEI"), y = a("rxPX"),
+            b = a("auX9"), g = a("qtu+"), C = a("G6rE"), E = a("kGix");
+        var w = Object(y.a)().propsFromState((() => ({
+                fetchStatus: b.g,
+                loggedInUser: C.e.selectLoggedInUser,
+                multiAccountUsers: b.j,
+                hasMultiAccountBadges: b.h
+            }))).propsFromActions((() => ({
+                createLocalApiErrorHandlerAccountSwitch: Object(p.createLocalApiErrorHandlerWithContextFactory)("ACCOUNT_SWITCHER_ACCOUNT_SWITCH"),
+                createLocalApiErrorHandlerMultiListFetch: Object(p.createLocalApiErrorHandlerWithContextFactory)("ACCOUNT_SWITCHER_MULTI_LIST_FETCH"),
+                fetchMultiAccountList: b.c,
+                switchAccount: g.a
+            }))).adjustStateProps((({
+                                        fetchStatus: e,
+                                        hasMultiAccountBadges: t,
+                                        loggedInUser: a,
+                                        multiAccountUsers: n
+                                    }) => ({
+                fetchStatus: e === E.a.NONE ? E.a.LOADING : e,
+                hasMultiAccountBadges: !!a && t,
+                loggedInUser: a,
+                multiAccountUsers: n
+            }))).withAnalytics({page: "nav", section: "account_switcher"}), x = a("55jz"),
+            v = "SideNav_AccountSwitcher_Button", f = "AccountSwitcher_AddAccount_Button",
+            S = "AccountSwitcher_Logout_Button", I = "AccountSwitcher_ManageAccounts_Button";
+        const _ = l.a.j0a8da6e, k = l.a.c6f2bf00, T = l.a.a58e0e51;
+
+        class L extends r.a.Component {
+            constructor(...e) {
+                super(...e), this._renderMenuSheet = e => {
+                    const {
+                        createLocalApiErrorHandlerMultiListFetch: t,
+                        fetchMultiAccountList: a,
+                        fetchStatus: n,
+                        loggedInUser: o,
+                        multiAccountUsers: s
+                    } = this.props;
+                    return o ? r.a.createElement(x.a, {
+                        accountSwitch: this._multiAccountSwitch,
+                        accountUsers: s,
+                        activeUser: o,
+                        additionalMenuItems: this._getAdditionalAccountMenuItems(),
+                        createLocalApiErrorHandlerAccountsFetch: t,
+                        fetchAccounts: a,
+                        fetchStatus: n,
+                        onClose: e,
+                        shouldDisplayFetchRenderer: this._hasMultiAccountCookie(),
+                        withBadges: !0
+                    }) : null
+                }, this._multiAccountSwitch = ({hasBadge: e, isProtected: t, userId: a}) => {
+                    const {analytics: n, createLocalApiErrorHandlerAccountSwitch: r, switchAccount: o} = this.props;
+                    n.scribe({
+                        component: t ? "switch_to_protected_account" : "switch_account",
+                        element: e ? "account_badged" : "account",
+                        action: "click"
+                    }), o({user_id: a}).catch(r(h.a))
+                }, this._getAdditionalAccountMenuItems = () => {
+                    const {loggedInUser: e, multiAccountUsers: t} = this.props, a = t.length > 1, n = [];
+                    return t.length >= 5 || n.push({
+                        actionText: _,
+                        link: "/i/flow/login",
+                        scribeElement: "add_existing_account",
+                        testID: f
+                    }), a && n.push({
+                        actionText: k,
+                        link: "/account/switch",
+                        scribeElement: "manage_accounts",
+                        testID: I
+                    }), e && n.push({
+                        actionText: T({screenName: e.screen_name}),
+                        link: "/logout",
+                        scribeElement: "log_out",
+                        testID: S
+                    }), n
+                }, this._handleAccountSwitcherClick = () => {
+                    const {analytics: e} = this.props;
+                    e.scribe({action: "click"})
+                }, this._hasMultiAccountCookie = () => {
+                    const {hasMultiAccountCookie: e} = Object(m.a)();
+                    return e
+                }
+            }
+
+            render() {
+                const {analytics: e, hasMultiAccountBadges: t, isExpanded: a, loggedInUser: n} = this.props;
+                return r.a.createElement(d.a, {
+                    analytics: e,
+                    currentUser: n,
+                    hasMultiAccountBadges: t,
+                    interactiveViewTestId: v,
+                    isExpanded: a,
+                    renderMenuSheet: this._renderMenuSheet
+                })
+            }
+        }
+
+        L.contextType = u.a;
+        var A = w(L), B = a("jwTb"), U = a("eqgg"), H = a("Irs7");
+        const M = l.a.g34f2c63({verb: ""});
+
+        class P extends r.a.Component {
+            constructor(...e) {
+                super(...e), this._handlePress = e => {
+                    const {analytics: t} = this.props;
+                    t.scribe({component: "new_tweet_button", action: "click"})
+                }
+            }
+
+            render() {
+                const {composeOptions: e, isExpanded: t, testID: a} = this.props;
+                return r.a.createElement(U.a, {
+                    icon: R,
+                    isExpanded: t,
+                    label: M,
+                    link: {pathname: "/compose/tweet", state: e},
+                    onPress: this._handlePress,
+                    testID: a
+                })
+            }
+        }
+
+        const R = r.a.createElement(B.a, null);
+        var D = Object(H.a)(P), z = a("N5qz"), N = a("1eTX"), O = "SideNav_NewTweet_Button";
+
+        class F extends r.a.Component {
+            render() {
+                const {
+                        SideNavButton: e,
+                        TabBar: t,
+                        TeamsSwitcher: a,
+                        history: n,
+                        isCollapsedSmall: c,
+                        isExpanded: i,
+                        isLoggedIn: l,
+                        isTwoColumn: d,
+                        location: u,
+                        logoButton: h,
+                        onTabRefresh: m,
+                        widthStyle: p,
+                        withTweetButton: y
+                    } = this.props, b = [j.root, p, c ? j.rootPaddingSmall : j.rootPaddingNormal],
+                    g = h || r.a.createElement(N.a, {onClick: m, pullLeft: !1, size: "large"});
+                return r.a.createElement(s.a, null, (({windowHeight: s}) => r.a.createElement(o.a, {style: b}, r.a.createElement(o.a, {style: [j.topSection, !i && j.alignItemsCenter]}, r.a.createElement(o.a, {style: j.topControl}, g), r.a.createElement(o.a, {style: [j.appTabBar, !i && j.alignItemsCenter]}, r.a.createElement(t, {
+                    history: n,
+                    layout: "vertical",
+                    location: u,
+                    onTabRefresh: m,
+                    wideMode: d,
+                    withExtendedItems: !0,
+                    withLabel: i
+                })), l && (e || y) ? this._renderButton(s) : null), l ? r.a.createElement(o.a, {style: [j.footerContainer, !i && j.alignItemsCenter]}, r.a.createElement(A, {isExpanded: i}), a ? r.a.createElement(a, {isExpanded: i}) : null) : null)))
+            }
+
+            _renderButton(e) {
+                const {SideNavButton: t, composeOptions: a, isExpanded: n} = this.props;
+                return r.a.createElement(o.a, {style: [j.button, !n && j.alignItemsCenter, "tall" === z.a.getHeightMode(e) && j.withTallHeight]}, t ? r.a.createElement(t, {isExpanded: n}) : r.a.createElement(D, {
+                    composeOptions: a,
+                    isExpanded: n,
+                    testID: O
+                }))
+            }
+        }
+
+        F.defaultProps = {withTweetButton: !0};
+        const j = c.a.create((e => ({
+            root: {height: "100%", overflowY: "auto", justifyContent: "space-between"},
+            rootPaddingNormal: {paddingHorizontal: e.spaces.space12},
+            rootPaddingSmall: {paddingHorizontal: e.spaces.space4},
+            topSection: {alignItems: "flex-start"},
+            topControl: {paddingVertical: e.spaces.space2, maxWidth: "100%"},
+            appTabBar: {marginBottom: e.spaces.space4, marginTop: e.spaces.space2, width: "100%"},
+            button: {marginVertical: e.spaces.space4, width: "90%"},
+            withTallHeight: {marginVertical: e.spaces.space16},
+            alignItemsCenter: {alignItems: "center"},
+            settingsButton: {marginBottom: e.spaces.space20, marginHorizontal: e.spaces.space4},
+            footerContainer: {marginVertical: e.spaces.space12}
+        })))
+    }, Nqmc: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("MWbm"), s = a("t62R"), c = a("5mJL"), i = a("SV7d"), l = a("nBUg"),
+            d = a("rHpw"), u = a("XIXT"), h = a("yDX5"), m = a("qjak"), p = a("dC06");
+        const y = {viewType: "social_context"};
+
+        class b extends r.a.PureComponent {
+            render() {
+                const {
+                        avatarSize: e,
+                        bottomControl: t,
+                        iconStyle: a,
+                        nativeID: n,
+                        onLayout: d,
+                        rightControl: u,
+                        style: h,
+                        testID: p,
+                        textColor: b,
+                        textSize: C,
+                        topControl: E,
+                        weight: w,
+                        withBottomBorder: x,
+                        withLeftPadding: v,
+                        withTextCentered: f,
+                        ...S
+                    } = this.props, {Icon: I, accessibilityLabel: _, link: k, text: T} = Object(m.a)(S),
+                    L = r.a.createElement(s.b, {
+                        accessibilityLabel: _,
+                        color: b,
+                        nativeID: n,
+                        numberOfLines: 2,
+                        size: C,
+                        testID: p,
+                        weight: w
+                    }, T), {cellStyle: A, viewStyle: B} = this._getStyles();
+                return T ? r.a.createElement(l.b.UseProps, null, (n => r.a.createElement(i.a, {behavioralEventContext: y}, r.a.createElement(r.a.Fragment, null, E || null, r.a.createElement(o.a, {
+                    onLayout: d,
+                    style: [h, B, n.socialContextRefreshEnabled() && !v && g.socialContextRefresh]
+                }, r.a.createElement(c.a, {
+                    avatarCell: I || (v ? null : void 0),
+                    avatarCellStyle: [a, g.socialContextIconColumn, !v && g.unsetIconWidth, n.socialContextRefreshEnabled() && !v && g.socialContextRefreshIcon],
+                    avatarSize: e,
+                    cellStyle: A
+                }, r.a.createElement(o.a, {style: g.cellWrapper}, r.a.createElement(o.a, {style: [g.socialContextTextColumn, n.socialContextRefreshEnabled() && !v && g.socialContextRefreshTextColumn]}, k ? this._renderLink(k, L) : L), u || null)), t || null))))) : null
+            }
+
+            _renderLink(e, t) {
+                const {
+                        contextType: a,
+                        nativeID: n,
+                        onClick: o,
+                        retweetData: c,
+                        textColor: i,
+                        topicData: l
+                    } = this.props, {screenName: d} = c || {},
+                    m = r.a.createElement(s.b, {color: i, link: e, nativeID: n, onClick: o}, t);
+                return a === p.a.Topic && l ? r.a.createElement(u.a, {topicId: l.topicId}, m) : a === p.a.Retweet && d ? r.a.createElement(h.a, {screenName: d}, m) : m
+            }
+
+            _getStyles() {
+                const {bottomControl: e, contextType: t, withBottomBorder: a, withTextCentered: n} = this.props,
+                    r = t === p.a.TextOnly, o = a ? [g.bottomBorderMargin, !!e && g.bottomBorder] : [],
+                    s = a && !e ? [g.bottomBorder] : [];
+                return r && s.push(g.topicContext), n && s.push(g.socialContextTextCentered), {
+                    viewStyle: o,
+                    cellStyle: s
+                }
+            }
+        }
+
+        b.defaultProps = {
+            iconSize: "small",
+            textColor: "gray700",
+            textSize: "subtext2",
+            withBottomBorder: !1,
+            withLeftPadding: !0,
+            withTextCentered: !1
+        };
+        const g = d.a.create((e => ({
+            socialContextIconColumn: {alignItems: "flex-end", justifyContent: "center"},
+            bottomBorderMargin: {marginBottom: e.componentDimensions.gutterVertical},
+            cellWrapper: {flexDirection: "row"},
+            bottomBorder: {
+                paddingBottom: e.spaces.space4,
+                borderBottomStyle: "solid",
+                borderBottomWidth: e.borderWidths.small,
+                borderBottomColor: e.colors.borderColor
+            },
+            topicContext: {paddingBottom: `calc(${e.spaces.space4} + ${e.spaces.space2})`},
+            socialContextTextColumn: {alignItems: "flex-start", flexShrink: 1, justifyContent: "center"},
+            unsetIconWidth: {flexBasis: "unset"},
+            socialContextRefreshIcon: {marginRight: e.spaces.space8},
+            socialContextRefresh: {marginBottom: e.spaces.space8},
+            socialContextRefreshTextColumn: {minHeight: e.spaces.space32},
+            socialContextTextCentered: {justifyContent: "center"}
+        })));
+        t.a = b
+    }, aPcQ: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("k/Ka"), s = a("Lsrn");
+        const c = (e = {}) => Object(o.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [s.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M20 16H5.81l2.72-2.72c.294-.293.294-.768 0-1.06s-.767-.294-1.06 0l-4 4c-.293.292-.293.767 0 1.06l4 4c.146.147.338.22.53.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06L5.81 17.5H20c.414 0 .75-.337.75-.75S20.414 16 20 16zm.53-9.28l-4-4c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l2.72 2.72H4c-.414 0-.75.337-.75.75S3.586 8 4 8h14.19l-2.72 2.72c-.294.293-.294.768 0 1.06.146.147.338.22.53.22s.384-.073.53-.22l4-4c.293-.293.293-.767 0-1.06z"})));
+        c.metadata = {width: 24, height: 24}, t.a = c
+    }, e5HP: function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return x
+        }));
+        var n = a("ERkP"), r = a.n(n), o = a("MWbm"), s = a("qqsb"), c = a.n(s), i = a("k/Ka"), l = a("Lsrn");
+        const d = (e = {}) => Object(i.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [l.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M12 1C5.92 1 1 5.92 1 12s4.92 11 11 11 11-4.92 11-11S18.08 1 12 1zm5.05 12.48c0 .48-.39.87-.88.87-.477 0-.87-.393-.87-.87V9.94l-6.85 6.85c-.163.166-.387.26-.62.26-.233 0-.457-.094-.62-.26-.338-.341-.338-.899 0-1.24l6.85-6.85h-3.54c-.477 0-.87-.393-.87-.87 0-.49.39-.88.87-.88h5.65c.11 0 .23.03.33.07.11.04.2.1.29.19.09.09.15.18.19.29.04.1.07.22.07.33v5.65z"})));
+        d.metadata = {width: 24, height: 24};
+        var u = d, h = a("uFYP"), m = a("t62R"), p = a("rHpw");
+        const y = c.a.f1a1b791, b = c.a.if2bf8b4, g = c.a.f3624b5c, C = c.a.b4b3b113, E = c.a.be222050,
+            w = c.a.hcbbe447;
+
+        class x extends r.a.Component {
+            render() {
+                const {color: e, nativeID: t, style: a, withCircleIcon: n} = this.props, s = n ? u : h.a;
+                return r.a.createElement(o.a, {style: [v.root, a]}, r.a.createElement(s, {style: [v.icon, e && v[e]]}), r.a.createElement(m.b, {
+                    color: e,
+                    nativeID: t,
+                    size: "subtext2"
+                }, this._getPromotedLabel()))
+            }
+
+            _getPromotedLabel() {
+                const {contentAuthorId: e, label: t, promotedContent: a} = this.props, {
+                        adMetadataContainer: n,
+                        advertiser: r,
+                        advertiser_name: o,
+                        disclosure_type: s
+                    } = a, c = e && r && e === r.id_str, i = "string" == typeof s && "political" === s.toLowerCase(),
+                    l = "string" == typeof s && "issue" === s.toLowerCase(),
+                    d = !(!n || "POLITICAL" !== n.disclaimerType) || i,
+                    u = !(!n || "ISSUE" !== n.disclaimerType) || l, {removePromotedAttributionForPreroll: h} = n || {};
+                let m;
+                return m = t || (!o || c || h ? d ? g : u ? E : b : d ? C({fullName: o}) : u ? w({fullName: o}) : y({fullName: o})), m
+            }
+        }
+
+        x.defaultProps = {color: "gray700", withCircleIcon: !1};
+        const v = p.a.create((e => ({
+            root: {alignItems: "center", flexDirection: "row"},
+            icon: {color: e.colors.gray700, height: "1em", marginRight: e.spaces.space4, flexShrink: 0},
+            gray700: {color: e.colors.gray700},
+            white: {color: e.colors.white}
+        })))
+    }, qjak: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("shC7"), s = a("qqsb"), c = a.n(s), i = a("FITr"), l = a("yVEN"),
+            d = a("uCrx"), u = a("6ZHn"), h = a("GcQN"), m = a("x0mb"), p = a("Hp3u"), y = a("k/Ka"), b = a("Lsrn");
+        const g = (e = {}) => Object(y.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [b.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M19.75 2H4.25C3.01 2 2 3.01 2 4.25v13.003c0 1.24 1.01 2.25 2.25 2.25h4.56l2.59 3.45c.142.19.364.3.6.3.235 0 .457-.11.598-.3l2.588-3.45h4.563c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM6.963 12.375c-.76 0-1.375-.616-1.375-1.375s.616-1.375 1.375-1.375S8.338 10.24 8.338 11s-.616 1.375-1.375 1.375zm4.85 0c-.76 0-1.375-.616-1.375-1.375s.616-1.375 1.375-1.375 1.375.616 1.375 1.375-.616 1.375-1.375 1.375zm4.85 0c-.76 0-1.375-.616-1.375-1.375s.616-1.375 1.375-1.375c.76 0 1.375.616 1.375 1.375s-.616 1.375-1.375 1.375z"})));
+        g.metadata = {width: 24, height: 24};
+        var C = g, E = a("EHV7"), w = a("wpLu"), x = a("EfHu"), v = a("cOhU"), f = a("cap5"), S = a("r9x5");
+        const I = (e = {}) => Object(y.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [b.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M12 1.25C6.072 1.25 1.25 6.072 1.25 12S6.072 22.75 12 22.75 22.75 17.928 22.75 12 17.928 1.25 12 1.25zm3.75 12.257c-.038 0-.074-.003-.11-.008l-3.667-.54s-.28-.048-.292-.053c-.343-.07-.602-.372-.602-.735V6.417c0-.414.336-.75.75-.75s.75.336.75.75v5.115l3.28.483c.41.06.692.44.632.852-.055.372-.375.64-.74.64z"})));
+        I.metadata = {width: 24, height: 24};
+        var _ = I, k = a("0qK0"), T = a("aPcQ");
+        const L = (e = {}) => Object(y.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [b.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M8.417 11.816c1.355 0 2.872-.15 3.84-1.256.813-.93 1.077-2.367.806-4.392-.38-2.826-2.116-4.513-4.645-4.513-2.53 0-4.267 1.687-4.646 4.513-.273 2.025-.01 3.462.805 4.393.968 1.108 2.485 1.257 3.84 1.257zm8.28 7.42c-.88-3.526-4.283-5.99-8.28-5.99-3.998 0-7.403 2.464-8.28 5.99-.172.692-.03 1.4.395 1.94.408.52 1.04.82 1.733.82H14.57c.69 0 1.323-.3 1.73-.82.425-.54.568-1.246.396-1.94zM23.24 3.47h-5.624l1.64-1.642c.315-.316.315-.827 0-1.143-.316-.315-.826-.316-1.143 0l-2.96 2.96c-.16.16-.238.366-.238.572 0 .207.08.414.237.57l2.96 2.962c.16.156.365.234.572.234s.413-.08.57-.236c.316-.316.316-.828 0-1.144l-1.64-1.64h5.623c.414 0 .75-.336.75-.75s-.334-.747-.748-.747z"})));
+        L.metadata = {width: 24, height: 24};
+        var A = L, B = a("lUZE"), U = a("t62R"), H = a("MAI/"), M = a("rHpw"), P = a("dC06");
+        const R = c.a.jb767df8, D = c.a.bb3323fa, z = c.a.habf9678, N = c.a.db0798ed, O = c.a.dc716ec9,
+            F = e => r.a.createElement(U.b, {dir: o.a.getConstants().isRTL ? "rtl" : "ltr", withHashflags: !0}, e),
+            j = (e, t) => t ? R : (e => {
+                const t = F(e);
+                return r.a.createElement(c.a.I18NFormatMessage, {$i18n: "h99e9c95"}, t)
+            })(e), W = M.a.create((e => ({
+                small: {height: e.lineHeights.subtext3, width: e.lineHeights.subtext3},
+                large: {height: e.lineHeights.subtext1, width: e.lineHeights.subtext1},
+                xLarge: {height: e.lineHeights.headline1, width: e.lineHeights.headline1}
+            }))), V = M.a.create((e => ({
+                circle: {color: e.colors.primary, width: "0.5em"},
+                colorDeepGray: {color: e.colors.gray700},
+                colorBlue: {color: e.colors.blue500},
+                colorGreen: {color: e.colors.green500},
+                colorOrange: {color: e.colors.orange500},
+                colorPrimary: {color: e.colors.primary},
+                colorRed: {color: e.colors.magenta500},
+                grayscaleImage: {borderRadius: e.borderRadii.infinite, filter: "grayscale(100%)"},
+                brandColor: {color: e.colors.brandColor}
+            })));
+        t.a = ({
+                   contextType: e,
+                   iconColor: t,
+                   iconSize: a,
+                   link: n,
+                   retweetData: o,
+                   text: s,
+                   topicData: c,
+                   userAvatarUrls: y
+               }) => {
+            const {isSelfRetweet: b, name: g, screenName: I} = o || {}, L = ((e, t, a, n = []) => {
+                const o = W[t], s = [a ? {color: M.a.theme.colors[a]} : V.colorDeepGray, o],
+                    c = r.a.createElement(i.a, {style: s}), y = r.a.createElement(l.a, {style: s}),
+                    b = r.a.createElement(d.a, {style: s}), g = r.a.createElement(u.a, {style: s}),
+                    I = r.a.createElement(h.a, {style: s}), L = r.a.createElement(m.a, {style: V.circle}),
+                    U = r.a.createElement(p.a, {style: s}), R = r.a.createElement(C, {style: s}),
+                    D = r.a.createElement(E.a, {style: s}), z = r.a.createElement(w.a, {style: s}),
+                    N = r.a.createElement(x.a, {style: s}), O = r.a.createElement(v.a, {style: s}),
+                    F = r.a.createElement(f.a, {style: s}), j = r.a.createElement(S.a, {style: s}),
+                    q = r.a.createElement(_, {style: s}), K = r.a.createElement(k.a, {style: s}),
+                    G = r.a.createElement(T.a, {style: s}), X = r.a.createElement(A, {style: s}),
+                    Y = r.a.createElement(H.a, {borderColor: "cellBackground", userAvatarSize: t, userAvatarUrls: n}),
+                    Q = r.a.createElement(B.a, {style: s});
+                switch (e) {
+                    case P.a.Pin:
+                    case P.a.ReplyPin:
+                        return c;
+                    case P.a.Retweet:
+                        return y;
+                    case P.a.Like:
+                        return b;
+                    case P.a.Follow:
+                        return g;
+                    case P.a.Moment:
+                        return I;
+                    case P.a.NewTweets:
+                        return L;
+                    case P.a.Reply:
+                    case P.a.Conversation:
+                        return U;
+                    case P.a.Feedback:
+                        return R;
+                    case P.a.Topic:
+                        return D;
+                    case P.a.List:
+                        return z;
+                    case P.a.Location:
+                        return N;
+                    case P.a.Community:
+                        return O;
+                    case P.a.Spaces:
+                        return F;
+                    case P.a.Sparkle:
+                        return j;
+                    case P.a.SmartBlockExpiration:
+                        return q;
+                    case P.a.SocialProof:
+                    case P.a.FollowFollowed:
+                        return X;
+                    case P.a.FollowMutual:
+                        return G;
+                    case P.a.FollowFollowing:
+                        return K;
+                    case P.a.Facepile:
+                        return Y;
+                    case P.a.Bird:
+                        return Q;
+                    case P.a.TextOnly:
+                    default:
+                        return null
+                }
+            })(e, a, t, y);
+            switch (e) {
+                case P.a.Retweet:
+                    return {Icon: L, text: s || j(g, b), link: I ? `https://twitter.com/${I}` : void 0};
+                case P.a.Pin:
+                    return {Icon: L, text: s || D};
+                case P.a.ReplyPin:
+                    return {Icon: L, text: s || z};
+                case P.a.Topic:
+                    return {
+                        Icon: L,
+                        accessibilityLabel: "Recommendation" === (null == c ? void 0 : c.functionalityType) || "RecWithEducation" === (null == c ? void 0 : c.functionalityType) ? O({topicName: s}) : N({topicName: s}),
+                        text: s ? F(s) : null,
+                        link: n
+                    };
+                default:
+                    return {Icon: L, text: s ? F(s) : null, link: n}
+            }
+        }
+    }, "qtu+": function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return c
+        }));
+        var n = a("oEOe"), r = a("5oBF"), o = a("4+NY");
+        const s = {
+            REQUEST: "rweb/multiAccount/SWITCH_REQUEST",
+            SUCCESS: "rweb/multiAccount/SWITCH_SUCCESS",
+            FAILURE: "rweb/multiAccount/SWITCH_FAILURE"
+        }, c = e => (t, a, {api: c}) => {
+            const i = Object(n.b)(t, {request: c.Auth.switch, params: e});
+            return t(Object(r.g)()).then((() => t(Object(o.b)()).then((() => i({
+                actionTypes: s,
+                context: "SWITCH"
+            }).then((() => {
+                window.location.assign("/home")
+            }))))))
+        }
+    }, r9x5: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("k/Ka"), s = a("Lsrn");
+        const c = (e = {}) => Object(o.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [s.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zM7.413 4.562c0-.414-.336-.75-.75-.75h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75zm1.785 14.872h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"})));
+        c.metadata = {width: 24, height: 24}, t.a = c
+    }, uFYP: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("k/Ka"), s = a("Lsrn");
+        const c = (e = {}) => Object(o.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [s.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M20.75 2H3.25C2.007 2 1 3.007 1 4.25v15.5C1 20.993 2.007 22 3.25 22h17.5c1.243 0 2.25-1.007 2.25-2.25V4.25C23 3.007 21.993 2 20.75 2zM17.5 13.504c0 .483-.392.875-.875.875s-.875-.393-.875-.876V9.967l-7.547 7.546c-.17.17-.395.256-.62.256s-.447-.086-.618-.257c-.342-.342-.342-.896 0-1.237l7.547-7.547h-3.54c-.482 0-.874-.393-.874-.876s.392-.875.875-.875h5.65c.483 0 .875.39.875.874v5.65z"})));
+        c.metadata = {width: 24, height: 24}, t.a = c
+    }, x0mb: function (e, t, a) {
+        "use strict";
+        var n = a("ERkP"), r = a.n(n), o = a("k/Ka"), s = a("Lsrn");
+        const c = (e = {}) => Object(o.a)("svg", {
+            ...e,
+            accessibilityHidden: void 0 === e.accessibilityLabel,
+            style: [s.a.root, e.style],
+            viewBox: "0 0 24 24"
+        }, r.a.createElement("g", null, r.a.createElement("path", {d: "M12 22.75C6.072 22.75 1.25 17.928 1.25 12S6.072 1.25 12 1.25 22.75 6.072 22.75 12 17.928 22.75 12 22.75z"})));
+        c.metadata = {width: 24, height: 24}, t.a = c
+    }, y8wG: function (e, t, a) {
+        "use strict";
+        a.d(t, "a", (function () {
+            return v
+        }));
+        a("kYxP");
+        var n = a("ERkP"), r = a.n(n), o = a("aWzz"), s = a("MWbm"), c = a("I4+6"), i = a("rHpw"), l = a("XP29"),
+            d = a("jV+4"), u = a("Znyr"), h = a("OiMc"), m = a("cm6r"), p = a("qqsb"), y = a.n(p), b = a("ACHU"),
+            g = a("ZUOq");
+        const C = y.a.d86bbf0f, E = y.a.h6beb5fb, w = y.a.b8e1d524, x = y.a.gef27c4c;
+
+        class v extends r.a.Component {
+            constructor(...e) {
+                super(...e), this._renderUser = e => {
+                    const {isExpanded: t} = this.props, {
+                        name: a,
+                        profile_image_url_https: n,
+                        protected: o,
+                        screen_name: c,
+                        verified: i
+                    } = e;
+                    return r.a.createElement(r.a.Fragment, null, r.a.createElement(s.a, null, r.a.createElement(l.a, {
+                        accessibilityLabel: a,
+                        screenName: c,
+                        size: "xLarge",
+                        uri: n
+                    }), t ? null : this._renderBadge()), t ? r.a.createElement(r.a.Fragment, null, r.a.createElement(d.a, {
+                        isProtected: o,
+                        isVerified: i,
+                        name: a,
+                        screenName: c,
+                        style: f.userName,
+                        withStackedLayout: !0
+                    }), r.a.createElement(s.a, {style: f.iconContainer}, r.a.createElement(b.a, {style: f.icon}), t ? this._renderBadge() : null)) : null)
+                }, this._renderEmptyState = () => {
+                    const {renderEmptyState: e} = this.props;
+                    return e ? r.a.createElement(s.a, {style: f.emptyStateWrapper}, e()) : null
+                }, this._renderBadge = () => {
+                    const {hasMultiAccountBadges: e, isExpanded: t} = this.props;
+                    return e ? r.a.createElement(u.a, {
+                        pip: !0,
+                        style: t && f.pip,
+                        truncatedCountFormatter: E,
+                        unreadCountLabel: C
+                    }) : null
+                }, this._handleAccountSwitcherClick = () => {
+                    const {analytics: e} = this.props;
+                    e.scribe({action: "click"})
+                }
+            }
+
+            render() {
+                const {
+                    accessibilityLabel: e,
+                    currentUser: t,
+                    hoverLabel: a,
+                    interactiveViewTestId: n,
+                    isExpanded: o,
+                    renderEmptyState: s,
+                    renderMenuSheet: l
+                } = this.props;
+                return t || s ? r.a.createElement(h.a, {
+                    contentStyle: f.menuContainer,
+                    enableEnterKeyToggle: !0,
+                    renderContent: l,
+                    withArrow: !0,
+                    withFixedPosition: !0
+                }, r.a.createElement(m.a, {
+                    accessibilityLabel: e || x,
+                    accessibilityRole: "button",
+                    hoverLabel: o ? void 0 : {label: a || w},
+                    interactiveStyles: c.a.generate({backgroundColor: "transparent", color: i.a.theme.colors.text}),
+                    onClick: this._handleAccountSwitcherClick,
+                    style: f.anchorContainer,
+                    testID: n
+                }, t ? this._renderUser(t) : this._renderEmptyState())) : null
+            }
+        }
+
+        v.contextTypes = {featureSwitches: o.object};
+        const f = i.a.create((e => ({
+            anchorContainer: {
+                alignItems: "center",
+                borderRadius: e.borderRadii.infinite,
+                display: "flex",
+                flexDirection: "row",
+                padding: e.spaces.space12
+            },
+            icon: {color: e.colors.text},
+            iconContainer: {alignItems: "flex-end", flexGrow: 1},
+            pip: {position: "absolute", right: `calc(-1 * ${e.spaces.space4})`, top: `calc(-1 * ${e.spaces.space4})`},
+            userName: {flexGrow: 1, marginHorizontal: e.spaces.space12},
+            menuContainer: {width: g.a.cardWidth.normal},
+            emptyStateWrapper: {height: e.spaces.space40, minWidth: e.spaces.space40, width: "100%"}
+        })))
+    }
+}]);
+//# sourceMappingURL=https://ton.local.twitter.com/responsive-web-internal/sourcemaps/client-web/loader.SideNav.76d762f8.js.map
