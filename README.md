@@ -11,3 +11,7 @@ https://drops.dagstuhl.de/opus/volltexte/2023/18219/
 ## Artifact
 
 https://doi.org/10.5281/zenodo.7647069
+
+## ECOOP'23 Talk (practice talk recording)
+
+https://www.youtube.com/watch?v=JdrCeb-_1Hg
